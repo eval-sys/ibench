@@ -1,0 +1,8 @@
+{
+  "intent": "Close two release tasks together.",
+  "actions": [
+    "As the repository owner, open its issues list with two open release tasks and an open release-review issue that both tasks depend on.",
+    "Select the two release tasks, leaving their release-review dependency unselected.",
+    "Click Close in the batch toolbar and wait for the request to finish."
+  ]
+}

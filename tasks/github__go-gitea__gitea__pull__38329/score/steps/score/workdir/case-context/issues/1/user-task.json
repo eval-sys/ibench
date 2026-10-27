@@ -1,0 +1,9 @@
+{
+  "intent": "Cancel a waiting workflow run.",
+  "actions": [
+    "Start signed in on a repository's Actions list with a waiting workflow run and no online runner.",
+    "Open the waiting run from the list.",
+    "Click Cancel workflow run and wait for the run detail to show Canceled.",
+    "Use browser Back to return to the Actions list, hover the same run's status icon, and observe for 15 seconds without refreshing."
+  ]
+}

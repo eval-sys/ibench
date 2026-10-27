@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/go-gitea/gitea/pull/38593/issue/1",
+  "definition": {
+    "issue_id": "github/go-gitea/gitea/pull/38593/issue/1",
+    "given": "The repository owner is on its issues list with Publish release and Prepare release notes selected. Both are open and depend on the open, unselected Complete release review issue.",
+    "when": "Click Close in the batch toolbar and observe the result.",
+    "observed": "The native request fails with HTTP 412. The interface shows no error message, reloads the list, clears both selections, and restores the filter toolbar. All three issues remain open (3 Open, 0 Closed). A browser-console error is not feedback visible to the person using the list.",
+    "require": "On rejected batch close, show clear failure feedback associated with the action and keep the rejected issues open and selected. Explain the open dependency when that rejection reason is available.",
+    "allow": [
+      "A readable toast, banner, or inline message is acceptable; exact wording and positioning may vary.",
+      "The list may update in place or re-render if selections and batch context are retained and the failed operation is not presented as success.",
+      "Valid server-side dependency protection must continue to reject the close; neither bypassing it nor reporting a false success is acceptable."
+    ],
+    "theory": [
+      {
+        "title": "Visible action outcomes",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "Feedback should follow invocation and expose the actual outcome. A silent rejected command followed by cleared selection obscures failure and removes the action context."
+      },
+      {
+        "title": "Actionable error messages and recovery",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "The chapter synthesis calls for concise, actionable feedback near the place of correction. Explain the failed batch action and retain the selected inputs instead of spending the person's attention on reconstructing them."
+      }
+    ]
+  },
+  "reference_observation": "The rejected batch close displays a readable dependency-error toast. Both selected release issues remain checked, the batch toolbar remains available, and all three issues remain open. No success state is shown.",
+  "requirement_rationale": "The selection defines the user's intended batch. Retaining it after a dependency blocks closure lets the user resolve the blocker and retry without reconstructing the work scope."
+}

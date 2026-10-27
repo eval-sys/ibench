@@ -1,0 +1,41 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Keep project selections when adding a customer",
+  "entry_path": "/en/timesheet/",
+  "steps": [
+    "Inspect the open search filter with Northwind Studio and Eastwood Design selected, and Brand planning, Website design, and Content review selected as projects.",
+    "Type Westbridge in the Customer picker and select Westbridge Services; inspect the customer and project selections after the picker reloads."
+  ],
+  "observe_after_step": 2,
+  "video_guide": {
+    "summary": "Add Westbridge Services and compare the three original project selections with the resulting filter chips.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The open filter shows Northwind Studio and Eastwood Design in Customer, with Brand planning, Website design, and Content review in Project."
+      },
+      {
+        "kind": "step",
+        "t": 2.0,
+        "label": "Find and select Westbridge Services in the Customer picker."
+      },
+      {
+        "kind": "check",
+        "t": 2.59,
+        "note": "Customer shows Northwind Studio, Eastwood Design, and Westbridge Services; the customer options dropdown is still open."
+      },
+      {
+        "kind": "check",
+        "t": 3.89,
+        "note": "The closed customer picker shows all three customer chips; Project shows Content review, Brand planning, and Website design."
+      },
+      {
+        "kind": "check",
+        "t": 6.91,
+        "note": "The open filter still shows all three customer chips and all three project chips."
+      }
+    ]
+  }
+}

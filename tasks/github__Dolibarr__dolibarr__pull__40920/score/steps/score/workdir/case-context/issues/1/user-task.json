@@ -1,0 +1,12 @@
+{
+  "intent": "Delete a closed shipment.",
+  "actions": [
+    "Start on the shipped product's Stock tab with physical stock at 15 after a closed shipment sent five units from its warehouse in decrease-on-close mode.",
+    "Open Full list and scroll right to see the stock movements and their Origin links.",
+    "Follow that shipment's Origin link and wait for the processed shipment to load.",
+    "Click Delete and inspect the confirmation dialog.",
+    "Keep stock restoration unselected (clear the choice if it is initially selected), then click Yes.",
+    "Wait for the shipment overview, open Products | Services, follow the same product from the recent stock movements, and open Stock.",
+    "Open Full list and scroll right to inspect the movement history."
+  ]
+}

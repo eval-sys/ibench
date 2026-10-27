@@ -1,0 +1,58 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Resume an open calendar after being idle",
+  "entry_path": "/interface/main/tabs/main.php",
+  "steps": [
+    "Inspect Calendar and Message Center in a single signed-in browser tab. The reproduction environment uses a 5-second idle timeout.",
+    "Leave the page open without interacting, let the session expire naturally, and wait for two normal reminder polling cycles.",
+    "Return to the calendar. If Week is still available, try switching to the week view.",
+    "If a sign-in option appears, submit valid credentials and confirm that the calendar is restored."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "After the wait, the page shows a sign-in form. Submitting credentials and closing the registration dialog restores the calendar day view.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The page shows the calendar day view, the Administrator time column, and the Message Center tab."
+      },
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Leave the calendar page open and return after the wait."
+      },
+      {
+        "kind": "check",
+        "t": 86.0,
+        "note": "The page still shows the calendar day view."
+      },
+      {
+        "kind": "check",
+        "t": 113.0,
+        "note": "The page shows a sign-in form with Username and Password fields and a Login button."
+      },
+      {
+        "kind": "step",
+        "t": 129.3,
+        "label": "Enter the username and password, then click Login."
+      },
+      {
+        "kind": "check",
+        "t": 131.0,
+        "note": "The calendar is visible behind the OpenEMR Product Registration dialog."
+      },
+      {
+        "kind": "step",
+        "t": 132.0,
+        "label": "Close the registration dialog."
+      },
+      {
+        "kind": "check",
+        "t": 135.5,
+        "note": "The registration dialog is closed. The calendar day view, date, Administrator time column, and Day, Week, and Month buttons are visible again."
+      }
+    ]
+  }
+}

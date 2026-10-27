@@ -1,0 +1,1 @@
+-- Persistent state is managed through the native installer, CLI and API.

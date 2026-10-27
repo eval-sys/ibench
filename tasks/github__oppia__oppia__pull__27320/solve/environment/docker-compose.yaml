@@ -1,0 +1,65 @@
+services:
+  main:
+    init: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:8181
+      REDIS_HOST: redis
+      ES_HOST: elasticsearch
+      CI: 'true'
+      TZ: UTC
+    depends_on:
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+  redis:
+    image: redis:6.2.4@sha256:6bc98f513258e0c17bd150a7a26f38a8ce3e7d584f0c451cf31df70d461a200a
+    command:
+    - redis-server
+    - --save
+    - ''
+    - --appendonly
+    - 'no'
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0@sha256:2f602552550869fb29b6fd5848c5118d3ef3a2e1d5d45802e3ab9088cb2de8e2
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: 'false'
+      cluster.routing.allocation.disk.threshold_enabled: 'false'
+      ingest.geoip.downloader.enabled: 'false'
+      ES_JAVA_OPTS: -Xms100m -Xmx500m
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - curl -fsS 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=1s'
+        >/dev/null
+      interval: 3s
+      timeout: 5s
+      retries: 60
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - redis
+        - elasticsearch
+networks:
+  default:
+    driver: bridge

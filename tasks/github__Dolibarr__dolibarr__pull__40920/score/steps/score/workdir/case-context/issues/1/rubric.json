@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Dolibarr/dolibarr/pull/40920/issue/1",
+  "definition": {
+    "issue_id": "github/Dolibarr/dolibarr/pull/40920/issue/1",
+    "given": "Stock is configured to decrease when a shipment is closed. The closed SH-DISPATCH shipment, displayed as Processed, shipped 5 Desk lamps from a warehouse. Closing it generated a -5 stock movement, reducing the product's stock from 20 units to 15.",
+    "when": "The user follows the stock movement Origin link to SH-DISPATCH, clicks Delete, reviews the stock-restoration choice, and confirms deletion with stock restoration not selected.",
+    "observed": "The processed shipment has already reduced Desk lamp stock from 20 to 15. Its ordinary deletion dialog initially leaves Increase stock on deletion unchecked and gives only a generic shipment-deletion confirmation, with no warning about the stock movement already generated. Explicitly choosing not to restore stock deletes the shipment while stock stays at 15; the -5 shipment movement remains but its visible Origin cell is empty. This demonstrates the missing consequence warning, not an incorrectly applied stock-restoration choice.",
+    "require": "Before confirming deletion, warn that stock movements already exist and that deletion without restoration retains the stock decrease while removing its source shipment. Provide an understandable, editable stock-restoration choice. Honor either choice: restore five units from 15 to 20 if selected, or keep stock at 15 otherwise.",
+    "allow": [
+      "An unchecked restoration checkbox with the consequence warning is acceptable; checked defaults or an explicit restore/do-not-restore choice are also acceptable when both stock outcomes remain available.",
+      "The warning may be inline or in the existing confirmation dialog; exact wording, dialog dimensions and control style are not prescribed."
+    ],
+    "theory": [
+      {
+        "title": "Designing Interfaces, Third Edition: Preview and Action Safety Net",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "A destructive command should expose its material consequences before commitment. Shipment deletion removes the source document even when its stock movement remains, so the warning must explain both consequences while the stock option is still editable."
+      },
+      {
+        "title": "Designing Interfaces, Third Edition: Good Defaults and Smart Prefills",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "Defaults should reflect the normal business operation while keeping consequential choices understandable and editable. Deleting a shipment record can be cleanup rather than reversal of the physical shipment, so the stock consequence needs a clear warning whichever default is chosen."
+      }
+    ]
+  },
+  "reference_observation": "The deletion dialog warns that stock movements already exist and explains the effect of deleting without restoration. Its Restore stock on deletion checkbox is editable and initially unchecked. Confirming without checking it deletes the shipment and retains stock 15; a supplemental run selecting restoration deletes the shipment and restores stock to 20 with a +5 movement.",
+  "requirement_rationale": "Deleting a shipment record can be administrative cleanup rather than reversal of the physical shipment. Because closing it already reduced stock, the user needs to understand whether deletion will reverse that movement or only remove its source document."
+}

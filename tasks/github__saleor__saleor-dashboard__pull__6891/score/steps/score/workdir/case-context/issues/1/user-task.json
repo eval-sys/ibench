@@ -1,0 +1,7 @@
+{
+  "intent": "Browse the product catalogue on my phone.",
+  "actions": [
+    "Start signed in on All products in a phone-sized touch viewport, and wait for the product list to load.",
+    "Swipe upward across a visible product row, then release to continue browsing the list."
+  ]
+}

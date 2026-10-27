@@ -1,0 +1,63 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Preserve pending edits through a history preview",
+  "entry_path": "/#/workspace",
+  "steps": [
+    "Select the Rectangle tool and draw a rectangle while background saves are delayed.",
+    "Before autosave finishes, open History and request a preview of Before current edit; observe past the autosave interval and save-delay release.",
+    "Exit the version preview and inspect the live workspace.",
+    "Return to Projects and reopen Version Preview Study."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Preview the earlier empty version, then exit and reopen the file from Dashboard. The current rectangle briefly returns after Exit but is missing after reopening.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 2.8,
+        "label": "Draw a rectangle"
+      },
+      {
+        "kind": "check",
+        "t": 2.8,
+        "note": "A new rectangle is selected on the canvas before the history preview."
+      },
+      {
+        "kind": "step",
+        "t": 5.7,
+        "label": "Preview the older version"
+      },
+      {
+        "kind": "check",
+        "t": 5.7,
+        "note": "Previewing version: Before current edit shows the earlier empty canvas, with Exit and Restore available."
+      },
+      {
+        "kind": "check",
+        "t": 17,
+        "note": "The historical preview remains empty; this is the version being inspected."
+      },
+      {
+        "kind": "step",
+        "t": 18.5,
+        "label": "Exit version preview"
+      },
+      {
+        "kind": "check",
+        "t": 18.5,
+        "note": "After Exit, the current rectangle briefly reappears on the canvas."
+      },
+      {
+        "kind": "step",
+        "t": 19.9,
+        "label": "Reopen the live file through Dashboard"
+      },
+      {
+        "kind": "check",
+        "t": 19.9,
+        "note": "After returning to Dashboard and reopening the file, the rectangle is missing from both the canvas and Layers."
+      }
+    ]
+  }
+}

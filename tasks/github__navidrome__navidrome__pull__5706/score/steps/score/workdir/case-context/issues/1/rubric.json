@@ -1,0 +1,32 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/navidrome/navidrome/pull/5706/issue/1",
+  "definition": {
+    "issue_id": "github/navidrome/navidrome/pull/5706/issue/1",
+    "given": "The authenticated Songs list shows four songs with distinct Composer values, and Composer is enabled through Columns To Display. The initial Title-ascending rows are Amber Waltz (Clara Vale), Blue Nocturne (Ada Rowan), Cedar Prelude (Dorian Lake), and Dawn Sonata (Bruno Reed). The availability of Composer sorting is part of the behavior being assessed, not a prerequisite for a repaired UI.",
+    "when": "Inspect the Composer column header and attempt to request ascending Composer order by clicking it once, then observe the settled column indicators and row order. If the header is non-sortable, still click it as an attempt.",
+    "observed": "On the original baseline, the Composer header accepts the click and shows an active ascending arrow, but the rows remain Clara Vale, Ada Rowan, Dorian Lake, and Bruno Reed in the original Title order. The UI acknowledges a Composer sort it has not applied.",
+    "require": "Keep all four songs and their Composer values accessible. If Composer sorting is offered, ascending selection must produce ascending Composer order with a matching indication. If unsupported, offer no enabled Composer sort action or active Composer indication, and clicking the header must not claim success. Every active sort indication must match the actual row order.",
+    "allow": [
+      "Implementing real Composer sorting is acceptable, whether on the server or client.",
+      "Removing the unsupported Composer sort affordance is also acceptable: a plain non-sortable header or an explicitly disabled sorting control may retain the existing valid Title ordering. This does not require adding a Composer sorting feature.",
+      "When sorting is unavailable, a tooltip or explanation is optional; a fake successful sort indication is not acceptable.",
+      "Composer must remain displayable with its existing values; hiding the column or discarding songs does not satisfy this contract.",
+      "Equivalent indicators, styling, and irrelevant tie-breaking or non-ASCII collation may vary."
+    ],
+    "theory": [
+      {
+        "title": "Interactions Are Conversations: an acknowledgement must match the supported operation",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People. Conceptual application based on chapter synthesis.",
+        "rationale": "An ascending Composer arrow is a response that tells the user the requested ordering is active. The defect is that this acknowledgement is false. A truthful UI can either perform the request or stop offering the unsupported operation; the theory does not mandate introducing a new sorting capability."
+      },
+      {
+        "title": "Clarity, Actionability, Affordance",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 5: Visual Style and Aesthetics. Conceptual application based on chapter synthesis.",
+        "rationale": "The header must communicate whether sorting is actionable. An enabled sort affordance that only changes an arrow misrepresents what the control can do. Keeping Composer readable while removing or explicitly disabling its unsupported action is a valid repair, as is making the offered action effective."
+      }
+    ]
+  },
+  "reference_observation": "Composer remains displayed with all four songs but has a plain, non-sortable header. Clicking it leaves no active Composer sort indication; the unchanged rows still match the active Title-ascending indicator.",
+  "requirement_rationale": "A sort indicator acknowledges an applied order. Claiming Composer order while retaining Title order gives false feedback; either implementing that order or truthfully withholding the unsupported action preserves readable metadata and trustworthy sorting."
+}

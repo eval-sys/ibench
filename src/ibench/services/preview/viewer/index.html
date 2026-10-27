@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>IBench Preview</title>
+    <link rel="stylesheet" href="/assets/vendor/diff2html.min.css">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="IBench preview home">
+        <span class="brand-mark">IB</span>
+        <span>IBench Preview</span>
+      </a>
+      <div class="release-meta" id="release-meta">Loading release...</div>
+    </header>
+    <div class="shell" id="top">
+      <aside class="sidebar" aria-label="Release contents">
+        <div class="sidebar-heading">Release contents</div>
+        <nav id="task-nav"></nav>
+      </aside>
+      <main id="app" tabindex="-1">
+        <div class="loading">Reading published cases...</div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/assets/vendor/diff2html-ui-slim.min.js" defer></script>
+    <script src="/assets/video-player.js" defer></script>
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>

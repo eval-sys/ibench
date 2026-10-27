@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/owncloud/ocis/pull/12753/issue/1",
+  "definition": {
+    "issue_id": "github/owncloud/ocis/pull/12753/issue/1",
+    "given": "Meeting notes.txt is open in Text Editor in the prepared admin account. Its name appears in the app top bar, and keyboard focus starts on Close. The filename identifies the open document and has no available activation action.",
+    "when": "Press Shift+Tab twice from Close, traversing the top-bar controls, then press Enter on the resulting focused element.",
+    "observed": "Reverse Tab from Close reaches Show context menu and then the outlined Meeting notes.txt filename. Enter produces no visible action: the document remains open and focus stays on the static filename.",
+    "require": "Skip the static top-bar filename during sequential keyboard traversal, including reverse Tab, while keeping it visible. Preserve keyboard reachability and visible focus for surrounding actions; Enter must activate the actual focused control according to its purpose.",
+    "allow": [
+      "The exact preceding focus destination may vary if existing actions remain reachable in a logical order and the static filename is skipped.",
+      "Focus styling and the visual presentation of the filename may differ, provided the open document remains identifiable and the focused actionable control remains clear."
+    ],
+    "theory": [
+      {
+        "title": "Designing Interfaces: Clarity, Actionability, and Affordance",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 5: Visual Style and Aesthetics. Conceptual application based on chapter synthesis.",
+        "rationale": "The filename uses the same keyboard-focus affordance as nearby actionable controls, although it only identifies the document. That cue predicts an available action which Enter cannot perform. Skipping this static identifier aligns the observed focus cues with the actual actions while preserving its informational role."
+      },
+      {
+        "title": "Designing Interfaces: Actions and Commands",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "The chapter connects clear, contextual commands with an invocation-and-feedback lifecycle. In this replay, moving onto the filename appears to offer a command, but activation yields no response or useful next step. The repair should remove this false command stop from keyboard traversal and keep the real top-bar commands usable, without inventing a new filename action."
+      }
+    ]
+  },
+  "reference_observation": "Two reverse-Tab presses from Close reach Show context menu and then My Account, skipping the still-visible filename. Enter opens the reached account menu, and the document remains open and identifiable.",
+  "requirement_rationale": "The app top bar identifies the open document and provides actions such as its context menu and Close. A keyboard user needs to move between those actions without a static filename appearing to offer another command. Keeping the filename visible but out of sequential focus preserves document orientation while avoiding an inert stop between usable controls."
+}

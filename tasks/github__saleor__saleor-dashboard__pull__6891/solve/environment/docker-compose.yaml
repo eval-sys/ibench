@@ -1,0 +1,94 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      API_URL: http://saleor-api:8000/graphql/
+      DATABASE_URL: postgres://saleor:saleor@saleor-db:5432/saleor
+      APP_MOUNT_URI: /
+      APP_URL: http://localhost:9000
+      STATIC_URL: /
+      IS_CLOUD_INSTANCE: 'false'
+      SKIP_SOURCEMAPS: 'true'
+      CI: 'true'
+    depends_on:
+      saleor-api:
+        condition: service_healthy
+  saleor-api:
+    image: ghcr.io/saleor/saleor:3.23.35@sha256:ab7d714ed02f93df59847e2d760fcb9dde61844fa7edaf99e3edc7aed1d56e58
+    command:
+    - sh
+    - -ec
+    - 'python3 manage.py migrate --noinput
+
+      python3 manage.py populatedb --createsuperuser --withoutimages --superuser_password
+      admin --staff_password password --user_password password
+
+      exec uvicorn saleor.asgi:application --host 0.0.0.0 --port 8000
+
+      '
+    environment:
+      ALLOWED_GRAPHQL_ORIGINS: http://localhost:9000
+      ALLOWED_HOSTS: localhost,127.0.0.1,saleor-api
+      CACHE_URL: redis://saleor-cache:6379/0
+      CELERY_BROKER_URL: redis://saleor-cache:6379/1
+      DATABASE_URL: postgres://saleor:saleor@saleor-db:5432/saleor
+      DEFAULT_FROM_EMAIL: noreply@example.com
+      SECRET_KEY: dev-env-saleor-dashboard-local-only
+    depends_on:
+      saleor-db:
+        condition: service_healthy
+      saleor-cache:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - python3
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://localhost:8000/health/',
+        timeout=5).read()
+      interval: 5s
+      timeout: 10s
+      start_period: 30s
+      retries: 120
+  saleor-db:
+    image: postgres:15-alpine@sha256:a46e076249ce434e41203b8c1dadfaa025b9726331d72390df038385d6dc29cd
+    environment:
+      POSTGRES_DB: saleor
+      POSTGRES_USER: saleor
+      POSTGRES_PASSWORD: saleor
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U saleor -d saleor
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  saleor-cache:
+    image: valkey/valkey:8.1-alpine@sha256:d2e18f3410b6f616de1417f570fa55261af2898b9c5b2cfb6781ce2373ea43d1
+    healthcheck:
+      test:
+      - CMD
+      - valkey-cli
+      - ping
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - saleor-api
+        - saleor-db
+        - saleor-cache
+networks:
+  default:
+    driver: bridge

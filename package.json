@@ -1,0 +1,15 @@
+{
+  "name": "ibench-preview-assets",
+  "private": true,
+  "scripts": {
+    "build:assets": "npm run build:vendor && npm run build:css",
+    "build:css": "tailwindcss -i src/ibench/services/preview/viewer/input.css -o src/ibench/services/preview/viewer/styles.css --minify",
+    "build:vendor": "mkdir -p src/ibench/services/preview/viewer/vendor && cp node_modules/diff2html/bundles/css/diff2html.min.css src/ibench/services/preview/viewer/vendor/ && cp node_modules/diff2html/bundles/js/diff2html-ui-slim.min.js src/ibench/services/preview/viewer/vendor/ && cp node_modules/diff2html/LICENSE.md src/ibench/services/preview/viewer/vendor/diff2html.LICENSE.md",
+    "watch:css": "tailwindcss -i src/ibench/services/preview/viewer/input.css -o src/ibench/services/preview/viewer/styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "diff2html": "^3.4.56",
+    "tailwindcss": "4.3.3"
+  }
+}

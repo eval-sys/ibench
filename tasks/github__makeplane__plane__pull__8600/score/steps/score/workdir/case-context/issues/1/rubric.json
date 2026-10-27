@@ -1,0 +1,31 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/makeplane/plane/pull/8600/issue/1",
+  "definition": {
+    "issue_id": "github/makeplane/plane/pull/8600/issue/1",
+    "given": "A reviewer has two work items with different descriptions. The full-page details of EDIT-1 [EDIT-1:title] Prepare launch brief are open, showing its identifier, title, and launch-goals description.",
+    "when": "The reviewer uses Search commands to open EDIT-2 [EDIT-2:title] Review research notes, then uses Search commands to return to EDIT-1 [EDIT-1:title] Prepare launch brief.",
+    "observed": "The identifier and title return to \"EDIT-1 [EDIT-1:title] Prepare launch brief\", but the description input still shows \"[EDIT-2:desc] Summarize customer interviews and capture the key findings.\", the description from EDIT-2.",
+    "require": "The selected work item's identifier, title, description, and other item-specific details all belong to that item. Returning to a previously viewed item restores its own description and editor context.",
+    "allow": [
+      "Loading indicators, skeletons, or blank transitions may appear while the selected item's details load. Visible item-specific content belongs to the selection it is presented under.",
+      "Unsaved edits may be autosaved, retained separately per item, discarded after a prompt, or handled before a switch. Their ownership remains clear.",
+      "List order, layout, wording, and editor implementation may vary.",
+      "After rapid switches, settled details correspond to the last confirmed selection."
+    ],
+    "theory": [
+      {
+        "title": "Direct item retrieval - Opening a search result displays that item's complete details",
+        "reference": "Designing Interfaces, Third Edition, Chapter 7: Lists of Things; designing-interfaces/chapters/ch07-lists.md",
+        "rationale": "Search commands lets the reviewer jump directly between named work items. Each destination's identifier, title, and description should refer to that same item, including when revisiting an earlier result."
+      },
+      {
+        "title": "Interactions Are Conversations - The system must coherently and completely acknowledge the user's selection",
+        "reference": "Designing Interfaces, Third Edition, Chapter 1: Designing for People; designing-interfaces/chapters/ch01-designing-for-people.md",
+        "rationale": "Selecting EDIT-1 [EDIT-1:title] Prepare launch brief requests that item's details. The interface may show loading first, then presents its identifier, title, and description together as the selected item's content."
+      }
+    ]
+  },
+  "reference_observation": "Selecting EDIT-2 [EDIT-2:title] Review research notes displays its research description. Returning to EDIT-1 [EDIT-1:title] Prepare launch brief restores its launch-goals description under the correct identifier and title.",
+  "requirement_rationale": "A reviewer uses the selected work item's details to assess that item. Keeping descriptions and editor context attached to the correct item makes returning to an earlier selection reliable."
+}

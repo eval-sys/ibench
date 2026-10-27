@@ -1,0 +1,68 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Review missing attachments before sending invitations",
+  "entry_path": "/index.php/admin/emailtemplates/sa/index/surveyid/425401",
+  "steps": [
+    "Inspect the loaded English invitation template and its attachment error message for Community feedback.",
+    "Scroll to Invitation attachments and inspect participant-guide.pdf with its red missing-file marker.",
+    "Open the Participants link with Enter for the same survey and inspect Alex Morgan in the participant list.",
+    "Choose Invite & remind → Send email invitation and inspect the invitation form and Send invitations control."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Follow the configured attachment problem into invitation preparation and inspect its warning and template link.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The English invitation template displays an attachment-error banner."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Scroll to Invitation attachments"
+      },
+      {
+        "kind": "check",
+        "t": 2.32,
+        "note": "participant-guide.pdf appears in Invitation attachments with a red warning marker and size 0 KB."
+      },
+      {
+        "kind": "step",
+        "t": 4.0,
+        "label": "Open the survey Participants page"
+      },
+      {
+        "kind": "check",
+        "t": 5.5,
+        "note": "The participant list shows Alex Morgan."
+      },
+      {
+        "kind": "step",
+        "t": 7.0,
+        "label": "Open Invite & remind"
+      },
+      {
+        "kind": "check",
+        "t": 7.5,
+        "note": "The menu includes Send email invitation."
+      },
+      {
+        "kind": "step",
+        "t": 7.5,
+        "label": "Choose Send email invitation"
+      },
+      {
+        "kind": "check",
+        "t": 9.29,
+        "note": "A yellow warning says there is an attachment issue for language en and links to the email template; Ignore missing attachments is also visible."
+      },
+      {
+        "kind": "check",
+        "t": 12.38,
+        "note": "The attachment warning and template link remain visible above the invitation settings, with Send invitations at the top."
+      }
+    ]
+  }
+}

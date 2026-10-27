@@ -1,0 +1,11 @@
+{
+  "intent": "Import transactions from a CSV file into my account.",
+  "actions": [
+    "Start in a local account with no saved CSV import settings.",
+    "Click Import and select a semicolon-delimited CSV statement containing three transactions followed by two summary rows.",
+    "Select the semicolon delimiter and wait for the preview to refresh.",
+    "Map Posting to Date and Value to Amount, choose DD.MM.YYYY, and check Flip amount.",
+    "Review the five visible preview rows, including the two invalid summary rows, with Skip end lines set to 0.",
+    "Change Skip end lines to 2 and wait for the preview to refresh."
+  ]
+}

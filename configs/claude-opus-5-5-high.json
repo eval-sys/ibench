@@ -1,0 +1,19 @@
+{
+  "agents": [{
+    "name": "claude-code",
+    "model_name": "anthropic/claude-opus-5-5",
+    "env": {
+      "CLAUDE_CODE_OAUTH_TOKEN": "${CLAUDE_CODE_OAUTH_TOKEN}",
+      "CLAUDE_CODE_DISABLE_CRON": "1"
+    },
+    "extra_allowed_hosts": ["api.anthropic.com"],
+    "kwargs": {
+      "version": "2.1.301",
+      "reasoning_effort": "high",
+      "disallowed_tools": "WebSearch,WebFetch"
+    }
+  }],
+  "environment": {"type": "docker"},
+  "n_concurrent_trials": 2,
+  "retry": {"max_retries": 0}
+}

@@ -1,0 +1,47 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:3210
+      DATABASE_URL: postgresql://freshrss:profile-development@postgres:5432/freshrss
+      DATA_PATH: /var/lib/freshrss
+      FRESHRSS_ENV: production
+      INTERNAL_HOST_ALLOWLIST: localhost:8010
+      COMPOSER_ALLOW_SUPERUSER: '1'
+      TZ: UTC
+      CI: 'true'
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    image: postgres:15@sha256:724292da1f2e50bdccfc3302ce75bbba7f4a6076701b588cc795fcac65683550
+    environment:
+      POSTGRES_DB: freshrss
+      POSTGRES_USER: freshrss
+      POSTGRES_PASSWORD: profile-development
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U freshrss -d freshrss
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgres
+networks:
+  default:
+    driver: bridge

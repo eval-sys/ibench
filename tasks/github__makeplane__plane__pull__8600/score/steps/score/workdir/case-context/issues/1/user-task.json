@@ -1,0 +1,8 @@
+{
+  "intent": "Find work items in the project management app and review their details.",
+  "actions": [
+    "Start on the full-page details of EDIT-1 [EDIT-1:title] Prepare launch brief, showing its title and launch-goals description.",
+    "Use Search commands to open EDIT-2 [EDIT-2:title] Review research notes and wait for its details to load.",
+    "Use Search commands to return to EDIT-1 [EDIT-1:title] Prepare launch brief and wait for its details."
+  ]
+}

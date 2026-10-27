@@ -1,0 +1,9 @@
+{
+  "intent": "Configure the columns in my personal and global Computer views.",
+  "actions": [
+    "As a GLPI Super-Admin, open the Computer display-preference modal on Personal View with Status selected, Comments absent from both saved lists, and Global View not yet loaded.",
+    "Open the personal add-option dropdown, search for Comments, select the ordinary Comments field, and click Add; wait for the addition to finish.",
+    "Switch to Global View in the same modal and wait for its form to load.",
+    "Open the global add-option dropdown and search for Comments while both view forms remain loaded."
+  ]
+}

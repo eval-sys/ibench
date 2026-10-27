@@ -1,0 +1,10 @@
+{
+  "intent": "Draw a closed path on the canvas.",
+  "actions": [
+    "Open an empty file in Penpot and wait for its workspace to load at 100% zoom.",
+    "Select the Path tool from the toolbar.",
+    "Click three distinct points on the canvas.",
+    "Click the first point again to close the path.",
+    "Press Escape to leave path editing."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Create a user without premature validation errors",
+  "entry_path": "/i/?c=configure&a=display",
+  "steps": [
+    "View the loaded Display settings page with the Origine theme selected.",
+    "Click Manage users in the admin navigation to reach the reauthentication prompt.",
+    "Enter the admin password and click Login to view Create new user without touching any of its fields.",
+    "After observing the untouched field, click Create with Username empty.",
+    "Enter bad name! in Username and click Create.",
+    "Correct Username to verifier9025 and press Tab to leave the field.",
+    "Enter a valid password and click Create; wait for the new account in the User list."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Inspect the initial Username border, then compare empty and malformed submissions, correction, and the resulting user list.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Display settings is open with the Origine theme selected."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Open Manage users"
+      },
+      {
+        "kind": "check",
+        "t": 2.0,
+        "note": "The page displays Reauthentication is required."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Enter the administrator password and select Login"
+      },
+      {
+        "kind": "check",
+        "t": 5.83,
+        "note": "Create new user is open; the empty Username field has a neutral border."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Select Create with Username empty"
+      },
+      {
+        "kind": "check",
+        "t": 7.0,
+        "note": "Username has a red border and a Please fill out this field validation popup."
+      },
+      {
+        "kind": "step",
+        "t": 8.0,
+        "label": "Enter bad name! and select Create"
+      },
+      {
+        "kind": "check",
+        "t": 8.75,
+        "note": "Username contains bad name! with a red border and a Please match the requested format popup."
+      },
+      {
+        "kind": "step",
+        "t": 10.0,
+        "label": "Replace the username with verifier9025 and leave the field"
+      },
+      {
+        "kind": "check",
+        "t": 11.66,
+        "note": "Username contains verifier9025 with a neutral border and no validation popup."
+      },
+      {
+        "kind": "step",
+        "t": 12.0,
+        "label": "Enter a password and select Create"
+      },
+      {
+        "kind": "check",
+        "t": 15.55,
+        "note": "The User list includes verifier9025; the Username and Password inputs above are empty."
+      }
+    ]
+  }
+}

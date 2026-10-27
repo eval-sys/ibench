@@ -1,0 +1,8 @@
+{
+  "intent": "Edit a service line on my draft intervention record for a customer.",
+  "actions": [
+    "Start signed in as an administrator on a draft intervention record for a customer, with an existing service line and enabled Validate, Clone, and Delete actions.",
+    "Scroll down to bring the service line pencil and the record actions into view.",
+    "Click the pencil beside that service line and wait for the line editor to appear."
+  ]
+}

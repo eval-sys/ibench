@@ -1,0 +1,83 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      HUSKY: '0'
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+      NEXTAUTH_SECRET: local-development-auth-secret
+      NEXT_PRIVATE_ENCRYPTION_KEY: 0123456789abcdef0123456789abcdef
+      NEXT_PRIVATE_ENCRYPTION_SECONDARY_KEY: abcdef0123456789abcdef0123456789
+      NEXT_PUBLIC_WEBAPP_URL: http://localhost:3000
+      NEXT_PRIVATE_INTERNAL_WEBAPP_URL: http://localhost:3000
+      DATABASE_URL: postgresql://documenso:password@postgresql:5432/documenso
+      NEXT_PRIVATE_DATABASE_URL: postgresql://documenso:password@postgresql:5432/documenso
+      NEXT_PRIVATE_DIRECT_DATABASE_URL: postgresql://documenso:password@postgresql:5432/documenso
+      NEXT_PUBLIC_UPLOAD_TRANSPORT: database
+      NEXT_PRIVATE_JOBS_PROVIDER: local
+      NEXT_PRIVATE_SMTP_TRANSPORT: smtp-auth
+      NEXT_PRIVATE_SMTP_HOST: mailpit
+      NEXT_PRIVATE_SMTP_PORT: '1025'
+      NEXT_PRIVATE_SMTP_USERNAME: documenso
+      NEXT_PRIVATE_SMTP_PASSWORD: password
+      NEXT_PRIVATE_SMTP_SECURE: 'false'
+      NEXT_PRIVATE_SMTP_UNSAFE_IGNORE_TLS: 'true'
+      NEXT_PRIVATE_SMTP_FROM_NAME: Documenso
+      NEXT_PRIVATE_SMTP_FROM_ADDRESS: noreply@documenso.test
+      NEXT_PRIVATE_SIGNING_TRANSPORT: local
+      NEXT_PRIVATE_SIGNING_PASSPHRASE: ''
+      NEXT_PRIVATE_DOCUMENSO_LICENSE_KEY: ''
+      NEXT_PUBLIC_FEATURE_BILLING_ENABLED: ''
+      NEXT_PUBLIC_POSTHOG_KEY: ''
+      DOCUMENSO_DISABLE_TELEMETRY: 'true'
+      PORT: '3000'
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+  postgresql:
+    image: postgres:15.19@sha256:724292da1f2e50bdccfc3302ce75bbba7f4a6076701b588cc795fcac65683550
+    environment:
+      POSTGRES_USER: documenso
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: documenso
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U documenso -d documenso
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  mailpit:
+    image: axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: '1'
+      MP_SMTP_AUTH_ALLOW_INSECURE: '1'
+    healthcheck:
+      test:
+      - CMD
+      - /mailpit
+      - readyz
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgresql
+        - mailpit
+networks:
+  default:
+    driver: bridge

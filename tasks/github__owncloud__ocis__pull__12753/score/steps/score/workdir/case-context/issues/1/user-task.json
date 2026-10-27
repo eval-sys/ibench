@@ -1,0 +1,8 @@
+{
+  "intent": "Navigate the top bar of my open text document using the keyboard.",
+  "actions": [
+    "Start in an administrator account with a text document loaded in Text Editor and keyboard focus on Close.",
+    "Press Shift+Tab twice to traverse backwards through the top-bar controls.",
+    "Press Enter on the resulting focused element and wait for the interface to respond."
+  ]
+}

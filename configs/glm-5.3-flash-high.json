@@ -1,0 +1,18 @@
+{
+  "agents": [{
+    "import_path": "ibench.agents.zcode:ZCode",
+    "model_name": "GLM-5.3-Flash",
+    "env": {
+      "ZCODE_API_KEY": "${GLM_API_KEY}",
+      "ZCODE_BASE_URL": "https://api.z.ai/api/paas/v4"
+    },
+    "extra_allowed_hosts": ["api.z.ai"],
+    "kwargs": {
+      "version": "3.15.3",
+      "reasoning_effort": "high"
+    }
+  }],
+  "environment": {"type": "docker"},
+  "n_concurrent_trials": 4,
+  "retry": {"max_retries": 0}
+}

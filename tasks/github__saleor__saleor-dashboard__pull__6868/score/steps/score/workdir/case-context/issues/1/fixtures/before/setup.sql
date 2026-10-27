@@ -1,0 +1,1 @@
+-- Persistent setup is performed through Saleor's GraphQL API by setup.sh.

@@ -1,0 +1,1 @@
+-- Persistent song data is imported by setup.sh through the native scanner.

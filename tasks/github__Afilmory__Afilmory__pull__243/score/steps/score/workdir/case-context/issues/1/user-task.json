@@ -1,0 +1,9 @@
+{
+  "intent": "Explore the landscape photo's location on the map.",
+  "actions": [
+    "Start with the landscape photo open in the desktop viewer and its Location Information mini-map visible in the sidebar.",
+    "Click the location mini-map to open Explore Map in its new tab.",
+    "Wait for the map, the selected photo marker, and the landscape detail card to appear.",
+    "Drag the map to the left and release, then wait for the map movement to settle."
+  ]
+}

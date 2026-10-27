@@ -1,0 +1,9 @@
+{
+  "intent": "Read a discussion topic while browsing another user's replies.",
+  "actions": [
+    "Open another user's public Replies activity stream at a 1280×720 desktop viewport, with enough replies to require loading another batch, and wait for the initial batch to load.",
+    "Scroll beyond the initial replies, wait for more replies to load, and pause with a reply from the newly loaded batch visible.",
+    "Open the topic title link beside that reply and wait for the topic to load.",
+    "Use browser Back to return to the Replies stream and wait for loading to settle."
+  ]
+}

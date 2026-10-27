@@ -1,0 +1,129 @@
+{
+  "$defs": {
+    "VerifierAllowModel": {
+      "additionalProperties": false,
+      "properties": {
+        "considered": {
+          "title": "Considered",
+          "type": "boolean"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "considered",
+        "reason"
+      ],
+      "title": "VerifierAllowModel",
+      "type": "object"
+    },
+    "VerifierRequirementModel": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "supported",
+            "refuted",
+            "unresolved"
+          ],
+          "title": "Result",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result",
+        "reason"
+      ],
+      "title": "VerifierRequirementModel",
+      "type": "object"
+    },
+    "VerifierScenarioModel": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "given_established": {
+          "title": "Given Established",
+          "type": "boolean"
+        },
+        "when_executed": {
+          "title": "When Executed",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "given_established",
+        "when_executed"
+      ],
+      "title": "VerifierScenarioModel",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A candidate scorer's evidence-backed behavioral decision.",
+  "properties": {
+    "allow": {
+      "$ref": "#/$defs/VerifierAllowModel"
+    },
+    "case_id": {
+      "minLength": 1,
+      "title": "Case Id",
+      "type": "string"
+    },
+    "requirement": {
+      "$ref": "#/$defs/VerifierRequirementModel"
+    },
+    "scenario": {
+      "$ref": "#/$defs/VerifierScenarioModel"
+    },
+    "schema_version": {
+      "const": "verifier-verdict/v1",
+      "default": "verifier-verdict/v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "summary": {
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    },
+    "verdict": {
+      "enum": [
+        "repaired",
+        "not_repaired"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "verdict",
+    "summary",
+    "scenario",
+    "requirement",
+    "allow"
+  ],
+  "title": "VerifierVerdictModel",
+  "type": "object"
+}

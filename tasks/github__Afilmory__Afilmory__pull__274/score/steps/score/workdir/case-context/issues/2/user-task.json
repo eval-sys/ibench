@@ -1,0 +1,9 @@
+{
+  "intent": "Review workspace storage usage in Account cleanup before deciding which accounts to suspend.",
+  "actions": [
+    "Start as a signed-in root administrator on Tenant Subscription Management, with small workspace containing one 13,858-byte JPEG and empty workspace containing no photos; both are cleanup candidates under the chosen limits.",
+    "Open Clean up accounts and wait for Account cleanup to appear.",
+    "Set Max photos to 1.",
+    "Set Max storage (MB) to 1, wait for both workspace candidate rows, and compare their Content values."
+  ]
+}

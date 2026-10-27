@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Return to a cached full-page work item",
+  "entry_path": "/content-operations/browse/EDIT-1",
+  "steps": [
+    "Inspect EDIT-1 [EDIT-1:title] Prepare launch brief and its displayed description.",
+    "Use Search commands to open EDIT-2 [EDIT-2:title] Review research notes and inspect its displayed description.",
+    "Use Search commands to return to EDIT-1 [EDIT-1:title] Prepare launch brief."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "The identifier, title, and marked description stay consistent when opening EDIT-2 and returning to EDIT-1.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review EDIT-1"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "EDIT-1 shows its launch title and EDIT-1:desc text."
+      },
+      {
+        "kind": "step",
+        "t": 4.1,
+        "label": "Open EDIT-2 through Search commands"
+      },
+      {
+        "kind": "check",
+        "t": 4.1,
+        "note": "EDIT-2 shows its research title and EDIT-2:desc text."
+      },
+      {
+        "kind": "step",
+        "t": 8.2,
+        "label": "Return to EDIT-1 through Search commands"
+      },
+      {
+        "kind": "check",
+        "t": 8.2,
+        "note": "Returning to EDIT-1 restores its launch-goals description with the EDIT-1:desc marker."
+      }
+    ]
+  }
+}

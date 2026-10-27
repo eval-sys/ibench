@@ -1,0 +1,10 @@
+{
+  "intent": "Preview an older version of my design.",
+  "actions": [
+    "Open an editable design file with an earlier version available in History.",
+    "Select Rectangle and drag on the canvas to create a rectangle.",
+    "While autosave is still in progress, open History, open the version menu, and choose Preview version.",
+    "Stay in the version preview longer than the autosave interval, then click Exit.",
+    "Return to Dashboard and reopen the same file."
+  ]
+}

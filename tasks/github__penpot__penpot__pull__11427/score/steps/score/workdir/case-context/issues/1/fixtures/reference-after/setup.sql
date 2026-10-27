@@ -1,0 +1,1 @@
+-- Server state is created by setup.sh in script-and-browser mode.

@@ -1,0 +1,9 @@
+{
+  "intent": "Remove the visibility criterion from a short-answer question in my service request form.",
+  "actions": [
+    "As a GLPI administrator, open a service request form and select its short-answer question with one length-greater-than-5 validation criterion and one Category-equals-Assistance visibility criterion; both count badges display 1.",
+    "Open that question's validation editor, wait for its criterion to appear, and inspect it without changing anything.",
+    "Close the validation editor and open the same question's visibility editor; wait for the Category equals Assistance criterion to appear.",
+    "Click Delete criteria on the sole visibility criterion, then close the visibility editor without saving or reloading the form."
+  ]
+}

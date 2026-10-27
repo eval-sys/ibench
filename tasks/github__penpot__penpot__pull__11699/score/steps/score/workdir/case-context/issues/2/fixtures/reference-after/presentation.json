@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Preserve pending edits when entering Inspect mode",
+  "entry_path": "/#/workspace",
+  "steps": [
+    "Select the Rectangle tool, draw a rectangle, and inspect the visible Saving state before autosave finishes.",
+    "Switch the sidebar to Inspect and inspect the View Only workspace after the autosave interval.",
+    "Return to Dashboard (Projects) and reopen Inspect Save Study."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "The newly drawn rectangle remains available after entering Inspect, returning to Dashboard, and reopening the same file.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 2.9,
+        "label": "Draw a rectangle"
+      },
+      {
+        "kind": "check",
+        "t": 2.9,
+        "note": "The new rectangle is selected on the canvas and listed in Layers."
+      },
+      {
+        "kind": "step",
+        "t": 4.3,
+        "label": "Switch to Inspect"
+      },
+      {
+        "kind": "check",
+        "t": 4.3,
+        "note": "Inspect shows the rectangle in view-only mode with its properties."
+      },
+      {
+        "kind": "step",
+        "t": 8.6,
+        "label": "Reopen the file through Dashboard"
+      },
+      {
+        "kind": "check",
+        "t": 8.6,
+        "note": "After returning to Dashboard and reopening the file, the rectangle remains visible on the canvas and in Layers."
+      }
+    ]
+  }
+}

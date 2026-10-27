@@ -1,0 +1,52 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Edit a draft intervention line",
+  "entry_path": "/fichinter/card.php",
+  "steps": [
+    "Inspect draft intervention FI1007-0002 for Indian SAS and its Pres line.",
+    "Scroll down to view the Pres line and the Validate, Clone, and Delete record actions.",
+    "Click the pencil beside Pres, wait for the line editor, then inspect Save, Cancel, and the record-action area beneath it."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "The draft intervention enters existing-line editing. Save and Cancel remain available while the record-level actions disappear.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the draft intervention"
+      },
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Draft intervention FI1007-0002 is open with the Pres line."
+      },
+      {
+        "kind": "step",
+        "t": 1.8,
+        "label": "Scroll to the service line"
+      },
+      {
+        "kind": "check",
+        "t": 1.8,
+        "note": "The view scrolls to the Pres pencil and enabled Validate, Clone, and Delete actions."
+      },
+      {
+        "kind": "step",
+        "t": 3.5,
+        "label": "Open the line editor"
+      },
+      {
+        "kind": "check",
+        "t": 3.5,
+        "note": "The existing Pres line editor shows Save and Cancel; the record-level action row is absent."
+      },
+      {
+        "kind": "check",
+        "t": 6.6,
+        "note": "The area below the editor no longer offers the record-level actions."
+      }
+    ]
+  }
+}

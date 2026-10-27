@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Compare cleanup storage for small and empty workspaces",
+  "entry_path": "/platform/superadmin/tenants",
+  "steps": [
+    "Inspect small workspace with one created photo and empty workspace with no recorded usage.",
+    "Open Account cleanup from Tenant Subscription Management.",
+    "Set Max photos to 1 and Max storage (MB) to 1 to show the eligible workspaces."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Compare the Content values for the empty workspace and the workspace with one small photo. Both storage values are rounded to 0.0 MB.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review workspace usage"
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Open Account cleanup"
+      },
+      {
+        "kind": "check",
+        "t": 1.5,
+        "note": "Account cleanup initially lists the empty workspace with 0 photos and 0.0 MB."
+      },
+      {
+        "kind": "step",
+        "t": 2,
+        "label": "Set cleanup limits and compare Content"
+      },
+      {
+        "kind": "check",
+        "t": 2,
+        "note": "After the limits are adjusted, small workspace also appears with 1 photo and 0.0 MB."
+      },
+      {
+        "kind": "check",
+        "t": 3.5,
+        "note": "The two rows remain indistinguishable by their displayed storage amount."
+      }
+    ]
+  }
+}

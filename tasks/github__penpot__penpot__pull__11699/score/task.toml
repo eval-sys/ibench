@@ -1,0 +1,57 @@
+schema_version = "1.4"
+artifacts = []
+
+[task]
+name = "ibench/github__penpot__penpot__pull__11699"
+version = "0.1.0"
+description = "Score candidate repair for Repair 2 user interactions in penpot/penpot#11699"
+keywords = [ "ibench",]
+[[task.authors]]
+name = "IBench"
+
+[[steps]]
+name = "score"
+artifacts = []
+
+[steps.agent]
+network_mode = "allowlist"
+timeout_sec = 9000.0
+[steps.verifier]
+timeout_sec = 30.0
+collect = []
+[steps.verifier.env]
+IBENCH_SCORE_OUTPUT_ROOT = "/logs/artifacts/tasks/github__penpot__penpot__pull__11699"
+IBENCH_SCORE_INPUT_ROOT = "/workspace/case-context"
+IBENCH_SCORE_WORKSPACE = "/workspace/app"
+IBENCH_SCORE_TASK_ID = "github__penpot__penpot__pull__11699"
+IBENCH_SCORE_LOCK_PATHS = "[\"frontend/pnpm-lock.yaml\", \"render-wasm/pnpm-lock.yaml\", \"render-wasm/Cargo.lock\", \"exporter/pnpm-lock.yaml\"]"
+
+[metadata]
+
+[verifier]
+timeout_sec = 900.0
+collect = []
+
+[verifier.env]
+
+[agent]
+network_mode = "allowlist"
+timeout_sec = 9000.0
+
+[environment]
+network_mode = "public"
+allowed_hosts = []
+build_timeout_sec = 3600.0
+os = "linux"
+cpus = 4
+memory_mb = 8192
+storage_mb = 20480
+mcp_servers = []
+workdir = "/workspace"
+
+[environment.env]
+DEV_ENV_SETUP = "bash /opt/dev-env-profile.sh setup"
+DEV_ENV_START = "bash /opt/dev-env-profile.sh start"
+DEV_ENV_READY = "bash /opt/dev-env-profile.sh ready"
+
+[solution.env]

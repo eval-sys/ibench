@@ -1,0 +1,36 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/netbox-community/netbox/pull/23190/issue/1",
+  "definition": {
+    "issue_id": "github/netbox-community/netbox/pull/23190/issue/1",
+    "given": "A signed-in administrator is browsing module types on desktop. SFP28 transceiver bay has 38 assigned compatible module types, including distinct Cisco and Generic module types both named SFP-25G-SR-C. The starting filtered Module Types catalog visibly associates each model with its manufacturer.",
+    "when": "Follow Module Bay Types in the Devices navigation, open SFP28 transceiver bay, review its compatible module types and available browsing controls, inspect the lower bay-information sections, and return to the beginning of the compatible collection.",
+    "observed": "The compatible collection renders model-only links inside the Module Bay Type attributes card. The two SFP-25G-SR-C entries have identical labels without manufacturer information, separated by SFP-25G-ZR. No collection sorting or pagination controls are shown. All 38 entries lengthen that card, pushing Tags, Comments, and Module Bays below the initial viewport while the right column remains empty. The list has a native profile/manufacturer/model ordering; it is not an unsorted list or proven ID ordering.",
+    "require": "On the bay detail page, associate each compatible model with its manufacturer so same-model types are distinguishable without opening individual records. Offer discoverable ordering by model and manufacturer and bounded browsing that reaches every assigned type, without requiring traversal of the entire collection to reach other bay information.",
+    "allow": [
+      "A table, grouped rows, or another collection presentation is acceptable if manufacturer/model association remains clear and each item still leads to the correct module type; exact table classes, column placement, and full-width styling are not required.",
+      "Pagination, a separately scrollable collection, or another bounded collection mechanism is acceptable if all assigned types remain reachable and the current browsing location is understandable. No specific page size or number of pages is required.",
+      "Sorting controls may use column headings, a selector, or equivalent affordances. No particular initial order, sort algorithm, or placement of duplicate names is required.",
+      "Other bay sections may appear above, alongside, or independently of the collection. Scrolling is allowed; exact card placement and fitting every section into the initial viewport are not required."
+    ],
+    "theory": [
+      {
+        "title": "Match collection representation to identification and comparison",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 7: Lists of Things. Conceptual application based on chapter synthesis.",
+        "rationale": "The task is identifying and comparing structured objects, not recognizing images or browsing decorative cards. Model alone does not distinguish these two records. Showing the manufacturer in association with the model supplies the missing comparison dimension while keeping the person in the bay context."
+      },
+      {
+        "title": "Pagination and orientation in long collections",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 7: Lists of Things. Conceptual application based on chapter synthesis.",
+        "rationale": "Chunking a finite collection and showing browsing location reduces the cost of navigating long results. Here the unbounded list also consumes the bay attributes card and delays access to other information. Bounded collection browsing is the applied principle; pagination is one acceptable implementation, not the only one."
+      },
+      {
+        "title": "Sorting and Rearranging",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 9: Showing Complex Data. Conceptual application based on chapter synthesis.",
+        "rationale": "Reordering exposes relationships relevant to the current comparison. Model and manufacturer support different useful ways to examine compatible types. The problem is the absence of user control over those comparisons, rather than a claim that the existing default order is inherently incorrect."
+      }
+    ]
+  },
+  "reference_observation": "The compatible collection associates each model link with its manufacturer and offers model and manufacturer sorting. Bounded pages reach all 38 assigned types with visible range and location information. The other bay sections are accessible independently of traversing every compatible entry.",
+  "requirement_rationale": "Manufacturer and model together identify compatible module choices. A long model-only list obscures those distinctions and pushes other bay information out of reach; organized browsing supports comparison while retaining access to every type."
+}

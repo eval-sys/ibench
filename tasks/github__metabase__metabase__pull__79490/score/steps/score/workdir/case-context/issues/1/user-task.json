@@ -1,0 +1,9 @@
+{
+  "intent": "Export the dashboard as a PDF.",
+  "actions": [
+    "Sign in as an administrator and open a dashboard with no cards or other exportable content, creating one if needed.",
+    "Wait for the dashboard to display its empty state.",
+    "Open the Share menu to attempt PDF export.",
+    "Select Export as PDF if it is offered as an executable action."
+  ]
+}

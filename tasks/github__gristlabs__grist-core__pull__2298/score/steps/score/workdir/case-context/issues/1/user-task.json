@@ -1,0 +1,9 @@
+{
+  "intent": "Duplicate my document page and continue configuring the selected widget.",
+  "actions": [
+    "Start on an editable document page with one widget collapsed, another widget visible and active, and the creator panel open to Widget settings showing the active widget.",
+    "Open that page's menu and choose Duplicate page.",
+    "Keep the proposed copy name and click Save.",
+    "Wait for the copied page to open without selecting another widget."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Add Comments independently to personal and global views",
+  "entry_path": "/front/computer.php",
+  "steps": [
+    "Inspect the loaded Personal View with Status already in its display list and Global View available in the tab selector.",
+    "Select Comments in the personal add-option dropdown and click Add; inspect the Comments row in the personal list.",
+    "Switch to Global View, open its add-option dropdown, and search for Comments.",
+    "Select the ordinary Comments result in Global View and click Add.",
+    "Return to Personal View and inspect its retained Status and Comments rows."
+  ],
+  "observe_after_step": 5,
+  "video_guide": {
+    "summary": "Add ordinary Comments to each view, then return to inspect the personal field list.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Inspect the Computer display preferences in Personal View."
+      },
+      {
+        "kind": "check",
+        "t": 1.0,
+        "note": "Personal View lists Status."
+      },
+      {
+        "kind": "step",
+        "t": 2.0,
+        "label": "Open the personal add-field dropdown and search for Comments."
+      },
+      {
+        "kind": "step",
+        "t": 4.0,
+        "label": "Select ordinary Comments and click Add."
+      },
+      {
+        "kind": "check",
+        "t": 5.0,
+        "note": "Personal View lists Status and Comments."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Switch to Global View in the same modal."
+      },
+      {
+        "kind": "step",
+        "t": 8.0,
+        "label": "Open the global add-field dropdown and search for Comments."
+      },
+      {
+        "kind": "check",
+        "t": 9.0,
+        "note": "Global View's search results include ordinary Comments under Characteristics."
+      },
+      {
+        "kind": "step",
+        "t": 12.0,
+        "label": "Add the selected ordinary Comments field to Global View."
+      },
+      {
+        "kind": "check",
+        "t": 14.0,
+        "note": "Global View lists a Comments row."
+      },
+      {
+        "kind": "step",
+        "t": 14.5,
+        "label": "Return to Personal View."
+      },
+      {
+        "kind": "check",
+        "t": 18.12,
+        "note": "Personal View lists both Status and Comments."
+      }
+    ]
+  }
+}

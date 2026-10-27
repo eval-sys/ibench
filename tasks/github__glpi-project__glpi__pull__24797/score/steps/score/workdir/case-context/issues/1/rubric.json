@@ -1,0 +1,24 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/glpi-project/glpi/pull/24797/issue/1",
+  "definition": {
+    "issue_id": "github/glpi-project/glpi/pull/24797/issue/1",
+    "given": "A GLPI administrator is editing the Service request details form. Its Summary short-answer question has one validation criterion, length greater than 5, and one visibility criterion, Category equals Assistance. The validation and visibility badges each display 1.",
+    "when": "Inspect the Summary validation editor without changing its criterion. Open the Summary visibility editor, delete its sole criterion using Delete criteria, and close the editor without saving the form.",
+    "observed": "After the visibility criterion is deleted, both Summary count badges display 0. The validation criterion inspected earlier was not edited or deleted, yet its badge also changes from 1 to 0. The recording demonstrates the unsaved editor state; it does not demonstrate persistence after saving or reloading.",
+    "require": "After deleting the sole visibility criterion and closing its editor, retain Summary's length-greater-than-5 validation rule. Show validation count 1 and visibility count 0 without saving or reloading.",
+    "allow": [
+      "Equivalent placement, styling, or wording of the two count indicators is acceptable if their validation and visibility meanings and counts remain clear.",
+      "No requirement is imposed on the exact DOM structure, internal event handling, or persistence beyond this unsaved editing sequence."
+    ],
+    "theory": [
+      {
+        "title": "Visual clarity and faithful state communication",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 5: Visual Style and Aesthetics. Conceptual application based on chapter synthesis.",
+        "rationale": "The skill's synthesis treats visual design as functional communication. These separately labeled badges summarize two different rule categories. Reporting zero validation criteria after only a visibility criterion was removed gives the administrator false information about the question's validation state. Keeping each count faithful to its own category makes the form understandable and supports reliable editing."
+      }
+    ]
+  },
+  "reference_observation": "Deleting Summary's sole visibility criterion leaves its validation badge at 1 and changes its visibility badge to 0. The length-greater-than-5 validation criterion remains unchanged. The form is neither saved nor reloaded.",
+  "requirement_rationale": "Validation determines acceptable answers; visibility determines when a question is shown. Their badges summarize independent rule sets, so removing a visibility rule must not make the remaining validation rule appear absent."
+}

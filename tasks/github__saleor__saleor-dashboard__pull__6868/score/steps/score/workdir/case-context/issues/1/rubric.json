@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/saleor/saleor-dashboard/pull/6868/issue/1",
+  "definition": {
+    "issue_id": "github/saleor/saleor-dashboard/pull/6868/issue/1",
+    "given": "A signed-in catalogue manager is viewing Catalog > Products, with Aurora Desk Lamp visible in the loaded list.",
+    "when": "The user right-clicks the product name to inspect the browser menu, dismisses it, and middle-clicks the same name. They inspect the page that opens and, if a separate tab opened, return to the catalogue.",
+    "observed": "Right-clicking the product name does not expose a link-specific open-in-new-tab action. Middle-clicking opens no new tab and instead navigates the existing catalogue tab to the Aurora Desk Lamp product editor.",
+    "require": "Product names offer discoverable browser link actions on right-click. Middle-click opens the correct product in a new tab and preserves the original catalogue list and its state.",
+    "allow": [
+      "Ctrl/Cmd-click and ordinary left-click navigation may also be supported.",
+      "Native links and optional keyboard- or touch-accessible new-tab actions may support or supplement the required browser gestures.",
+      "The destination may be the product overview or edit page while opening the correct product and preserving the original list."
+    ],
+    "theory": [
+      {
+        "title": "Deep Links - Object navigation should encode a destination that can be opened directly and reused across contexts",
+        "reference": "Designing Interfaces, Third Edition, Chapter 3: Navigation, Signposts, and Wayfinding; designing-interfaces/chapters/ch03-navigation-wayfinding.md",
+        "rationale": "A product name represents a stable destination. The browser should recognize it as a link that can be opened, copied, and visited in a new tab, letting users retain list position and filters while comparing products."
+      },
+      {
+        "title": "Visible and conventional actions - Expert gestures should build on discoverable basic actions that follow platform conventions",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Right-clicking and middle-clicking are conventional desktop-browser link actions. Implementing a product name as a region responding only to left-click semantics makes a visual navigation object violate platform conventions and adds unnecessary back-and-forth navigation."
+      }
+    ]
+  },
+  "reference_observation": "Right-clicking Aurora Desk Lamp offers native link actions. Middle-click opens its product editor in a new tab, while the original tab retains the catalogue and list position.",
+  "requirement_rationale": "Catalogue staff may review individual product details as they browse the product list. Familiar browser link actions let them open those details separately and continue browsing without having to find their place in the catalogue again."
+}

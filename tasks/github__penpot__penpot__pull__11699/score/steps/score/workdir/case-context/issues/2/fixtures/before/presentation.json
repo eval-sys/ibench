@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Preserve pending edits when entering Inspect mode",
+  "entry_path": "/#/workspace",
+  "steps": [
+    "Select the Rectangle tool, draw a rectangle, and inspect the visible Saving state before autosave finishes.",
+    "Switch the sidebar to Inspect and inspect the View Only workspace after the autosave interval.",
+    "Return to Dashboard (Projects) and reopen Inspect Save Study."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Follow the newly drawn rectangle into Inspect, then return to Dashboard and reopen the same file. The rectangle is missing after reopening.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 1.3,
+        "label": "Draw a rectangle"
+      },
+      {
+        "kind": "check",
+        "t": 1.3,
+        "note": "The newly drawn rectangle is selected on the canvas and listed in Layers."
+      },
+      {
+        "kind": "step",
+        "t": 3.9,
+        "label": "Switch to Inspect"
+      },
+      {
+        "kind": "check",
+        "t": 3.9,
+        "note": "Inspect opens in view-only mode and shows the rectangle's size and position."
+      },
+      {
+        "kind": "step",
+        "t": 7.7,
+        "label": "Reopen the file through Dashboard"
+      },
+      {
+        "kind": "check",
+        "t": 7.7,
+        "note": "After returning to Dashboard and reopening the file, the rectangle is missing from both the canvas and Layers."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+-- Server state is managed through Plane's Django ORM in setup.sh.

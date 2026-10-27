@@ -1,0 +1,9 @@
+{
+  "intent": "Reorder paragraphs in a work item's description.",
+  "actions": [
+    "Open an editable work item whose description contains multiple paragraphs.",
+    "Hover over the first description paragraph and wait for its drag handle to appear on the left.",
+    "Move the pointer slowly left from the paragraph toward the visible handle, preparing to grab it.",
+    "If the handle remains reachable, grab it and begin dragging the paragraph."
+  ]
+}

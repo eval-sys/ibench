@@ -1,0 +1,58 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Inspect automatic silence in review history",
+  "entry_path": "/review",
+  "steps": [
+    "Inspect the loaded pending flagged post and author icon, scrolling slightly to frame Timeline & notes.",
+    "Open the flagged author's user card to inspect the current silence and reason.",
+    "Dismiss the user card and open the Yes action dropdown.",
+    "Choose Delete post and inspect the updated review status and timeline."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Inspect the existing automatic silence on the author card, then compare it with the review timeline after Delete post.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The pending spam review’s Timeline & notes lists post creation and spam flagging, followed by the notes field; no silence event is shown."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Open the flagged author’s user card"
+      },
+      {
+        "kind": "check",
+        "t": 4.9,
+        "note": "The casey_review card says This user is silenced and Reason: Silenced automatically."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Dismiss the user card and open the Yes menu"
+      },
+      {
+        "kind": "check",
+        "t": 7.34,
+        "note": "The Yes menu includes Delete post."
+      },
+      {
+        "kind": "step",
+        "t": 9.0,
+        "label": "Choose Delete post"
+      },
+      {
+        "kind": "check",
+        "t": 9.79,
+        "note": "The review is marked Flag approved; Timeline & notes includes Post deleted by morgan_review and Approved by morgan_review."
+      },
+      {
+        "kind": "check",
+        "t": 13.06,
+        "note": "The timeline shows creation, flagging, deletion and approval, with no automatic-silence entry."
+      }
+    ]
+  }
+}

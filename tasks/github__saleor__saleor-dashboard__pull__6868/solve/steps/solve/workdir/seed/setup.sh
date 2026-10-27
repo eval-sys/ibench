@@ -1,0 +1,1 @@
+../../../../../score/steps/score/workdir/case-context/issues/1/fixtures/reference-after/setup.sh

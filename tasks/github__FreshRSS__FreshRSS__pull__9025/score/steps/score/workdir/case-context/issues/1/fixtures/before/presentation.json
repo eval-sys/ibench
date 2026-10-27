@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Create a user without premature validation errors",
+  "entry_path": "/i/?c=configure&a=display",
+  "steps": [
+    "View the loaded Display settings page with the Origine theme selected.",
+    "Click Manage users in the admin navigation to reach the reauthentication prompt.",
+    "Enter the admin password and click Login to view Create new user without touching any of its fields."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Open Create new user through reauthentication and inspect the empty Username field before editing it.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Display settings is open with the Origine theme selected."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Open Manage users"
+      },
+      {
+        "kind": "check",
+        "t": 2.0,
+        "note": "The page displays Reauthentication is required with a Password field and Login button."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Enter the administrator password and select Login"
+      },
+      {
+        "kind": "check",
+        "t": 4.54,
+        "note": "Create new user is open; the empty Username field has a red border."
+      },
+      {
+        "kind": "check",
+        "t": 8.06,
+        "note": "Username is still empty and outlined in red."
+      }
+    ]
+  }
+}

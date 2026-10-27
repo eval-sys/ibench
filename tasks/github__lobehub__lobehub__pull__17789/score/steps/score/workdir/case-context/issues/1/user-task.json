@@ -1,0 +1,7 @@
+{
+  "intent": "Keep up with multiple conversations in the chat app.",
+  "actions": [
+    "Open Today's agenda from the topic list.",
+    "Return to Architecture review from the topic list and read the conversation."
+  ]
+}

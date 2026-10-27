@@ -1,0 +1,1 @@
+-- Owned tracks are removed by cleanup.sh through the native missing-file API.

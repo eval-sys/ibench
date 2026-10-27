@@ -1,0 +1,21 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/calcom/cal.diy/pull/29544/issue/1",
+  "definition": {
+    "issue_id": "github/calcom/cal.diy/pull/29544/issue/1",
+    "given": "The person is on Settings → Security → Password with both password fields empty. Update is initially disabled, and the page states that a password must be at least 7 characters and contain a number plus uppercase and lowercase letters.",
+    "when": "Type \"abc\" into New password with Old password empty and reveal the entered value. Fill Old password with the current password while keeping abc, then clear Old password and enter a new password meeting the displayed requirements. Finally fill Old password again while keeping the valid new password, observing Update after each state without submitting.",
+    "observed": "Update remains enabled in all three invalid states: Old password empty with abc entered, Old password filled with abc entered, and Old password empty with a valid new password entered.",
+    "require": "After the form is edited, Update remains disabled when Old password is empty or New password fails the displayed requirements, and becomes enabled when Old password is filled and New password satisfies those requirements. Revealing the new password preserves the entered values and the same submission eligibility.",
+    "allow": [],
+    "theory": [
+      {
+        "title": "Early local validation",
+        "reference": "designing-interfaces/ch10",
+        "rationale": "The primary submit action should remain unavailable until required fields and the stated password constraints are satisfied, preventing a futile or invalid submission."
+      }
+    ]
+  },
+  "reference_observation": "Update stays disabled in each invalid state and becomes enabled once both password fields satisfy the form requirements. The revealed new password retains its value.",
+  "requirement_rationale": "Changing an account password requires the current password and a valid replacement. The form's Update action reflects these input requirements and becomes available when they are met. Revealing an input changes its visibility while preserving its value and submission eligibility."
+}

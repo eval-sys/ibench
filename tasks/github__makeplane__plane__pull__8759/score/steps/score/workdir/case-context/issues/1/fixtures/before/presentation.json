@@ -1,0 +1,42 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Reach the description drag handle to begin reordering a paragraph",
+  "entry_path": "/editor-interactions/browse/CONTENT-1",
+  "steps": [
+    "Hover over the first description paragraph to reveal its drag handle.",
+    "Move the pointer slowly left toward the handle, pausing in the gutter.",
+    "If the handle remains reachable, acquire it and begin dragging the paragraph."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "The handle appears on hover, then disappears as the pointer slowly crosses the gutter, preventing it from being grabbed.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 1.6,
+        "label": "Reveal the paragraph drag handle"
+      },
+      {
+        "kind": "check",
+        "t": 2.1,
+        "note": "Hovering reveals the handle to the left of the first paragraph."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Approach the handle across the gutter"
+      },
+      {
+        "kind": "flag",
+        "t": 29,
+        "note": "The drag handle has disappeared during the pointer approach."
+      },
+      {
+        "kind": "flag",
+        "t": 32,
+        "note": "The handle is unavailable to grab; the paragraphs remain in their original order."
+      }
+    ]
+  }
+}

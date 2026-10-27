@@ -1,0 +1,31 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Attempt to export an empty dashboard as a PDF",
+  "entry_path": "/dashboard/7949001",
+  "steps": [
+    "Open the Share menu on the empty dashboard.",
+    "Invoke Export as PDF if it is offered as an executable action."
+  ],
+  "observe_after_step": 2,
+  "video_guide": {
+    "summary": "The empty dashboard's Share menu has no Export as PDF entry.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Inspect Share on the empty dashboard"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "Share is open on the empty dashboard; its entries do not include Export as PDF."
+      },
+      {
+        "kind": "check",
+        "t": 1.2,
+        "note": "The menu remains open with no PDF export entry or download notification."
+      }
+    ]
+  }
+}

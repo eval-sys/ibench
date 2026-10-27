@@ -1,0 +1,37 @@
+{
+  "agents": [
+    {
+      "name": "codex",
+      "model_name": "qwen3.8-max",
+      "env": {
+        "OPENAI_API_KEY": "${QWEN_API_KEY}",
+        "OPENAI_BASE_URL": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1"
+      },
+      "kwargs": {
+        "version": "0.160.1",
+        "reasoning_effort": "high",
+        "reasoning_summary": "none",
+        "config": {
+          "model_provider": "qwen",
+          "model_providers": {
+            "qwen": {
+              "name": "Qwen",
+              "base_url": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+              "env_key": "OPENAI_API_KEY",
+              "wire_api": "responses",
+              "requires_openai_auth": false
+            }
+          },
+          "model_supports_reasoning_summaries": true
+        }
+      }
+    }
+  ],
+  "environment": {
+    "type": "docker"
+  },
+  "n_concurrent_trials": 4,
+  "retry": {
+    "max_retries": 0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Dolibarr/dolibarr/pull/40071/issue/1",
+  "definition": {
+    "issue_id": "github/Dolibarr/dolibarr/pull/40071/issue/1",
+    "given": "An administrator is viewing draft intervention FI1007-0002 for Indian SAS. Its Pres line has a pencil edit control, and the card offers enabled Validate, Clone, and Delete actions.",
+    "when": "Click the pencil beside the Pres line to edit that existing line.",
+    "observed": "Clicking the Pres line pencil opens the line editor with Save and Cancel. Validate, Clone and Delete remain visibly enabled record-level links below the active editor. The replay establishes the conflicting action availability, but does not demonstrate discarded edits or execution of those commands. Only the intervention card was exercised.",
+    "require": "While an existing intervention line is being edited, keep Save and Cancel available and make the record-level Validate, Clone and Delete commands non-actionable.",
+    "allow": [
+      "The three record-level commands may be hidden or visibly disabled while the line editor is active.",
+      "Control placement, styling and localized labels may differ; Save and Cancel must remain available."
+    ],
+    "theory": [
+      {
+        "title": "Designing Interfaces, Third Edition: Contextual Actions and Commands",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "Command availability should match the current object and editing state. The active line-editing task should offer completion or cancellation without also offering conflicting record-level transitions."
+      },
+      {
+        "title": "Designing Interfaces, Third Edition: Continuity and Preservation of Unfinished Work",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People. Conceptual application based on chapter synthesis.",
+        "rationale": "A focused editing state should preserve unfinished work until it is saved or cancelled. Restricting conflicting commands makes that state understandable and predictable."
+      }
+    ]
+  },
+  "reference_observation": "Opening the existing Pres line editor shows Save and Cancel. The intervention-level Validate, Clone, and Delete commands are absent while the editor is active.",
+  "requirement_rationale": "A service line records description, date and duration within an intervention. Finishing or cancelling that edit before changing the whole record prevents conflicting actions on unfinished work."
+}

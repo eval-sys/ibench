@@ -1,0 +1,9 @@
+{
+  "intent": "Submit a website issue report as a guest.",
+  "actions": [
+    "Open the home page as a guest at a 1280 by 720 viewport.",
+    "Open Report a Website Issue from the footer and wait for the dialog to appear.",
+    "Leave Describe the issue empty and scroll the form body down to the screenshot and technical-log controls, with the description above the visible area.",
+    "Click Submit."
+  ]
+}

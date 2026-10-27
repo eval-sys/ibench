@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/penpot/penpot/pull/11699/issue/3",
+  "definition": {
+    "issue_id": "github/penpot/penpot/pull/11699/issue/3",
+    "given": "An editable design file is open on an empty page and has an older History version named Before current edit. Background save responses can be delayed to exercise previewing while a new edit is awaiting persistence.",
+    "when": "The user draws a rectangle and requests a preview of the older History version while autosave is still in progress. After remaining in the preview past the autosave interval, the user exits, returns to Dashboard, and reopens the same file.",
+    "observed": "The older version opens as an empty preview while saving is in progress. Exiting preview restores the rectangle temporarily, but reopening the file from Dashboard shows an empty canvas and saving remains stalled.",
+    "require": "Entering history preview preserves pending edits to the current file. After exiting and reopening the file, those edits remain retrievable from server or recovery state.",
+    "allow": [
+      "Current edits may be saved before preview opens.",
+      "A separate persistent queue may retain current edits and resume saving after preview.",
+      "Preview may wait until current edits are saved or retained in a recoverable state before displaying the older version."
+    ],
+    "theory": [
+      {
+        "title": "Safe Exploration - Viewing history should be reversible exploration that does not damage current work",
+        "reference": "Designing Interfaces, Third Edition, Chapter 1: Designing for People; designing-interfaces/chapters/ch01-designing-for-people.md",
+        "rationale": "History preview is intended to inspect an older state. Users reasonably expect to return to their current file and unfinished edits when they exit."
+      },
+      {
+        "title": "Preview as Safety Net - Preview must isolate and protect real work that has not yet been submitted",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Preview should reduce exploration risk. If entering a snapshot preview stalls background saving and loses work on reload, it instead becomes a destructive operation."
+      }
+    ]
+  },
+  "reference_observation": "The current rectangle finishes saving while the older empty version is previewed. Exiting preview and reopening the live file preserves the rectangle.",
+  "requirement_rationale": "History preview lets a designer inspect an earlier state without restoring it over the current file. Edits made before the preview should remain available when the designer exits and reopens the file, even if background saving was still in progress."
+}

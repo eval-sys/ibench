@@ -1,0 +1,8 @@
+{
+  "intent": "Add another customer to my timesheet filter.",
+  "actions": [
+    "Start on My times with the search filter open, two customers selected, and projects from both customers selected in the Project control.",
+    "Search for another customer in the Customer picker and add it to the selection.",
+    "Wait for the dependent Project options to finish reloading without submitting Search or changing the project selections."
+  ]
+}

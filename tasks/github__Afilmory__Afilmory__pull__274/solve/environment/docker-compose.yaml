@@ -1,0 +1,76 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      DATABASE_URL: postgresql://postgres:afilmory-development@postgresql:5432/afilmory
+      REDIS_URL: redis://redis:6379/0
+      NODE_ENV: development
+      CONFIG_ENCRYPTION_KEY: 756256a24394342622db58ee05ee61a64a3ae14c22d4fe665b753cba0fa6333e
+      PORT: '3210'
+      HOSTNAME: 0.0.0.0
+      APP_URL: http://localhost:3210
+      INTERNAL_APP_URL: http://localhost:3210
+      BETTER_AUTH_URL: http://localhost:3210
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rustfs:
+        condition: service_healthy
+  postgresql:
+    image: postgres:16.10-bookworm
+    environment:
+      POSTGRES_PASSWORD: afilmory-development
+      POSTGRES_DB: afilmory
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U postgres -d afilmory
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:7.4.2-alpine
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  rustfs:
+    image: rustfs/rustfs@sha256:41fe89380f4120a337790c02af192c3fe7bb55c3edc2e6e9357b487b47c6ab21
+    environment:
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ACCESS_KEY: afilmory-development
+      RUSTFS_SECRET_KEY: afilmory-development-secret
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - curl -sS http://127.0.0.1:9000 -o /dev/null
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgresql
+        - redis
+        - rustfs
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,9 @@
+{
+  "intent": "After lunch, continue checking appointments in the calendar I left open.",
+  "actions": [
+    "Sign in as an administrator with Calendar and Message Center loaded in a single browser tab and normal background reminder polling active. The reproduction environment sets the idle timeout to 5 seconds to shorten the wait.",
+    "Leave the calendar open without interacting with or refreshing the page. Wait for the session to expire naturally and allow two normal reminder polling cycles.",
+    "Return to the calendar. If Week is still available, try switching to the week view.",
+    "If a sign-in option appears, sign in again with valid credentials and confirm that you can continue viewing the calendar."
+  ]
+}

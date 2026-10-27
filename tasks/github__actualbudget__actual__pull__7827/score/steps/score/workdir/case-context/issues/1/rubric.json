@@ -1,0 +1,21 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/actualbudget/actual/pull/7827/issue/1",
+  "definition": {
+    "issue_id": "github/actualbudget/actual/pull/7827/issue/1",
+    "given": "In the CSV import modal for a semicolon-delimited statement, five preview rows are visible: three transactions followed by two invalid summary rows. The configured options map Posting to Date and Value to Amount, use DD.MM.YYYY, and have Flip amount checked.",
+    "when": "The person changes `Skip end lines` from 0 to 2 to exclude the two summary rows.",
+    "observed": "The two summary rows are removed, but the in-progress settings reset: Date becomes Choose field, Amount changes from Value to Posting, the date format changes from DD.MM.YYYY to YYYY-MM-DD, and Flip amount becomes unchecked. The three remaining rows then show Empty to Invalid dates and incorrect amounts around 3,000.",
+    "require": "Changing Skip end lines removes the specified trailing rows from the preview while preserving the current field mappings, date format, and amount options. The remaining transactions retain their correctly interpreted values.",
+    "allow": [],
+    "theory": [
+      {
+        "title": "Continuity patterns",
+        "reference": "designing-interfaces/ch01",
+        "rationale": "Changing one preview parameter should preserve the user's other in-progress choices; silently resetting mappings, formats, or toggles breaks continuity and forces repeated work."
+      }
+    ]
+  },
+  "reference_observation": "Setting Skip end lines to 2 removes the two summary rows. The three transaction rows retain their interpreted dates and amounts, and the configured field mappings, date format, and Flip amount setting stay selected.",
+  "requirement_rationale": "Field mappings, date formats, and amount options determine how the statement's transactions are interpreted. Keeping those settings when trailing rows are skipped preserves the user's work on the same import."
+}

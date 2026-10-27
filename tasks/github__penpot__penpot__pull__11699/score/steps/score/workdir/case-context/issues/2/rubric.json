@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/penpot/penpot/pull/11699/issue/2",
+  "definition": {
+    "issue_id": "github/penpot/penpot/pull/11699/issue/2",
+    "given": "An editable design file is open on an empty page. Edits are saved automatically in the background.",
+    "when": "The user draws a rectangle, switches the sidebar to Inspect before autosave finishes, and stays there longer than the autosave interval. They then return to Dashboard and reopen the same file.",
+    "observed": "Inspect mode shows a View Only banner while the pending rectangle remains visible and the header remains in Saving beyond the autosave interval. Returning through the dashboard and reopening the same file shows that the rectangle was not saved.",
+    "require": "Previously pending edits remain persisted or recoverable through Inspect mode and are available when the same file is reopened.",
+    "allow": [
+      "The queue may flush before switching, continue saving in Inspect, or resume submission after leaving Inspect.",
+      "A persistent local queue may restore the edit after reload.",
+      "Inspect's read-only presentation may vary."
+    ],
+    "theory": [
+      {
+        "title": "Continuity Patterns - Mode changes should preserve the user's existing unfinished work",
+        "reference": "Designing Interfaces, Third Edition, Chapter 1: Designing for People; designing-interfaces/chapters/ch01-designing-for-people.md",
+        "rationale": "Inspect is a temporary mode for viewing the same file, not a command to abandon edits. Entering and leaving it must not destroy earlier work."
+      },
+      {
+        "title": "Action Lifecycle - Deferred actions need a complete lifecycle from invocation to submission or recovery",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Drawing the rectangle has already initiated a background save. A mode change must not leave the action half-complete with only a Saving appearance and no submitted result."
+      }
+    ]
+  },
+  "reference_observation": "The rectangle remains visible in Inspect while the file reaches Saved. Reopening the file shows the same rectangle on the canvas and in Layers.",
+  "requirement_rationale": "Inspect is a read-only mode for viewing a design object's properties and code. Switching to it after editing should preserve work still being saved in the background, so the user can inspect the design and return to the same edits later."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/saleor/saleor-dashboard/pull/6891/issue/1",
+  "definition": {
+    "issue_id": "github/saleor/saleor-dashboard/pull/6891/issue/1",
+    "given": "A signed-in user is viewing the loaded All products list in a phone-sized touch viewport. Product rows provide access to individual product details.",
+    "when": "The user swipes upward across a product row and releases the gesture.",
+    "observed": "The app navigates from the All products list to the detail page for the product row under the gesture instead of only scrolling the list.",
+    "require": "A swipe across a product row is treated as scrolling rather than opening the product. All products remains visible after the gesture ends.",
+    "allow": [
+      "A movement threshold, gesture cancellation, scroll state, or delayed activation may distinguish tap from drag.",
+      "Taps, keyboard activation, or a separate details button may open product details.",
+      "Scrolling may be short, have momentum, or stop at a boundary while the drag retains the list context."
+    ],
+    "theory": [
+      {
+        "title": "Context-first mobile design - Touch interactions must accommodate finger input, movement, and unstable attention in mobile environments",
+        "reference": "Designing Interfaces, Third Edition, Chapter 6: Mobile Interfaces; designing-interfaces/chapters/ch06-mobile.md",
+        "rationale": "Vertical dragging is the primary browsing action in a narrow-screen long list. Scrolling gestures need sufficient tolerance and must cancel row clicks. Otherwise, users cannot safely browse because every small movement may send them to a detail page."
+      },
+      {
+        "title": "Direct manipulation and action feedback - The visible result of a gesture must match the object the user is manipulating",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Users drag list content and expect it to move with their finger. Interpreting the same gesture as navigation produces a completely different and unpredictable result. Reliable gesture cancellation preserves agreement between action and feedback."
+      }
+    ]
+  },
+  "reference_observation": "After the upward gesture, All products remains visible instead of switching to a product detail page.",
+  "requirement_rationale": "Merchants browse the product catalogue to review their inventory and open individual products when needed. On a phone, swiping across product rows is a normal way to browse the list; it should not be mistaken for choosing a product to open."
+}

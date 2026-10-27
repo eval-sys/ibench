@@ -1,0 +1,10 @@
+{
+  "intent": "Review the compatible module types for a transceiver bay type.",
+  "actions": [
+    "Start signed in as an administrator at a 1280×720 desktop viewport, with the filtered Module Types catalog showing a large collection of transceiver types and their manufacturers.",
+    "Follow Module Bay Types in the Devices navigation and open the corresponding transceiver bay type; wait for the compatible collection to load.",
+    "Review the compatible module types and the available ordering and browsing controls.",
+    "Scroll down to inspect the lower bay information sections.",
+    "Return to the beginning of the compatible collection."
+  ]
+}

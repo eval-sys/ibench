@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/gristlabs/grist-core/pull/2298/issue/1",
+  "definition": {
+    "issue_id": "github/gristlabs/grist-core/pull/2298/issue/1",
+    "given": "An editable Grist document has an Overview page with two table widgets. Left is collapsed in the tray; Right is the only visible, active widget. The creator panel is open on Widget settings and its Widget title is Right.",
+    "when": "Duplicate Overview from its page menu and save the copy, opening Overview (copy) without selecting another widget.",
+    "observed": "The copied page keeps Right visible and active and Left collapsed, but the creator panel switches its Widget title to Left. The contextual settings panel therefore describes a different widget from the active one.",
+    "require": "On the copied page, keep Right visible and active and Left collapsed. The open creator panel, including its title, must describe the copy's active Right widget without another selection click.",
+    "allow": [
+      "The copy may use a different automatically generated page name; widget identity and active-panel correspondence must still be clear.",
+      "The panel may briefly show a loading state while the copy opens, provided its settled state describes the visible active widget."
+    ],
+    "theory": [
+      {
+        "title": "Action Panel: commands follow the selected object",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "A contextual settings panel must keep its object scope aligned with the active widget. Showing the collapsed widget as the target makes otherwise clear configuration controls misleading."
+      },
+      {
+        "title": "Preserve context and selection in linked views",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 7: Lists of Things. Conceptual application based on chapter synthesis.",
+        "rationale": "The selected content and its detail controls should represent the same object. Duplication must preserve that relationship so users can tell what the panel would configure."
+      }
+    ]
+  },
+  "reference_observation": "After duplication, the copied page keeps Right visible and active and Left collapsed. The still-open Widget settings panel describes Right without an additional widget-selection click.",
+  "requirement_rationale": "The creator panel configures the active widget. After duplication, showing the collapsed widget's settings misidentifies what the user would edit and interrupts work by requiring reselection."
+}

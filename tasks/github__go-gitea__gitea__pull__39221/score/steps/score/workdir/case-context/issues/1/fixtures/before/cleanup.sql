@@ -1,0 +1,1 @@
+-- The isolated Gitea instance is removed by cleanup.sh.

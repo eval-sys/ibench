@@ -1,0 +1,21 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/lobehub/lobehub/pull/17789/issue/1",
+  "definition": {
+    "issue_id": "github/lobehub/lobehub/pull/17789/issue/1",
+    "given": "Architecture review was previously opened with only its initial user message. The server conversation has since gained an assistant reply, a user follow-up, and an assistant confirmation, while the browser still holds the earlier one-message view.",
+    "when": "The person opens Today's agenda, then returns to Architecture review from the topic list.",
+    "observed": "Architecture review still rendered only the original user message after five seconds. The captured message.getMessages request returned 200 with all four messages, but the three newer messages did not appear.",
+    "require": "Switching back to Architecture review displays its complete stored conversation in order.",
+    "allow": [],
+    "theory": [
+      {
+        "title": "Interactions Are Conversations and Continuity",
+        "reference": "designing-interfaces/ch01",
+        "rationale": "Switching topics is a user request to read a conversation. The interface should visibly respond with the server's current complete conversation and preserve continuity of work. Rendering only one old message despite the request returning four records fails to acknowledge the current state and prevents the user from continuing from the actual conversation."
+      }
+    ]
+  },
+  "reference_observation": "Returning to Architecture review expands the initial one-message view to all four stored messages in order.",
+  "requirement_rationale": "Replies can reach the server while the browser still holds an earlier message snapshot. Updating the visible history when the user returns to the topic lets them read the conversation that has since completed."
+}

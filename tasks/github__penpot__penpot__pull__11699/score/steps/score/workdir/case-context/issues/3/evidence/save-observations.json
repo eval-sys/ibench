@@ -1,0 +1,458 @@
+{
+  "schema_version": "history-save-evidence/v1",
+  "scope": "Same-run read-only excerpts supporting the raw videos; no extra scoring requirements. Missing diagnostics are not a product failure.",
+  "runs": {
+    "before": {
+      "source_revision": "0487abb2d54bbfd2a588db617fa00fe5a91ed8d2",
+      "prepared_sha": "16ac828e27d39e9bfdd6b41c54a573156210a52a",
+      "trial_id": "replay-3982e4d417",
+      "capture": {
+        "record_started_at_ms": 1791034277410,
+        "record_stopped_at_ms": 1791034300644,
+        "record_elapsed_ms": 23234,
+        "video_duration_ms": 22800
+      },
+      "video_sha256": "4b63d01ddd1fa9952dc762331d18c841257aa9a65d1062634f43406f52ee6e81",
+      "samples": [
+        {
+          "label": "initial",
+          "at_ms": 1791034279302,
+          "rectangle": null,
+          "workspace": {},
+          "status": {
+            "title": "",
+            "text": ""
+          },
+          "persistence": null
+        },
+        {
+          "label": "pending edit",
+          "at_ms": 1791034281860,
+          "rectangle": {
+            "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "pending",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "before preview request",
+          "at_ms": 1791034282003,
+          "rectangle": {
+            "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "pending",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "after preview request",
+          "at_ms": 1791034282151,
+          "rectangle": null,
+          "workspace": {
+            "read_only": true,
+            "preview_id": "537069d9-ba99-8014-8008-bbc19f41d3bf"
+          },
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "pending",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "past autosave interval",
+          "at_ms": 1791034285964,
+          "rectangle": null,
+          "workspace": {
+            "read_only": true,
+            "preview_id": "537069d9-ba99-8014-8008-bbc19f41d3bf"
+          },
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saving",
+            "queue": [
+              "6f15ad32-7a57-80c0-8008-bbc1abb5ce77"
+            ],
+            "commits": [
+              {
+                "id": "6f15ad32-7a57-80c0-8008-bbc1abb5ce77",
+                "changes": [
+                  {
+                    "type": "add-obj",
+                    "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+                    "name": "Rectangle",
+                    "width": 150,
+                    "height": 110
+                  },
+                  {
+                    "type": "mov-objects"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "after database release",
+          "at_ms": 1791034295884,
+          "rectangle": null,
+          "workspace": {
+            "read_only": true,
+            "preview_id": "537069d9-ba99-8014-8008-bbc19f41d3bf"
+          },
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saving",
+            "queue": [
+              "6f15ad32-7a57-80c0-8008-bbc1abb5ce77"
+            ],
+            "commits": [
+              {
+                "id": "6f15ad32-7a57-80c0-8008-bbc1abb5ce77",
+                "changes": [
+                  {
+                    "type": "add-obj",
+                    "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+                    "name": "Rectangle",
+                    "width": 150,
+                    "height": 110
+                  },
+                  {
+                    "type": "mov-objects"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "live file after exit attempt",
+          "at_ms": 1791034296909,
+          "rectangle": {
+            "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saving",
+            "queue": [
+              "6f15ad32-7a57-80c0-8008-bbc1abb5ce77"
+            ],
+            "commits": [
+              {
+                "id": "6f15ad32-7a57-80c0-8008-bbc1abb5ce77",
+                "changes": [
+                  {
+                    "type": "add-obj",
+                    "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+                    "name": "Rectangle",
+                    "width": 150,
+                    "height": 110
+                  },
+                  {
+                    "type": "mov-objects"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "reopened file",
+          "at_ms": 1791034298501,
+          "rectangle": null,
+          "workspace": {},
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saving",
+            "queue": [
+              "6f15ad32-7a57-80c0-8008-bbc1abb5ce77"
+            ],
+            "commits": [
+              {
+                "id": "6f15ad32-7a57-80c0-8008-bbc1abb5ce77",
+                "changes": [
+                  {
+                    "type": "add-obj",
+                    "id": "6f15ad32-7a57-80c0-8008-bbc1ab783769",
+                    "name": "Rectangle",
+                    "width": 150,
+                    "height": 110
+                  },
+                  {
+                    "type": "mov-objects"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "timing": [
+        {
+          "label": "database lock acquired",
+          "at_ms": 1791034279359
+        },
+        {
+          "label": "rectangle drawn",
+          "at_ms": 1791034280506
+        },
+        {
+          "label": "preview requested",
+          "at_ms": 1791034282008
+        },
+        {
+          "label": "database lock released",
+          "at_ms": 1791034291374
+        }
+      ],
+      "requests": [],
+      "requests_unavailable": false
+    },
+    "after": {
+      "source_revision": "ff88a055fd122d91098e6156bf367d7124dcb94c",
+      "prepared_sha": "9f7c8cab0725a069d0cd18a8477e0aa2488d67e8",
+      "trial_id": "replay-f31908df88",
+      "capture": {
+        "record_started_at_ms": 1791033467334,
+        "record_stopped_at_ms": 1791033490350,
+        "record_elapsed_ms": 23016,
+        "video_duration_ms": 19300
+      },
+      "video_sha256": "f8ad325c28c019450e397ccb9064214d9aec19ba90dff89ae501dbe84d77387d",
+      "samples": [
+        {
+          "label": "initial",
+          "at_ms": 1791033468894,
+          "rectangle": null,
+          "workspace": {},
+          "status": {
+            "title": "Saved",
+            "text": ""
+          },
+          "persistence": null
+        },
+        {
+          "label": "pending edit",
+          "at_ms": 1791033472506,
+          "rectangle": {
+            "id": "61ffe513-b685-8057-8008-bbbe951dd8c2",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "pending",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "before preview request",
+          "at_ms": 1791033472683,
+          "rectangle": {
+            "id": "61ffe513-b685-8057-8008-bbbe951dd8c2",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "pending",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "after preview request",
+          "at_ms": 1791033472776,
+          "rectangle": null,
+          "workspace": {
+            "read_only": true,
+            "preview_id": "0f5f0b40-ccb2-8136-8008-bbbe86fb091b"
+          },
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "pending",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "past autosave interval",
+          "at_ms": 1791033476595,
+          "rectangle": null,
+          "workspace": {
+            "read_only": true,
+            "preview_id": "0f5f0b40-ccb2-8136-8008-bbbe86fb091b"
+          },
+          "status": {
+            "title": "Saving",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saving",
+            "queue": [
+              "61ffe513-b685-8057-8008-bbbe956015f6"
+            ],
+            "commits": [
+              {
+                "id": "61ffe513-b685-8057-8008-bbbe956015f6",
+                "changes": [
+                  {
+                    "type": "add-obj",
+                    "id": "61ffe513-b685-8057-8008-bbbe951dd8c2",
+                    "name": "Rectangle",
+                    "width": 150,
+                    "height": 110
+                  },
+                  {
+                    "type": "mov-objects"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "label": "after database release",
+          "at_ms": 1791033485471,
+          "rectangle": null,
+          "workspace": {
+            "read_only": true,
+            "preview_id": "0f5f0b40-ccb2-8136-8008-bbbe86fb091b"
+          },
+          "status": {
+            "title": "Saved",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saved",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "live file after exit attempt",
+          "at_ms": 1791033486460,
+          "rectangle": {
+            "id": "61ffe513-b685-8057-8008-bbbe951dd8c2",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saved",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saved",
+            "queue": [],
+            "commits": []
+          }
+        },
+        {
+          "label": "reopened file",
+          "at_ms": 1791033488109,
+          "rectangle": {
+            "id": "61ffe513-b685-8057-8008-bbbe951dd8c2",
+            "name": "Rectangle",
+            "width": 150,
+            "height": 110
+          },
+          "workspace": {},
+          "status": {
+            "title": "Saved",
+            "text": ""
+          },
+          "persistence": {
+            "status": "saved",
+            "queue": [],
+            "commits": []
+          }
+        }
+      ],
+      "timing": [
+        {
+          "label": "database lock acquired",
+          "at_ms": 1791033468951
+        },
+        {
+          "label": "rectangle drawn",
+          "at_ms": 1791033471190
+        },
+        {
+          "label": "preview requested",
+          "at_ms": 1791033472686
+        },
+        {
+          "label": "database lock released",
+          "at_ms": 1791033480962
+        }
+      ],
+      "requests": [
+        {
+          "requestId": "7342.124",
+          "method": "POST",
+          "url": "http://localhost:3000/api/main/methods/update-file?id=0f5f0b40-ccb2-8136-8008-bbbe86e0db58",
+          "resourceType": "Fetch",
+          "timestamp": 1791033476586,
+          "status": 200
+        }
+      ],
+      "requests_unavailable": false
+    }
+  }
+}

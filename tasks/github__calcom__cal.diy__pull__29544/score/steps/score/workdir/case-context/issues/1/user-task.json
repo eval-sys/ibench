@@ -1,0 +1,12 @@
+{
+  "intent": "Edit and review my account's password-change form.",
+  "actions": [
+    "Sign in to an account that has an existing password.",
+    "Open Settings, select Password under Security, and wait for the form with both password fields empty.",
+    "Type abc into New password, leaving Old password empty.",
+    "Click the New password Show password control to reveal the entered value.",
+    "Fill Old password with the account's current password, keeping abc in New password, and review the form.",
+    "Clear Old password and replace abc with NextPass123!, which meets the displayed password requirements.",
+    "Fill Old password again with the account's current password, keeping NextPass123! in New password, and review the form without submitting."
+  ]
+}

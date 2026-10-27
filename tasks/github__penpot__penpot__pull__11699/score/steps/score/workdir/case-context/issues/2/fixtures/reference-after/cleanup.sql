@@ -1,0 +1,1 @@
+-- Server state is removed through Penpot's native HTTP API in cleanup.sh.

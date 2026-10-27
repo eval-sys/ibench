@@ -1,0 +1,81 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Send a dashboard invitation with only non-access groups selected",
+  "entry_path": "/collection/7789801-invite-access-demo/permissions",
+  "steps": [
+    "Inspect the collection permissions, close that view, and open Campaign Performance.",
+    "Open Share and choose Invite someone to view this.",
+    "Enter the invitee email, open Groups, and select Marketing.",
+    "Close the picker and inspect the access warning.",
+    "Reopen Groups and add Sales, then inspect the selected memberships and warning state.",
+    "Remove Sales, leaving Marketing and the mandatory All Users group selected, and inspect the access warning again.",
+    "Send the invitation and verify that it succeeds."
+  ],
+  "observe_after_step": 7,
+  "video_guide": {
+    "summary": "Watch the Groups list and the space below it. The baseline sends the invitation successfully, but does not explain that the selected groups cannot view this dashboard.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review collection permissions"
+      },
+      {
+        "kind": "check",
+        "t": 0.5,
+        "note": "Permissions establish the setup: Marketing and All Users have No access; Sales has View access."
+      },
+      {
+        "kind": "step",
+        "t": 4.5,
+        "label": "Open the invitation Groups picker"
+      },
+      {
+        "kind": "check",
+        "t": 4.5,
+        "note": "The Groups picker lists all groups together, without distinguishing dashboard access."
+      },
+      {
+        "kind": "step",
+        "t": 6,
+        "label": "Select Marketing"
+      },
+      {
+        "kind": "check",
+        "t": 6,
+        "note": "Only Marketing and the mandatory All Users group are selected. No access warning appears below Groups."
+      },
+      {
+        "kind": "step",
+        "t": 7.5,
+        "label": "Add Sales"
+      },
+      {
+        "kind": "check",
+        "t": 7.5,
+        "note": "Sales is added while Marketing remains selected."
+      },
+      {
+        "kind": "step",
+        "t": 8.5,
+        "label": "Remove Sales"
+      },
+      {
+        "kind": "check",
+        "t": 8.5,
+        "note": "Sales is removed. Only the non-access groups remain, with no warning and Send invitation still enabled."
+      },
+      {
+        "kind": "step",
+        "t": 9.5,
+        "label": "Send the invitation"
+      },
+      {
+        "kind": "check",
+        "t": 9.5,
+        "note": "The dialog closes and Invitation sent appears at the bottom left. Sending already works on the baseline."
+      }
+    ]
+  }
+}

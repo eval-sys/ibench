@@ -1,0 +1,21 @@
+{
+  "agents": [{
+    "name": "kimi-code",
+    "model_name": "accounts/fireworks/models/kimi-k3",
+    "env": {
+      "KIMI_MODEL_API_KEY": "${FIREWORKS_API_KEY}",
+      "KIMI_MODEL_BASE_URL": "https://api.fireworks.ai/inference/v1",
+      "KIMI_MODEL_PROVIDER_TYPE": "openai",
+      "KIMI_MODEL_MAX_CONTEXT_SIZE": "1048576",
+      "KIMI_MODEL_CAPABILITIES": "image_in,thinking",
+      "KIMI_MODEL_THINKING_EFFORT": "high"
+    },
+    "extra_allowed_hosts": ["api.fireworks.ai"],
+    "kwargs": {
+      "version": "2.2.0"
+    }
+  }],
+  "environment": {"type": "docker"},
+  "n_concurrent_trials": 4,
+  "retry": {"max_retries": 0}
+}

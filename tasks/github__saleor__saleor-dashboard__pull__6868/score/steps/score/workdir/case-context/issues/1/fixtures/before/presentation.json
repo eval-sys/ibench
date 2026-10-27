@@ -1,0 +1,68 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Open a catalogue product in a new tab using native browser gestures",
+  "entry_path": "/products/",
+  "steps": [
+    "Move the pointer over the Aurora Desk Lamp product name in the loaded catalogue.",
+    "Right-click the Aurora Desk Lamp product name, pause, and dismiss the browser context menu.",
+    "Middle-click the same Aurora Desk Lamp product name and inspect the page that opens.",
+    "If a separate tab opened, return to the original catalogue tab and inspect its state."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Compare the browser context menu and tab bar. The product row has no Open link in new tab entry, and the subsequent click replaces the product list in the same tab.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the product catalogue"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "All products is open with Aurora Desk Lamp in the first row."
+      },
+      {
+        "kind": "step",
+        "t": 1.9,
+        "label": "Inspect the product context menu"
+      },
+      {
+        "kind": "check",
+        "t": 1.9,
+        "note": "Right-clicking the product row shows the generic page menu, with no Open link in new tab entry."
+      },
+      {
+        "kind": "step",
+        "t": 5.6,
+        "label": "Middle-click the product"
+      },
+      {
+        "kind": "check",
+        "t": 5.6,
+        "note": "After middle-clicking, Aurora Desk Lamp opens in the existing dashboard tab; the product-list tab is replaced."
+      },
+      {
+        "kind": "step",
+        "t": 9.3,
+        "label": "Inspect product details"
+      },
+      {
+        "kind": "check",
+        "t": 9.3,
+        "note": "The existing tab displays Aurora Desk Lamp's product detail page."
+      },
+      {
+        "kind": "step",
+        "t": 11.1,
+        "label": "Inspect the original catalogue tab"
+      },
+      {
+        "kind": "check",
+        "t": 11.1,
+        "note": "The original catalogue tab still displays the product detail page; the product list has been replaced."
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "agents": [{
+    "import_path": "ibench.agents.dsh:Dsh",
+    "model_name": "deepseek/deepseek-flash",
+    "env": {
+      "DEEPSEEK_API_KEY": "${DEEPSEEK_API_KEY}"
+    },
+    "extra_allowed_hosts": ["api.deepseek.com"],
+    "kwargs": {
+      "version": "0.2.0-rc.2",
+      "reasoning_effort": "high"
+    }
+  }],
+  "environment": {"type": "docker"},
+  "n_concurrent_trials": 4,
+  "retry": {"max_retries": 0}
+}

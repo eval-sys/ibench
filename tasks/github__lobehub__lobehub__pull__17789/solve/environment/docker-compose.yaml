@@ -1,0 +1,125 @@
+name: lobehub-development-environment
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint:
+    - /bin/bash
+    - /harbor/entrypoint.sh
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:3210
+      INTERNAL_APP_URL: http://localhost:3210
+      PORT: '3210'
+      AUTH_SECRET: /JoBXu59/GlEmwgN1cLmAwTQqpUN+QUDuksi5lmZ5iQ=
+      AUTH_TRUSTED_ORIGINS: http://localhost:3210,http://127.0.0.1:3210
+      KEY_VAULTS_SECRET: r2gbBPKyJ8ZRKCLKt+I3DImfcL+wGxaQyRC56xtm9Uk=
+      DATABASE_DRIVER: node
+      DATABASE_URL: postgresql://postgres:dev-env-development@postgresql:5432/lobechat
+      REDIS_URL: redis://redis:6379
+      REDIS_PREFIX: lobechat
+      REDIS_TLS: '0'
+      S3_ACCESS_KEY_ID: admin
+      S3_SECRET_ACCESS_KEY: dev-env-development
+      S3_ENDPOINT: http://rustfs:9000
+      S3_BUCKET: lobe
+      S3_REGION: us-east-1
+      S3_ENABLE_PATH_STYLE: '1'
+      S3_SET_ACL: '0'
+      SSRF_ALLOW_PRIVATE_IP_ADDRESS: '1'
+    volumes:
+    - ./entrypoint.sh:/harbor/entrypoint.sh:ro
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rustfs:
+        condition: service_healthy
+      rustfs-init:
+        condition: service_completed_successfully
+  postgresql:
+    image: paradedb/paradedb@sha256:663ecc6dac5165ae2a664c7bd16fb8d8970867e89006ae4f6aa9cd26b1a2a3a4
+    command:
+    - postgres
+    - -c
+    - shared_preload_libraries=pg_search,pg_cron
+    environment:
+      POSTGRES_DB: lobechat
+      POSTGRES_PASSWORD: dev-env-development
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U postgres
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  redis:
+    image: redis@sha256:6ab0b6e7381779332f97b8ca76193e45b0756f38d4c0dcda72dbb3c32061ab99
+    command: redis-server --save 60 1000 --appendonly yes
+    volumes:
+    - redis-data:/data
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 5s
+      timeout: 3s
+      retries: 12
+  rustfs:
+    image: rustfs/rustfs@sha256:41fe89380f4120a337790c02af192c3fe7bb55c3edc2e6e9357b487b47c6ab21
+    environment:
+      RUSTFS_CONSOLE_ENABLE: 'true'
+      RUSTFS_ACCESS_KEY: admin
+      RUSTFS_SECRET_KEY: dev-env-development
+    command:
+    - --access-key
+    - admin
+    - --secret-key
+    - dev-env-development
+    - /data
+    volumes:
+    - rustfs-data:/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - wget -qO- http://localhost:9000/health >/dev/null 2>&1 || exit 1
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  rustfs-init:
+    image: rustfs/rc@sha256:adb45b56539006120f1d790bcc17ee5f9b4d93c1d7e71ed0a24f10267f9d6914
+    depends_on:
+      rustfs:
+        condition: service_healthy
+    volumes:
+    - ./bucket.config.json:/bucket.config.json:ro
+    entrypoint: /bin/sh
+    command: -c 'set -eu; rc alias set rustfs http://rustfs:9000 admin dev-env-development;
+      rc mb rustfs/lobe --ignore-existing; rc anonymous set-json /bucket.config.json
+      rustfs/lobe'
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgresql
+        - redis
+        - rustfs
+        - rustfs-init
+networks:
+  default:
+    driver: bridge
+volumes:
+  postgres-data: null
+  redis-data: null
+  rustfs-data: null

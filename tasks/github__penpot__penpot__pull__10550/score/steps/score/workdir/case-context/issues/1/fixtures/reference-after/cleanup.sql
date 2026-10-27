@@ -1,0 +1,1 @@
+-- Server fixture state is managed through Penpot's native CLI in cleanup.sh.

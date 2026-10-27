@@ -1,0 +1,9 @@
+{
+  "intent": "Prepare an invitation email for my survey participants.",
+  "actions": [
+    "Start as an administrator editing the English invitation template for an active survey, with a PDF attachment configured but absent and an eligible participant with an access code and no invitation sent.",
+    "Inspect the attachment error and scroll to the configured PDF attachment with its missing-file marker.",
+    "Focus the same survey's Participants link and press Enter; wait for the participant list to load.",
+    "Open Invite & remind and choose Send email invitation; wait for the invitation preparation form to load."
+  ]
+}

@@ -1,0 +1,59 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      PGHOST: netbox-db
+      PGUSER: postgres
+      PGPASSWORD: profile-development
+      PGDATABASE: netbox
+      DATABASE_URL: postgresql://netbox:profile-development@netbox-db:5432/netbox
+      REDIS_HOST: netbox-redis
+      REDIS_URL: redis://netbox-redis:6379/0
+      NETBOX_CONFIGURATION: netbox.configuration
+    depends_on:
+      netbox-db:
+        condition: service_healthy
+      netbox-redis:
+        condition: service_healthy
+  netbox-db:
+    image: postgres:16.14-bookworm
+    environment:
+      POSTGRES_PASSWORD: profile-development
+      POSTGRES_DB: netbox
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U postgres -d netbox
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  netbox-redis:
+    image: redis:7.4.2-alpine
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - netbox-db
+        - netbox-redis
+networks:
+  default:
+    driver: bridge

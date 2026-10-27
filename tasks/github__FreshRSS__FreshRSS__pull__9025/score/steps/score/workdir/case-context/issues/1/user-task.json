@@ -1,0 +1,9 @@
+{
+  "intent": "Add a new user.",
+  "actions": [
+    "Start logged in as admin on Display settings with Origine selected, without having opened or interacted with Create new user in this browser session.",
+    "Click Manage users and wait for the reauthentication prompt.",
+    "Enter the admin password and click Login.",
+    "Wait for Create new user to open without focusing or changing any of its fields."
+  ]
+}

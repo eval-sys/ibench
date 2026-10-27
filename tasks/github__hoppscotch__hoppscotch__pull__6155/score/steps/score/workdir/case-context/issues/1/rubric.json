@@ -1,0 +1,28 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/hoppscotch/hoppscotch/pull/6155/issue/1",
+  "definition": {
+    "issue_id": "github/hoppscotch/hoppscotch/pull/6155/issue/1",
+    "given": "On the Hoppscotch REST request page, the Website Variables environment is selected, its site variable resolves to example, and the request URL contains https://<<site>>.com.",
+    "when": "The user hovers <<site>> to reveal its variable tooltip, moves the pointer to its edit control, and activates that control.",
+    "observed": "The popup appears with the Website Variables values and edit icon, then disappears while the pointer crosses the gap before reaching the icon, leaving no edit popup or modal available.",
+    "require": "The variable tooltip remains reachable while the pointer moves from the URL placeholder to its edit control, and activating that control opens the site variable in the Website Variables editor.",
+    "allow": [
+      "The tooltip may reposition, extend its interactive hover area, or use a short dismissal delay while keeping the edit control reachable. Styling, value formatting, and edit-control iconography may vary."
+    ],
+    "theory": [
+      {
+        "title": "Hover or Pop-Up Tools",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Contextual actions should remain operable near the object they act on. An Edit control revealed by hovering a variable is ineffective if the popup disappears along the pointer's approach to that control."
+      },
+      {
+        "title": "Interactions Are Conversations",
+        "reference": "Designing Interfaces, Third Edition, Chapter 1: Designing for People; designing-interfaces/chapters/ch01-designing-for-people.md",
+        "rationale": "Revealing an edit action is the interface's response to the hover and should provide a usable next step. Withdrawing that action during the approach prevents the user from completing the interaction."
+      }
+    ]
+  },
+  "reference_observation": "The site tooltip stays visible as the pointer moves from the URL placeholder to its edit control. Activating it opens site in the Website Variables editor.",
+  "requirement_rationale": "The tooltip exposes an editing action for the variable referenced in the request URL. Keeping that action reachable as the pointer moves toward it lets the user open the correct variable without losing the contextual control."
+}

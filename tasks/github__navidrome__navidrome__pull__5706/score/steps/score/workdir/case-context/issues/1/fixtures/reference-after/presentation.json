@@ -1,0 +1,36 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Keep Composer sort controls truthful",
+  "entry_path": "/app/#/song",
+  "steps": [
+    "Inspect the loaded Songs list with the Composer column enabled and Title sorted ascending.",
+    "Click the Composer column header once and inspect the sort indicator and returned song rows."
+  ],
+  "observe_after_step": 2,
+  "video_guide": {
+    "summary": "Attempt to sort by Composer, then inspect the retained Title indication and visible Composer values.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Title has an ascending arrow, and all four songs and their Composer values are displayed."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Click the Composer column header."
+      },
+      {
+        "kind": "check",
+        "t": 2.0,
+        "note": "Title still has the ascending arrow; Composer has no sorting arrow."
+      },
+      {
+        "kind": "check",
+        "t": 4.01,
+        "note": "The four rows remain Amber Waltz, Blue Nocturne, Cedar Prelude, and Dawn Sonata, with Composer values Clara Vale, Ada Rowan, Dorian Lake, and Bruno Reed."
+      }
+    ]
+  }
+}

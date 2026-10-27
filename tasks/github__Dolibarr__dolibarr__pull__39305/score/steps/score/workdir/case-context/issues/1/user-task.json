@@ -1,0 +1,9 @@
+{
+  "intent": "Set the mark rate to 25% for all lines on my draft proposal for a customer.",
+  "actions": [
+    "With the Margin module and Display mark rates enabled, open my draft proposal for a customer. It contains two free-text service lines priced at EUR100 and EUR50, with buying costs EUR80 and EUR40 respectively and initial mark rates of 20%.",
+    "Click the edit icon in the Mark rate column header and wait for the rate field to appear.",
+    "Enter 25 in the mark-rate field.",
+    "Click Update and wait for the proposal card to refresh."
+  ]
+}

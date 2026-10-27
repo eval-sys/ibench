@@ -1,0 +1,12 @@
+diff --git a/apps/web/core/components/issues/issue-detail/main-content.tsx b/apps/web/core/components/issues/issue-detail/main-content.tsx
+--- a/apps/web/core/components/issues/issue-detail/main-content.tsx
++++ b/apps/web/core/components/issues/issue-detail/main-content.tsx
+@@ -134,7 +134,7 @@
+ 
+         <DescriptionInput
+           issueSequenceId={issue.sequence_id}
+-          containerClassName="p-0 border-none"
++          containerClassName="-ml-6 border-none p-0! pl-6!"
+           disabled={isArchived || !isEditable}
+           editorRef={editorRef}
+           entityId={issue.id}

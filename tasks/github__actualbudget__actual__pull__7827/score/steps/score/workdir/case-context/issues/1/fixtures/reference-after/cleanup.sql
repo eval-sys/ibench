@@ -1,0 +1,1 @@
+-- Browser-only fixture: no database state to clean.

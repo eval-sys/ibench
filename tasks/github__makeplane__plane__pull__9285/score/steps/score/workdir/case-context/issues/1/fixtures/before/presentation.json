@@ -1,0 +1,58 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Change the profile cover and reopen settings to view the selected image",
+  "entry_path": "/creative-studio/",
+  "steps": [
+    "Open Change cover and select Cover image 3.",
+    "Click Save changes.",
+    "Close the profile settings modal.",
+    "Open the avatar menu and select Settings."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Compare the profile cover before selection, after Save changes, and after reopening. The saved star-trails image reverts to the old black-sand cover.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the current cover"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "Profile settings begins with the black-sand cover."
+      },
+      {
+        "kind": "step",
+        "t": 1.3,
+        "label": "Select the star-trails cover"
+      },
+      {
+        "kind": "check",
+        "t": 1.3,
+        "note": "The selected star-trails image replaces it in the open profile form."
+      },
+      {
+        "kind": "step",
+        "t": 2.6,
+        "label": "Save changes"
+      },
+      {
+        "kind": "check",
+        "t": 2.6,
+        "note": "The success notification reports Profile updated successfully."
+      },
+      {
+        "kind": "step",
+        "t": 8.9,
+        "label": "Reopen Profile settings"
+      },
+      {
+        "kind": "check",
+        "t": 8.9,
+        "note": "Reopening Profile settings shows the old black-sand cover again."
+      }
+    ]
+  }
+}

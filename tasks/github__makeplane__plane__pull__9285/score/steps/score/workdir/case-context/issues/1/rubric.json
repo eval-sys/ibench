@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/makeplane/plane/pull/9285/issue/1",
+  "definition": {
+    "issue_id": "github/makeplane/plane/pull/9285/issue/1",
+    "given": "The user is signed in with Profile settings open and the current black-sand cover displayed. Cover image 3, showing star trails, is available in the cover picker.",
+    "when": "The user selects the star-trails cover, clicks Save changes, then closes Profile settings and reopens Settings from the avatar menu in the same session.",
+    "observed": "Saving the star-trails cover reports Profile updated successfully, but closing and reopening Profile settings shows the previous black-sand cover.",
+    "require": "Reopening Profile settings in the same session displays the star-trail cover just confirmed as saved, using the latest committed choice without a full-page refresh.",
+    "allow": [
+      "Reentry may refetch server data, update caches, or reuse the latest confirmed state.",
+      "A brief loading indicator or skeleton may appear while the latest cover loads. Content presented as the current saved cover reflects the latest confirmed choice.",
+      "On save failure, the old cover may remain with explicit failure feedback."
+    ],
+    "theory": [
+      {
+        "title": "Action lifecycle and immediate feedback - Success responses must agree with the subsequently visible committed state",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Save changes, the success message, and reopening settings form a complete conversation. Success should mean that the new cover is authoritative. Showing the old value upon return falsifies the feedback and forces users to guess whether saving succeeded."
+      },
+      {
+        "title": "Preserve orientation and state - Returning to a familiar interface should preserve meaningful current state",
+        "reference": "Designing Interfaces, Third Edition, Chapter 3: Navigation, Signposts, and Wayfinding; designing-interfaces/chapters/ch03-navigation-wayfinding.md",
+        "rationale": "Closing and reopening settings is short-distance navigation and should not lose a just-confirmed profile state. Displaying the same saved cover on reentry maintains a continuous understanding of the user's position and the system state."
+      }
+    ]
+  },
+  "reference_observation": "After the star-trails cover is saved successfully, closing and reopening Profile settings shows the same cover without a browser refresh.",
+  "requirement_rationale": "Save confirmation tells the user that their profile choice has been committed. Showing that cover when settings reopen lets the user rely on the confirmation across navigation."
+}

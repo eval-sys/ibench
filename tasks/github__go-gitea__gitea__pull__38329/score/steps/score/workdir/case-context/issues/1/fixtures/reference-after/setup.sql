@@ -1,0 +1,1 @@
+-- Server state is created through native Gitea CLI and HTTP entrypoints in setup.sh.

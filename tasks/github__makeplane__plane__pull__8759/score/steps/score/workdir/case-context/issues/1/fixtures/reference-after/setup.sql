@@ -1,0 +1,1 @@
+-- Persistent fixture state is created through Plane's Django models in setup.sh.

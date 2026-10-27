@@ -1,0 +1,1 @@
+-- Server state is managed through the native Grist HTTP API in setup.sh.

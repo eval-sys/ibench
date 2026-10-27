@@ -1,0 +1,1 @@
+-- Server preparation uses native Oppia and Firebase APIs in setup.sh.

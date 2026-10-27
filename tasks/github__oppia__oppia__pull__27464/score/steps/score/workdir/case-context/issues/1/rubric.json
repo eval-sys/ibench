@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/oppia/oppia/pull/27464/issue/1",
+  "definition": {
+    "issue_id": "github/oppia/oppia/pull/27464/issue/1",
+    "given": "An authorized contributor administrator opens Manage supported languages for auto-translation. The account has Translation Admin, Release Coordinator and super-admin access, and its group has access to automatic translation suggestions. The mapping is empty, the Language chooser is available, and the separate automatic-suggestions switch is off. No translation provider has been selected.",
+    "when": "Open the Language chooser, type e, press Arrow Down until English is visibly highlighted, and press Enter to confirm that selection.",
+    "observed": "The chooser closes and the Language field displays Ákán (Akan), its first selectable language, rather than the highlighted English choice. No provider is selected and Add is not activated.",
+    "require": "After confirmation, keep English displayed and selected in the closed Language control for the pending mapping until further user action.",
+    "allow": [
+      "A native or custom accessible chooser is acceptable if the described keyboard interaction can select English and the resulting value remains English.",
+      "An equivalent localized label for English is acceptable if it unambiguously represents the same language.",
+      "No provider selection, mapping save or automatic-translation toggle change is required by this case."
+    ],
+    "theory": [
+      {
+        "title": "Respect explicit input and make committed state legible",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "A chooser is a conversation in which the selected option is the user's explicit answer. Defaults should remain editable rather than overwrite that answer, and action feedback should reflect the result. Displaying Akan after confirming English contradicts both the entered choice and its visible confirmation, undermining reliable configuration."
+      }
+    ]
+  },
+  "reference_observation": "Confirming the highlighted English option closes the chooser with English displayed and selected. That state persists during the subsequent observation; Provider remains unset, the mapping stays empty, and the suggestions switch remains off.",
+  "requirement_rationale": "The language choice is independent of provider selection and saving the mapping. Replacing a confirmed choice silently makes the pending configuration unreliable."
+}

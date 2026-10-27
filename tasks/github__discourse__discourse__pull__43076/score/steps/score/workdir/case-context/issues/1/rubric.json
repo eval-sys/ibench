@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/discourse/discourse/pull/43076/issue/1",
+  "definition": {
+    "issue_id": "github/discourse/discourse/pull/43076/issue/1",
+    "given": "A moderator views a pending spam flag on a hidden post by casey_review. Before the moderator acts, the system user has already automatically silenced the author for this same post, with an automatic-silence reason and a recorded post-linked user-history entry. The review row has a silence indicator; opening the user card reveals the active silence and its automatic reason.",
+    "when": "Inspect the author user card, dismiss it, open the Yes action menu, and choose Delete post. Inspect Timeline & notes for the resulting review.",
+    "observed": "The user card confirms the existing automatic silence before deletion. After the moderator deletes the post, the review is approved and its timeline shows post creation, spam flagging, deletion and approval, with actors and relative times. It omits the earlier automatic silence and its actor/time. The silence indicator remains. This confirms missing penalty provenance in the review history; it does not confirm the broader source claim that no current-state indication exists or that a moderator actually inferred the wrong cause.",
+    "require": "In the review context, make the existing post-linked silence's provenance inspectable: the system applied it before the moderator's deletion and approval. Keep that earlier penalty distinguishable from the later actions and retain the accurate current silence indication.",
+    "allow": [
+      "A chronological penalty event in Timeline & notes or an equivalent clearly associated history/detail affordance in the review context may convey actor, time and ordering.",
+      "Absolute or relative times may be used if the earlier silence remains distinguishable from the later moderation actions; exact timestamp formatting is optional.",
+      "Existing indicators and user-card reason may remain. This case does not require changing the penalty, proving a moderator's subjective belief, or covering suspension states absent from this replay."
+    ],
+    "theory": [
+      {
+        "title": "Command History makes consequential operations attributable",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "The skill recommends recording meaningful operations for review and audit. This review already records who posted, flagged, deleted and approved, but leaves out the earlier post-linked penalty. The missing operation prevents the review history from explaining the active state and its chronology. The product evidence supplies the actor and ordering contract; the theory supports making that provenance inspectable, not a mandatory timeline layout."
+      }
+    ]
+  },
+  "reference_observation": "The review shows the active silence and an automatic-silence event with relative time. After Delete post, that event remains before the separate moderator deletion and approval events. The author's silence indicator remains visible.",
+  "requirement_rationale": "Current silence and its cause are different facts. A history showing only later moderation cannot explain an earlier automatic penalty, leaving the moderator with a misleading account of how the author became silenced."
+}

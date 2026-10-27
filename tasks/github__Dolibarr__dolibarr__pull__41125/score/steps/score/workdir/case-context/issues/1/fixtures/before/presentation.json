@@ -1,0 +1,69 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Open missing direct debit records",
+  "entry_path": "/compta/prelevement/orders_list.php?mainmenu=bank",
+  "steps": [
+    "View the loaded direct debit order list.",
+    "Open /compta/prelevement/card.php?id=999999 and inspect the resulting order card.",
+    "Open /compta/prelevement/fiche-rejet.php?id=999999 and inspect the resulting rejects card.",
+    "Open /compta/prelevement/fiche-stat.php?id=999999 and inspect the resulting statistics card.",
+    "Open /compta/prelevement/line.php?id=999999 and inspect the resulting line card."
+  ],
+  "observe_after_step": 5,
+  "video_guide": {
+    "summary": "Compare four missing-record links: each incorrectly renders an ordinary card with absent or misleading data.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the direct debit order list"
+      },
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The direct debit order list shows an existing order."
+      },
+      {
+        "kind": "step",
+        "t": 2.97,
+        "label": "Open the missing order"
+      },
+      {
+        "kind": "check",
+        "t": 2.97,
+        "note": "The order card has no reference or date, shows amount 0.00 and offers a receipts/.xml file."
+      },
+      {
+        "kind": "step",
+        "t": 5.94,
+        "label": "Open the missing order rejects"
+      },
+      {
+        "kind": "check",
+        "t": 5.94,
+        "note": "The Rejects view also renders an empty order card rather than a not-found result."
+      },
+      {
+        "kind": "step",
+        "t": 8.91,
+        "label": "Open the missing order statistics"
+      },
+      {
+        "kind": "check",
+        "t": 8.91,
+        "note": "The Statistics view repeats the same misleading order details."
+      },
+      {
+        "kind": "step",
+        "t": 11.88,
+        "label": "Open the missing line"
+      },
+      {
+        "kind": "check",
+        "t": 11.88,
+        "note": "The line card displays 999999 and the internal ErrorBadValueForParamNotAString token."
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "browser-only",
+  "title": "Edit an environment variable from the tooltip on the request URL",
+  "entry_path": "/",
+  "steps": [
+    "Hover the <<site>> placeholder to display its environment values and edit icon.",
+    "Move the pointer from the placeholder toward the popup's edit icon.",
+    "Click the edit control."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "The variable popup remains reachable across the pointer move, allowing its edit icon to open the Website Variables editor.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.5,
+        "label": "Hover the URL variable"
+      },
+      {
+        "kind": "check",
+        "t": 0.5,
+        "note": "The site placeholder's tooltip shows its values and edit icon."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Approach the tooltip edit control"
+      },
+      {
+        "kind": "check",
+        "t": 1.5,
+        "note": "The variable tooltip and its edit icon are still visible."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Open the environment editor"
+      },
+      {
+        "kind": "check",
+        "t": 2.5,
+        "note": "Edit Environment is open for Website Variables with the site row visible."
+      }
+    ]
+  }
+}

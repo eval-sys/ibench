@@ -1,0 +1,67 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Focus the lesson report description on opening",
+  "entry_path": "/lesson/0",
+  "steps": [
+    "Open the lesson options drawer and click Report an Issue to inspect the blank description, placeholder, and character counter.",
+    "Type “The image is missing.” on the keyboard before clicking anywhere in the dialog and inspect the description and counter.",
+    "Click the description and type “The image is missing.” again; inspect the entered text and counter."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "The first typing attempt leaves the lesson report description empty; typing after a click fills the field.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 1.0,
+        "label": "Open the lesson options drawer."
+      },
+      {
+        "kind": "check",
+        "t": 2.0,
+        "note": "The open drawer includes Report an Issue."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Open Report an Issue."
+      },
+      {
+        "kind": "check",
+        "t": 3.0,
+        "note": "The report dialog shows an empty description and a 0/2500 counter."
+      },
+      {
+        "kind": "flag",
+        "t": 3.0,
+        "note": "Icon-name text overlaps several issue-category labels, including spellcheck and broken_image."
+      },
+      {
+        "kind": "step",
+        "t": 3.8,
+        "label": "Type The image is missing. without clicking inside the dialog."
+      },
+      {
+        "kind": "check",
+        "t": 5.0,
+        "note": "The description still shows its placeholder and the counter reads 0/2500."
+      },
+      {
+        "kind": "step",
+        "t": 5.5,
+        "label": "Click the description and type The image is missing. again."
+      },
+      {
+        "kind": "check",
+        "t": 6.5,
+        "note": "The focused description contains The image is missing. and the counter reads 21/2500."
+      },
+      {
+        "kind": "check",
+        "t": 9.65,
+        "note": "The open report dialog shows the entered description and a 21/2500 counter."
+      }
+    ]
+  }
+}

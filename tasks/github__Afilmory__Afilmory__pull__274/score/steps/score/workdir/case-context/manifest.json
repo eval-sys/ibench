@@ -1,0 +1,14 @@
+{
+  "schema_version": "ibench-score-manifest/v1",
+  "task_id": "github__Afilmory__Afilmory__pull__274",
+  "validate": "/workspace/case-context/validate-submission.sh",
+  "cases": [
+    {
+      "case_id": "github/Afilmory/Afilmory/pull/274/issue/2",
+      "input": "/workspace/case-context/issues/2",
+      "replay_root": "/logs/artifacts/tasks/github__Afilmory__Afilmory__pull__274/issues/2/replay",
+      "verdict_template": "/logs/artifacts/tasks/github__Afilmory__Afilmory__pull__274/issues/2/verdict.json",
+      "capture": "/workspace/case-context/issues/2/capture-after.sh"
+    }
+  ]
+}

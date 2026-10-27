@@ -1,0 +1,1 @@
+-- Persistent cleanup is performed through Saleor's GraphQL API by cleanup.sh.

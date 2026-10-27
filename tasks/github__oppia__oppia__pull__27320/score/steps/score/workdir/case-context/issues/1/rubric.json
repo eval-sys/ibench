@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/oppia/oppia/pull/27320/issue/1",
+  "definition": {
+    "issue_id": "github/oppia/oppia/pull/27320/issue/1",
+    "given": "A guest has opened Report a Website Issue from the home-page footer. Describe the issue is empty, and the dialog's form body is scrolled down so screenshot and technical-log controls are visible while the description is above the visible area. Submit remains available.",
+    "when": "Click Submit without entering a description.",
+    "observed": "The report is not submitted and the dialog stays open at its lower scroll position, without a visible description-validation explanation. Manually scrolling upward subsequently reveals the warning asking for a description beneath the empty field.",
+    "require": "On rejecting the empty report, immediately show that a description is required and provide a direct way to correct it without searching by scrolling. Keep the report open and preserve existing optional inputs.",
+    "allow": [
+      "Automatically reveal the description and its inline warning by scrolling or focusing the field.",
+      "A visible validation summary or message at the current position is acceptable if it identifies the missing description and provides a direct way to reach the field.",
+      "Error wording and styling may vary if the cause and corrective action are clear."
+    ],
+    "theory": [
+      {
+        "title": "Timely, actionable form validation feedback",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "A validation message helps only when the person can discover the cause and act on it. The current form generates an inline warning outside the visible area, leaving the submission result unexplained. Applying timely, specific feedback and placing correction guidance where it can be acted on supports the user's next step without prescribing a particular scroll or focus implementation."
+      }
+    ]
+  },
+  "reference_observation": "Submitting with the description empty and fully above the visible form area directly reveals and focuses that field with its required-description warning. The report stays open without manual upward scrolling. The nondefault unchecked technical-log choice remains unchecked after rejection.",
+  "requirement_rationale": "A missing-description warning outside the scrolled viewport leaves Submit's failure unexplained. Making the reason and correction reachable lets the user finish the report without losing other input."
+}

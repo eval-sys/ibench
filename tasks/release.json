@@ -1,0 +1,638 @@
+{
+  "schema_version": "ibench-release/v1",
+  "name": "lobehub/ibench",
+  "version": "0.1.0",
+  "instruction_profiles": [
+    "intent",
+    "intent-actions"
+  ],
+  "default_instruction_profile": "intent",
+  "tasks": [
+    {
+      "id": "github__Afilmory__Afilmory__pull__243",
+      "name": "photo-map-panning",
+      "title": "Pan the map opened from a photo's sidebar",
+      "base_commit_sha": "4843875f26f48343b08814e3282b3c4565a78c58",
+      "merge_commit_sha": "b60b8a050c9e4ba753afb45df3df7d9eed503923",
+      "cases": [
+        {
+          "case_id": "github/Afilmory/Afilmory/pull/243/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__Afilmory__Afilmory__pull__274",
+      "name": "tiny-storage-comparison",
+      "title": "Compare storage in small and empty workspaces during account cleanup",
+      "base_commit_sha": "85607a427b8b979aa26e1db794363ec18a28a92c",
+      "merge_commit_sha": "847d236b178866f918f1979dc41f7462cfde4797",
+      "cases": [
+        {
+          "case_id": "github/Afilmory/Afilmory/pull/274/issue/2",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__actualbudget__actual__pull__7827",
+      "name": "csv-footer-skipping",
+      "title": "Import an account statement while skipping its trailing summary rows",
+      "base_commit_sha": "1f492387b7010a236d2f92d8d56ebc26030ffcd3",
+      "merge_commit_sha": "45ac4cb98bb55c1f5955f8c6ef5a76357cc2afbb",
+      "cases": [
+        {
+          "case_id": "github/actualbudget/actual/pull/7827/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__calcom__cal.diy__pull__29544",
+      "name": "password-form-editing",
+      "title": "Edit the account password change form",
+      "base_commit_sha": "4026669e687c47207a91462d52028b660a73b352",
+      "merge_commit_sha": "9104545a18d000782e036c21b965c879968d6a0e",
+      "cases": [
+        {
+          "case_id": "github/calcom/cal.diy/pull/29544/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__hoppscotch__hoppscotch__pull__6155",
+      "name": "variable-tooltip-editing",
+      "title": "Edit an environment variable from the tooltip on the request URL",
+      "base_commit_sha": "a0740399b113afc3037110215434a8fd297f0a56",
+      "merge_commit_sha": "7be31a298601c24053033dc64928aae659a4921f",
+      "cases": [
+        {
+          "case_id": "github/hoppscotch/hoppscotch/pull/6155/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__langgenius__dify__pull__38063",
+      "name": "studio-header-clicks",
+      "title": "Use Features and Publish in Chatflow Studio after a publish toast closes",
+      "base_commit_sha": "82186946916c2e7cc051fdcb05b97d2f1b1e2a47",
+      "merge_commit_sha": "484633d261c5f816274c05e1a8ff584e03f4aa1a",
+      "cases": [
+        {
+          "case_id": "github/langgenius/dify/pull/38063/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__lobehub__lobehub__pull__17789",
+      "name": "completed-topic-reopening",
+      "title": "Return to a conversation whose replies arrived in the background",
+      "base_commit_sha": "9b9f6b96c819a2323a2e35662708049d811f34b6",
+      "merge_commit_sha": "36ce556cb9c6782fec2fb96bae95097463e02a68",
+      "cases": [
+        {
+          "case_id": "github/lobehub/lobehub/pull/17789/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__makeplane__plane__pull__8600",
+      "name": "work-item-revisiting",
+      "title": "Revisit a work item using Search commands",
+      "base_commit_sha": "98253e30855ba9c81d29a4f7f967f04aa711652c",
+      "merge_commit_sha": "5af0f58aa939bec715a52a8e14ee97eaabfc67a2",
+      "cases": [
+        {
+          "case_id": "github/makeplane/plane/pull/8600/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__makeplane__plane__pull__8759",
+      "name": "paragraph-drag-reordering",
+      "title": "Reach the description drag handle to begin reordering a paragraph",
+      "base_commit_sha": "6627282bc5854dddb006ff0fe8c8c83264a0f067",
+      "merge_commit_sha": "428cb478b1cc659b316a555146d1112f71911d09",
+      "cases": [
+        {
+          "case_id": "github/makeplane/plane/pull/8759/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__makeplane__plane__pull__9285",
+      "name": "profile-cover-update",
+      "title": "Change the profile cover and reopen settings to view the selected image",
+      "base_commit_sha": "90ae8457d07c9b5e5e0514735170f55304506cc9",
+      "merge_commit_sha": "18ea715960b2697cf3980c493c44e894683c8f98",
+      "cases": [
+        {
+          "case_id": "github/makeplane/plane/pull/9285/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__metabase__metabase__pull__77898",
+      "name": "dashboard-member-invitation",
+      "title": "Send a dashboard invitation with only non-access groups selected",
+      "base_commit_sha": "166175677e117a3c021c4218fcf3149332e208e4",
+      "merge_commit_sha": "0a9e61f44f710f3d26c73e32c9f999a89afb62e8",
+      "cases": [
+        {
+          "case_id": "github/metabase/metabase/pull/77898/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__metabase__metabase__pull__79490",
+      "name": "empty-dashboard-export",
+      "title": "Attempt to export an empty dashboard as a PDF",
+      "base_commit_sha": "be5707555de6bd89a98eb58ca1b8b50b50f19142",
+      "merge_commit_sha": "2f3d32a2baa7a8a95a6ace210acd9cdbdadae049",
+      "cases": [
+        {
+          "case_id": "github/metabase/metabase/pull/79490/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__metabase__metabase__pull__80439",
+      "name": "default-recipient-removal",
+      "title": "Remove the default email recipient while creating a question alert",
+      "base_commit_sha": "118ee5715c8756240f98528280c61e020af35316",
+      "merge_commit_sha": "a28a9af7351bd7ad762826a4fa312ce5b79678fc",
+      "cases": [
+        {
+          "case_id": "github/metabase/metabase/pull/80439/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__penpot__penpot__pull__10550",
+      "name": "closed-path-selection",
+      "title": "Draw and select a closed path to inspect its size badge",
+      "base_commit_sha": "618ec57b6f13cb311ca96d225c5ddf43209e00a8",
+      "merge_commit_sha": "e5d3ea14d15b4cfe9552b848daafa466c9abdec5",
+      "cases": [
+        {
+          "case_id": "github/penpot/penpot/pull/10550/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__penpot__penpot__pull__11427",
+      "name": "offscreen-layer-navigation",
+      "title": "Keep the workspace layout stable while navigating a long layer list",
+      "base_commit_sha": "995a5460e5b37c74415bcc21f242f8fff8ea9d4d",
+      "merge_commit_sha": "806f9473607c486891501134ec83ed7286389eff",
+      "cases": [
+        {
+          "case_id": "github/penpot/penpot/pull/11427/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__penpot__penpot__pull__11699",
+      "name": "pending-edit-preservation",
+      "title": "Preserve pending design edits through Inspect mode and version previews",
+      "base_commit_sha": "0487abb2d54bbfd2a588db617fa00fe5a91ed8d2",
+      "merge_commit_sha": "ff88a055fd122d91098e6156bf367d7124dcb94c",
+      "cases": [
+        {
+          "case_id": "github/penpot/penpot/pull/11699/issue/2",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        },
+        {
+          "case_id": "github/penpot/penpot/pull/11699/issue/3",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__saleor__saleor-dashboard__pull__6868",
+      "name": "product-tab-opening",
+      "title": "Open a catalogue product in a new tab using native browser gestures",
+      "base_commit_sha": "b6662d2d273ada0cf00393e88d12a0393c462f4f",
+      "merge_commit_sha": "a7e18d581822acac48e02eface45e3bc8e8a65a4",
+      "cases": [
+        {
+          "case_id": "github/saleor/saleor-dashboard/pull/6868/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__saleor__saleor-dashboard__pull__6891",
+      "name": "mobile-catalogue-scrolling",
+      "title": "Scroll the product catalogue with touch gestures on a phone",
+      "base_commit_sha": "232aa708920f7b7af685c8a1dce4dd0b0f163f98",
+      "merge_commit_sha": "74c10cc748e693a1c9cf9f60716a7425b203d636",
+      "cases": [
+        {
+          "case_id": "github/saleor/saleor-dashboard/pull/6891/issue/1",
+          "selection": "approve",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__Dolibarr__dolibarr__pull__39305",
+      "name": "proposal-bulk-mark-rate",
+      "title": "Change mark rates across proposal lines",
+      "base_commit_sha": "3c02819090ea59b10312d528e8b92d4a50cc552a",
+      "merge_commit_sha": "78ab3a9aecd3a1120e1c79e0d384f5eeb5815d2e",
+      "cases": [
+        {
+          "case_id": "github/Dolibarr/dolibarr/pull/39305/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__Dolibarr__dolibarr__pull__40071",
+      "name": "intervention-line-editing",
+      "title": "Edit a draft intervention line",
+      "base_commit_sha": "b75363a48d84b2572b5a3f3c1f46f0d8bac9ae06",
+      "merge_commit_sha": "49e6c1a84b9121b2d8a80598d54f832a35534f76",
+      "cases": [
+        {
+          "case_id": "github/Dolibarr/dolibarr/pull/40071/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__Dolibarr__dolibarr__pull__40681",
+      "name": "stock-replenishment-explanation",
+      "title": "Explain a zero replenishment quantity",
+      "base_commit_sha": "30d915ad3ff1fa7d14dddc585fd7a4b4ade2bb36",
+      "merge_commit_sha": "090be54b155581fa703e9e4a6614f935d7d2b501",
+      "cases": [
+        {
+          "case_id": "github/Dolibarr/dolibarr/pull/40681/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__Dolibarr__dolibarr__pull__40920",
+      "name": "shipment-deletion-stock-choice",
+      "title": "Delete a shipment and review stock consequences",
+      "base_commit_sha": "8015e6ee28b6f59c2f134f17d84d379f8b1a4807",
+      "merge_commit_sha": "ddcf60d3f866401c63944179b89a0102f8c71119",
+      "cases": [
+        {
+          "case_id": "github/Dolibarr/dolibarr/pull/40920/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__Dolibarr__dolibarr__pull__41125",
+      "name": "missing-direct-debit-records",
+      "title": "Open missing direct debit records",
+      "base_commit_sha": "939ead1265d012b8826c89d85737095410d996ab",
+      "merge_commit_sha": "1bf7ab81445e1e02f05b99b9a53be580c94033f8",
+      "cases": [
+        {
+          "case_id": "github/Dolibarr/dolibarr/pull/41125/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__FreshRSS__FreshRSS__pull__9025",
+      "name": "new-user-validation-feedback",
+      "title": "Create a user without premature validation errors",
+      "base_commit_sha": "260f9078f7f1a1901d497b04dfeaad3ccee7057d",
+      "merge_commit_sha": "1944b97bbf89ed428c473956001d2006521830c6",
+      "cases": [
+        {
+          "case_id": "github/FreshRSS/FreshRSS/pull/9025/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__LimeSurvey__LimeSurvey__pull__4254",
+      "name": "survey-invitation-attachment-warning",
+      "title": "Review missing attachments before sending invitations",
+      "base_commit_sha": "5247d7cb3467ec74155ecf684992bbee803a6e49",
+      "merge_commit_sha": "df0d6c6c9eaf48be3d0f7b343aaef2494d2114c5",
+      "cases": [
+        {
+          "case_id": "github/LimeSurvey/LimeSurvey/pull/4254/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__discourse__discourse__pull__42435",
+      "name": "replies-reading-position",
+      "title": "Restore the reading position after browser Back",
+      "base_commit_sha": "8c876d57a20b25ec6717d5e806457551e9774ca0",
+      "merge_commit_sha": "b5961484c99bd554fa2532d0105da369d0f4b887",
+      "cases": [
+        {
+          "case_id": "github/discourse/discourse/pull/42435/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__discourse__discourse__pull__43076",
+      "name": "moderation-silence-context",
+      "title": "Review silence history when moderating a spam post",
+      "base_commit_sha": "9a9231ce5f0e517640550e0f942450eacc2bb486",
+      "merge_commit_sha": "bad78c3f5c05524f9d44d88863b17e6be8adf11a",
+      "cases": [
+        {
+          "case_id": "github/discourse/discourse/pull/43076/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__documenso__documenso__pull__2204",
+      "name": "signup-validation-correction",
+      "title": "Clear signup errors while correcting fields",
+      "base_commit_sha": "1b1e3d197bbdc2a02028171b6df950fe901a8349",
+      "merge_commit_sha": "400b6a24f17916247d8baa4091b5877295334569",
+      "cases": [
+        {
+          "case_id": "github/documenso/documenso/pull/2204/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__glpi-project__glpi__pull__24797",
+      "name": "form-criteria-counts",
+      "title": "Keep validation and visibility criteria independent",
+      "base_commit_sha": "77d109f650c679f18421f87cc7b40c70f62f056a",
+      "merge_commit_sha": "52eeefaf80b4da1e19d3d575ef92eb637ab95786",
+      "cases": [
+        {
+          "case_id": "github/glpi-project/glpi/pull/24797/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__glpi-project__glpi__pull__24800",
+      "name": "computer-view-field-selection",
+      "title": "Add Comments independently to personal and global views",
+      "base_commit_sha": "77d109f650c679f18421f87cc7b40c70f62f056a",
+      "merge_commit_sha": "ef6ece3ca7c79af227468a1cd08d5ba58682f1f5",
+      "cases": [
+        {
+          "case_id": "github/glpi-project/glpi/pull/24800/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__go-gitea__gitea__pull__38329",
+      "name": "actions-canceled-status-sync",
+      "title": "Synchronize a canceled workflow in the run list",
+      "base_commit_sha": "65c5a5ff7bd1660dd14f97f80eb2ff62c2cc174f",
+      "merge_commit_sha": "b998c3c1aa9c0a6945a3098fd0070bd063904bef",
+      "cases": [
+        {
+          "case_id": "github/go-gitea/gitea/pull/38329/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__go-gitea__gitea__pull__38593",
+      "name": "batch-close-failure-context",
+      "title": "Preserve selections when batch closing issues fails",
+      "base_commit_sha": "ee10ae168c4161013df2f988c4e556efbea99ff8",
+      "merge_commit_sha": "6ac19f6226728779027bbb02814a5e520cef0d7a",
+      "cases": [
+        {
+          "case_id": "github/go-gitea/gitea/pull/38593/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__go-gitea__gitea__pull__39221",
+      "name": "actions-secret-name-guidance",
+      "title": "Explain Actions secret naming rules",
+      "base_commit_sha": "ce2fd8d882bf7cb7ede1e89f8f98384fd7112601",
+      "merge_commit_sha": "2d3ad4a530f822a274f036851d938d3e4b0fc041",
+      "cases": [
+        {
+          "case_id": "github/go-gitea/gitea/pull/39221/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__go-gitea__gitea__pull__39285",
+      "name": "branch-selector-tabs",
+      "title": "Use local tabs in the branch selector",
+      "base_commit_sha": "40385ef2848c0e23ed204218605fa77d75a236e0",
+      "merge_commit_sha": "8c0911669b9070c3638c48e4241928a25f07b3a4",
+      "cases": [
+        {
+          "case_id": "github/go-gitea/gitea/pull/39285/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__gristlabs__grist-core__pull__2298",
+      "name": "duplicate-page-widget-context",
+      "title": "Keep widget settings aligned after duplicating a page",
+      "base_commit_sha": "b6757298ee9024f7666f4cc6e7e69acd55d3acb3",
+      "merge_commit_sha": "5c7ae728d5f9ecd7fac7d2514b3df85492056f37",
+      "cases": [
+        {
+          "case_id": "github/gristlabs/grist-core/pull/2298/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__grokability__snipe-it__pull__18872",
+      "name": "location-hierarchy-context",
+      "title": "Show a room’s complete location ancestry",
+      "base_commit_sha": "1c198500c64c5f4f1ceec6f941c4095618ba96c4",
+      "merge_commit_sha": "1a852cdacfad5eac48e8c5af7328e07591a530bd",
+      "cases": [
+        {
+          "case_id": "github/grokability/snipe-it/pull/18872/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__kimai__kimai__pull__6075",
+      "name": "timesheet-project-selection-preservation",
+      "title": "Keep project selections when adding a customer",
+      "base_commit_sha": "589296cfaee9a6bb8457d361bf7a333813ab2729",
+      "merge_commit_sha": "7c2ed4b07cca2e15b1ab4cc5947afdf899a76401",
+      "cases": [
+        {
+          "case_id": "github/kimai/kimai/pull/6075/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__navidrome__navidrome__pull__5706",
+      "name": "composer-sort-indication",
+      "title": "Keep Composer sort controls truthful",
+      "base_commit_sha": "ae9b8a5fe6e43bfe3d4dd07c24efe6c0ddca729c",
+      "merge_commit_sha": "d4387c550279cf9fcb8f3f5614f694aaa9b3b165",
+      "cases": [
+        {
+          "case_id": "github/navidrome/navidrome/pull/5706/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__netbox-community__netbox__pull__23161",
+      "name": "interface-disconnection-history",
+      "title": "Record cable disconnection in interface history",
+      "base_commit_sha": "6385c09837101066c78d6d23cd3d11b7707c6b4a",
+      "merge_commit_sha": "aca5a4cc67bd2e63dfbfb4d851058b653b4f0e81",
+      "cases": [
+        {
+          "case_id": "github/netbox-community/netbox/pull/23161/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__netbox-community__netbox__pull__23190",
+      "name": "compatible-module-type-browsing",
+      "title": "Browse a bay’s compatible module types",
+      "base_commit_sha": "ebcce4c250eeb0642ff1eaef17005d9bb681740a",
+      "merge_commit_sha": "ff1e8a063c32dd3b9c3ddc068c6371d7cbb57da9",
+      "cases": [
+        {
+          "case_id": "github/netbox-community/netbox/pull/23190/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__openemr__openemr__pull__14233",
+      "name": "expired-session-calendar-recovery",
+      "title": "Resume an open calendar after being idle",
+      "base_commit_sha": "87e84e9bdcc465d61795d1eaebfb843141b89135",
+      "merge_commit_sha": "22f598cf68d622a512d2f122d6bcbfaf3b5ea706",
+      "cases": [
+        {
+          "case_id": "github/openemr/openemr/pull/14233/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__oppia__oppia__pull__27320",
+      "name": "issue-report-dialog-feedback",
+      "title": "Show report validation and focus the description",
+      "base_commit_sha": "17b4c05446339ada6323d388668e60e95f11fb0e",
+      "merge_commit_sha": "118d127c26dc6bdda6c3f84ea775b76a17ed2aad",
+      "cases": [
+        {
+          "case_id": "github/oppia/oppia/pull/27320/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        },
+        {
+          "case_id": "github/oppia/oppia/pull/27320/issue/2",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__oppia__oppia__pull__27464",
+      "name": "translation-language-selection",
+      "title": "Retain the confirmed translation language",
+      "base_commit_sha": "14f46e123e4e51295c18db1ad79f61bf1e59745e",
+      "merge_commit_sha": "a92d45e642a9c1958ac4a2bfa546efc81e875ad5",
+      "cases": [
+        {
+          "case_id": "github/oppia/oppia/pull/27464/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    },
+    {
+      "id": "github__owncloud__ocis__pull__12753",
+      "name": "document-toolbar-keyboard-navigation",
+      "title": "Skip static top-bar filenames during keyboard navigation",
+      "base_commit_sha": "c6cb215058bd9342a331a66fc0ef4cab9657bd5c",
+      "merge_commit_sha": "d24c9ba2c4128e45d767e1a30dfa4f1483009762",
+      "cases": [
+        {
+          "case_id": "github/owncloud/ocis/pull/12753/issue/1",
+          "selection": "candidate",
+          "requires_video_rerecording": false
+        }
+      ]
+    }
+  ]
+}

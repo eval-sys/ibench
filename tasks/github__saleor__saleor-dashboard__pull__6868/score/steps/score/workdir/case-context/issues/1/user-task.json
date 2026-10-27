@@ -1,0 +1,10 @@
+{
+  "intent": "Review a product's details while browsing the catalogue.",
+  "actions": [
+    "Start signed in on Catalog > Products and wait for the product list to load.",
+    "Move the pointer over a product name.",
+    "Right-click the product name, inspect the available browser actions, and dismiss the menu.",
+    "Middle-click the same product name and inspect the page that opens.",
+    "If a separate tab opened, return to the original catalogue tab and inspect its state."
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "intent": "Report a missing image in the lesson I am taking.",
+  "actions": [
+    "Start as a signed-in learner playing a lesson with the new lesson player enabled at a 1280 by 720 viewport.",
+    "Open the lesson options drawer.",
+    "Click Report an Issue and wait for the modal to finish opening.",
+    "Type a description of the missing image without clicking or tabbing to any control inside the modal."
+  ]
+}

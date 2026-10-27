@@ -1,0 +1,53 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      OCIS_URL: https://localhost:9200
+      OCIS_CONFIG_DIR: /var/lib/ocis/config
+      OCIS_BASE_DATA_PATH: /var/lib/ocis/data
+      OCIS_INSECURE: 'true'
+      OCIS_LOG_LEVEL: warn
+      OCIS_EXCLUDE_RUN_SERVICES: ocm
+      IDM_CREATE_DEMO_USERS: 'true'
+      PROXY_ENABLE_BASIC_AUTH: 'true'
+      SEARCH_EXTRACTOR_TYPE: basic
+      NOTIFICATIONS_SMTP_HOST: mailpit
+      NOTIFICATIONS_SMTP_PORT: '1025'
+      NOTIFICATIONS_SMTP_SENDER: ownCloud <noreply@example.org>
+      NOTIFICATIONS_SMTP_AUTHENTICATION: none
+      NOTIFICATIONS_SMTP_ENCRYPTION: none
+      NOTIFICATIONS_SMTP_INSECURE: 'true'
+      AGENT_BROWSER_ARGS: --no-sandbox,--ignore-certificate-errors
+      AGENT_BROWSER_IGNORE_HTTPS_ERRORS: 'true'
+      TZ: UTC
+      CI: 'true'
+    depends_on:
+      mailpit:
+        condition: service_healthy
+  mailpit:
+    image: axllent/mailpit:v1.31.2@sha256:74d609a42ec279aa63c6b4622a6fa9b5408d1ad5b1d76a1c4be40a265ce0863d
+    healthcheck:
+      test:
+      - CMD
+      - /mailpit
+      - readyz
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - mailpit
+networks:
+  default:
+    driver: bridge

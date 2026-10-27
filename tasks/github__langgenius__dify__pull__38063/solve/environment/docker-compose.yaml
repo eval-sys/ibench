@@ -1,0 +1,171 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      CI: 'true'
+      SECRET_KEY: dev-env-dify-development-secret-key
+      DB_TYPE: postgresql
+      DB_HOST: postgresql
+      DB_PORT: '5432'
+      DB_DATABASE: dify
+      DB_USERNAME: postgres
+      DB_PASSWORD: difyai123456
+      DATABASE_URL: postgresql://postgres:difyai123456@postgresql:5432/dify
+      DIFY_ADMIN_EMAIL: admin@local.host
+      DIFY_ADMIN_NAME: Dify Admin
+      DIFY_ADMIN_PASSWORD: Dify-Development-2026
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      REDIS_PASSWORD: difyai123456
+      CELERY_BROKER_URL: redis://:difyai123456@redis:6379/1
+      CONSOLE_API_URL: http://localhost:5001
+      CONSOLE_WEB_URL: http://localhost:3210
+      APP_WEB_URL: http://localhost:3210
+      CONSOLE_CORS_ALLOW_ORIGINS: http://localhost:3210
+      WEB_API_CORS_ALLOW_ORIGINS: http://localhost:3210
+      UV_FROZEN: 'true'
+      NODE_OPTIONS: --max-old-space-size=8192
+      VECTOR_STORE: weaviate
+      WEAVIATE_ENDPOINT: http://weaviate:8080
+      WEAVIATE_GRPC_ENDPOINT: grpc://weaviate:50051
+      WEAVIATE_API_KEY: dev-env-dify-weaviate-key
+      STORAGE_TYPE: opendal
+      OPENDAL_SCHEME: fs
+      OPENDAL_FS_ROOT: /var/lib/dify/storage
+      MARKETPLACE_ENABLED: 'false'
+      PLUGIN_BASED_TOKEN_COUNTING_ENABLED: 'false'
+      PLUGIN_DAEMON_URL: http://plugin-daemon:5002
+      PLUGIN_DAEMON_KEY: dev-env-dify-plugin-daemon-key
+      INNER_API_KEY_FOR_PLUGIN: dev-env-dify-plugin-inner-api-key
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      weaviate:
+        condition: service_healthy
+      plugin-daemon:
+        condition: service_healthy
+  plugin-daemon:
+    image: langgenius/dify-plugin-daemon:0.6.10-local
+    environment:
+      SERVER_PORT: '5002'
+      SERVER_KEY: dev-env-dify-plugin-daemon-key
+      DIFY_INNER_API_URL: http://main:5001
+      DIFY_INNER_API_KEY: dev-env-dify-plugin-inner-api-key
+      PLUGIN_REMOTE_INSTALLING_HOST: 0.0.0.0
+      PLUGIN_REMOTE_INSTALLING_PORT: '5003'
+      PLUGIN_STORAGE_TYPE: local
+      PLUGIN_STORAGE_LOCAL_ROOT: /app/storage
+      PLUGIN_INSTALLED_PATH: plugin
+      PLUGIN_PACKAGE_CACHE_PATH: plugin_packages
+      PLUGIN_MEDIA_CACHE_PATH: assets
+      PLUGIN_WORKING_PATH: /app/storage/cwd
+      DB_HOST: postgresql
+      DB_PORT: '5432'
+      DB_USERNAME: postgres
+      DB_PASSWORD: difyai123456
+      DB_DATABASE: dify_plugin
+      DB_DEFAULT_DATABASE: postgres
+      DB_SSL_MODE: disable
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      REDIS_PASSWORD: difyai123456
+      MAX_PLUGIN_PACKAGE_SIZE: '52428800'
+      PYTHON_ENV_INIT_TIMEOUT: '120'
+      PLUGIN_MAX_EXECUTION_TIMEOUT: '600'
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+    - plugin_storage:/app/storage
+    healthcheck:
+      test:
+      - CMD
+      - curl
+      - -fsS
+      - http://localhost:5002/health/check
+      interval: 3s
+      timeout: 3s
+      retries: 60
+  postgresql:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: dify
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: difyai123456
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U postgres -d dify
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  redis:
+    image: redis:6-alpine
+    command:
+    - redis-server
+    - --requirepass
+    - difyai123456
+    tmpfs:
+    - /data
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - -a
+      - difyai123456
+      - ping
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.39.2
+    environment:
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'false'
+      AUTHENTICATION_APIKEY_ENABLED: 'true'
+      AUTHENTICATION_APIKEY_ALLOWED_KEYS: dev-env-dify-weaviate-key
+      AUTHENTICATION_APIKEY_USERS: dev-env@local.host
+      AUTHORIZATION_ADMINLIST_ENABLED: 'true'
+      AUTHORIZATION_ADMINLIST_USERS: dev-env@local.host
+      DEFAULT_VECTORIZER_MODULE: none
+      DISABLE_TELEMETRY: 'true'
+      PERSISTENCE_DATA_PATH: /var/lib/weaviate
+      QUERY_DEFAULTS_LIMIT: '25'
+    tmpfs:
+    - /var/lib/weaviate
+    healthcheck:
+      test:
+      - CMD
+      - wget
+      - -qO-
+      - http://localhost:8080/v1/.well-known/ready
+      interval: 3s
+      timeout: 3s
+      retries: 60
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - plugin-daemon
+        - postgresql
+        - redis
+        - weaviate
+volumes:
+  plugin_storage: null
+networks:
+  default:
+    driver: bridge

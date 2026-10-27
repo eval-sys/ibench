@@ -1,0 +1,24 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/glpi-project/glpi/pull/24800/issue/1",
+  "definition": {
+    "issue_id": "github/glpi-project/glpi/pull/24800/issue/1",
+    "given": "A GLPI Super-Admin opens the Computer display-preference modal on Personal View, where Status is already selected. Both Personal View and Global View are available, but the Global View form has not yet loaded. The ordinary Comments field is absent from both saved field lists.",
+    "when": "Select the ordinary Comments field from Personal View's add-option dropdown and click Add. Switch to Global View in the same modal, then search its add-option dropdown for Comments while both view forms remain loaded.",
+    "observed": "Comments appears in the personal selected-field list. In Global View, the ordinary Comments option is missing from the search results although it is not in the global selected-field list. Location comments and Comments on financial and administrative information are still offered; they are different fields and do not substitute for Comments.",
+    "require": "After adding ordinary Comments to Personal View, keep it available for selection and addition in Global View while retaining the personal selection. Filter add options against each view's own selected fields.",
+    "allow": [
+      "The ordering, grouping, styling, or control implementation of available and selected fields may vary, provided the ordinary Comments field remains identifiable and selectable in Global View.",
+      "Preventing duplicate selections within an individual view is acceptable; selecting a field in one view must not prevent its independent selection in the other."
+    ],
+    "theory": [
+      {
+        "title": "List Builder with a coherent source and chosen set",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "The skill's synthesis describes a List Builder as showing the source and chosen sets together when users construct a subset. Each display view defines its own chosen set, so its available source options must correspond to that view. Removing Comments from the global source because it belongs to the personal chosen set breaks this relationship and blocks the administrator from independently configuring the global display."
+      }
+    ]
+  },
+  "reference_observation": "Adding ordinary Comments to Personal View leaves that field available in Global View. Selecting and adding it there creates a global Comments row; returning to Personal View retains its existing Status and Comments rows.",
+  "requirement_rationale": "Personal columns configure one user; global defaults apply to users without a personal view. Their independent selections let Comments be included for both audiences."
+}

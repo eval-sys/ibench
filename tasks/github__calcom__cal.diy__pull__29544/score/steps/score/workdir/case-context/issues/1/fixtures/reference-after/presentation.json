@@ -1,0 +1,59 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Edit the account password change form",
+  "entry_path": "/settings/security/password",
+  "steps": [
+    "Pause on the Password form before editing either password field.",
+    "Type \"abc\" into New password, then use its Show password control.",
+    "Fill Old password with the account's current password while keeping abc in New password, then view Update.",
+    "Clear Old password and enter NextPass123! in New password, then view Update.",
+    "Fill Old password again while keeping NextPass123!, then view Update without submitting."
+  ],
+  "observe_after_step": 5,
+  "video_guide": {
+    "summary": "Update remains disabled in the three invalid input states and becomes enabled only when both fields satisfy the form requirements. No password change is submitted.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 1,
+        "label": "Reveal the short new password"
+      },
+      {
+        "kind": "check",
+        "t": 1,
+        "note": "Old password is empty and abc is revealed; a minimum-length error appears and Update is disabled."
+      },
+      {
+        "kind": "step",
+        "t": 3.1,
+        "label": "Fill the old password with the short replacement"
+      },
+      {
+        "kind": "check",
+        "t": 3.1,
+        "note": "Filling Old password does not make abc valid; Update remains disabled."
+      },
+      {
+        "kind": "step",
+        "t": 4.1,
+        "label": "Leave old password empty with a valid replacement"
+      },
+      {
+        "kind": "check",
+        "t": 4.1,
+        "note": "NextPass123! is entered with Old password empty; Update remains disabled."
+      },
+      {
+        "kind": "step",
+        "t": 6.2,
+        "label": "Fill both passwords with a valid replacement"
+      },
+      {
+        "kind": "check",
+        "t": 6.2,
+        "note": "Old password is filled and NextPass123! remains revealed; Update is enabled."
+      }
+    ]
+  }
+}

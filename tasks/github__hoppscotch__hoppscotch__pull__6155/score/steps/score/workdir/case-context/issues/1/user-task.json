@@ -1,0 +1,9 @@
+{
+  "intent": "Edit the site environment variable from the REST request URL.",
+  "actions": [
+    "On the REST request page, select Website Variables with site set to example and enter https://<<site>>.com in the request URL.",
+    "Hover <<site>> and wait for its variable tooltip to appear.",
+    "Move the pointer across the gap toward the tooltip’s edit control.",
+    "Click the edit control."
+  ]
+}

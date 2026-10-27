@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/go-gitea/gitea/pull/39285/issue/1",
+  "definition": {
+    "issue_id": "github/go-gitea/gitea/pull/39285/issue/1",
+    "given": "A public repository's Code page has main selected. Its open ref selector shows the active Branches tab, the alternative Tags tab, and a separate View all branches destination.",
+    "when": "Hover over and click the already-active Branches tab in the open ref selector.",
+    "observed": "The tab adopts link-like hover styling. Clicking keeps the same Code page, dropdown, active Branches tab, and main branch content; the retained Reproduction issue context additionally reports an added trailing # and focus on Filter branch. The unchanged active-tab content is normal; the misleading link semantics and empty-fragment navigation side effect are the defect. Browser chrome is not present in the replay video, so the URL observation relies on the retained Reproduction context, not visual confirmation in the video.",
+    "require": "Expose Branches and Tags as local dropdown-tab actions, with no empty-fragment link or empty # URL change. Preserve tab selection and the separate View all branches destination; reactivating Branches may leave its content unchanged.",
+    "allow": [
+      "Conventional button or tab controls with appropriate local-action semantics are acceptable; a specific element tag or CSS class is not required.",
+      "Hover color, pointer cursor, and focus treatment may vary, and returning focus to the filter is acceptable.",
+      "The active tab may perform no content change; it must not be forced to navigate to /branches."
+    ],
+    "theory": [
+      {
+        "title": "Clarity, actionability, and affordance",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 5: Visual Style and Aesthetics. Conceptual application based on chapter synthesis.",
+        "rationale": "A control should communicate its actual role. Giving a local tab an empty link destination creates a navigation promise that its in-place behavior cannot fulfill; hover color alone is not evidence of a defect."
+      },
+      {
+        "title": "Conventional contextual commands",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "The chapter synthesis calls for conventional and contextual verbs. Local tab activation and navigation to the full branch list are distinct actions and should expose those distinct interaction semantics."
+      }
+    ]
+  },
+  "reference_observation": "Branches and Tags are exposed as local buttons without link destinations. Opening the selector, hovering Branches, and activating the already-active Branches tab keep the dropdown, main selection, and Code-page URL unchanged without adding a fragment. The separate View all branches link retains its branch-list destination; this capture inspects that destination without following it.",
+  "requirement_rationale": "Branches and Tags select within the current dropdown; View all branches navigates elsewhere. Distinguishing those roles prevents a local action from suggesting navigation or changing the URL unnecessarily."
+}

@@ -1,0 +1,9 @@
+{
+  "intent": "Find where a room is located.",
+  "actions": [
+    "Start signed in as an administrator on the Locations list, with a company location, a building and a room linked in that parent-to-child order.",
+    "Open that room from the list and wait for its detail page to load; inspect the breadcrumb and Parent panel.",
+    "Click the parent building in the Parent panel and wait for its detail page to load.",
+    "Use browser Back to return to the same room and inspect its breadcrumb and Parent panel again."
+  ]
+}

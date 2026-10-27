@@ -1,0 +1,1 @@
+-- Persistent state is managed through Gitea's installer and native CLI.

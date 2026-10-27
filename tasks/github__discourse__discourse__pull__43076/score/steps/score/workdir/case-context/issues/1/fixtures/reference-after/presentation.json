@@ -1,0 +1,58 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Inspect automatic silence in review history",
+  "entry_path": "/review",
+  "steps": [
+    "Inspect the loaded pending flagged post and author icon, scrolling slightly to frame Timeline & notes.",
+    "Open the flagged author's user card to inspect the current silence and reason.",
+    "Dismiss the user card and open the Yes action dropdown.",
+    "Choose Delete post and inspect the updated review status and timeline."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Compare the automatic-silence entry with the author card and the later deletion and approval entries.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The pending review’s timeline includes Author silenced automatically with a relative time and Silenced automatically beneath it."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Open the flagged author’s user card"
+      },
+      {
+        "kind": "check",
+        "t": 4.82,
+        "note": "The casey_review card says This user is silenced and Reason: Silenced automatically."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Dismiss the user card and open the Yes menu"
+      },
+      {
+        "kind": "check",
+        "t": 7.24,
+        "note": "The Yes menu includes Delete post and notes that the author stays silenced."
+      },
+      {
+        "kind": "step",
+        "t": 9.0,
+        "label": "Choose Delete post"
+      },
+      {
+        "kind": "check",
+        "t": 9.65,
+        "note": "The approved review’s timeline places Author silenced automatically above Post deleted by morgan_review and Approved by morgan_review."
+      },
+      {
+        "kind": "check",
+        "t": 12.86,
+        "note": "The approved review still shows the separate automatic-silence, deletion and approval entries."
+      }
+    ]
+  }
+}

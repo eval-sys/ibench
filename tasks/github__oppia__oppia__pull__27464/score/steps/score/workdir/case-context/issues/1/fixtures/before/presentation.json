@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Retain the confirmed translation language",
+  "entry_path": "/contributor-admin-dashboard",
+  "steps": [
+    "Inspect the loaded Contributor Dashboard Admin page and the Language dropdown under Manage supported languages for auto-translation.",
+    "Open the Language dropdown and use keyboard type-ahead and Arrow Down to highlight English.",
+    "Press Enter to confirm English and inspect the closed Language field."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "English is highlighted in the open language chooser, but the closed field displays Akan after confirmation.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The Language and Provider fields show placeholders, Add is disabled, and the automatic-suggestions switch is off."
+      },
+      {
+        "kind": "step",
+        "t": 1.0,
+        "label": "Open the Language chooser and use the keyboard to highlight English."
+      },
+      {
+        "kind": "check",
+        "t": 2.38,
+        "note": "English is highlighted in the open language list."
+      },
+      {
+        "kind": "step",
+        "t": 2.75,
+        "label": "Press Enter to confirm English."
+      },
+      {
+        "kind": "check",
+        "t": 3.56,
+        "note": "The closed Language field displays Ákán (Akan)."
+      },
+      {
+        "kind": "check",
+        "t": 6.34,
+        "note": "The Language field displays Ákán (Akan), Provider shows its placeholder, and Add is disabled."
+      }
+    ]
+  }
+}

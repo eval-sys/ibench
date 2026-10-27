@@ -1,0 +1,13 @@
+{
+  "intent": "Invite a colleague to a shared dashboard and add them to multiple team groups.",
+  "actions": [
+    "Start as an administrator with Campaign Performance in Invite Access Demo; Sales has View access, while Marketing and All Users have No access.",
+    "Inspect the collection permissions, close that view, and open Campaign Performance.",
+    "Open Share and choose Invite someone to view this.",
+    "Enter the invitee email, open Groups, and select Marketing.",
+    "Close the picker and inspect the access warning.",
+    "Reopen Groups and add Sales, then inspect the selected memberships and warning state.",
+    "Remove Sales, leaving Marketing and the mandatory All Users group selected, and inspect the access warning again.",
+    "Send the invitation and verify that it succeeds."
+  ]
+}

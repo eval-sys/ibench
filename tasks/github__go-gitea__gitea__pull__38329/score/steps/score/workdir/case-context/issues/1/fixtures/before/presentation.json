@@ -1,0 +1,68 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Synchronize a canceled workflow in the run list",
+  "entry_path": "/morgan/build-checks/actions",
+  "steps": [
+    "Inspect the loaded Build checks #1 run and hover its status icon.",
+    "Open that run, click Cancel workflow run, and inspect its run detail status.",
+    "Use browser Back to return to the retained Actions list; hover the same run status and watch the list for 15 seconds.",
+    "Manually refresh the Actions page and hover the same run status icon."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Cancel the waiting workflow, inspect the returned list, and compare it with a diagnostic manual refresh.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Hover the Build checks run's status icon in the Actions list."
+      },
+      {
+        "kind": "check",
+        "t": 1.0,
+        "note": "The status tooltip reads Waiting."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Open the Build checks run."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Click Cancel workflow run."
+      },
+      {
+        "kind": "check",
+        "t": 4.91,
+        "note": "The run detail shows Status: Canceled."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Use browser Back to return to the Actions list and hover the same run's status icon."
+      },
+      {
+        "kind": "check",
+        "t": 9.83,
+        "note": "The returned list shows a Waiting tooltip for Build checks #1."
+      },
+      {
+        "kind": "check",
+        "t": 19.66,
+        "note": "The status tooltip still reads Waiting at this later inspection."
+      },
+      {
+        "kind": "step",
+        "t": 23.3,
+        "label": "Manually refresh the Actions list for a diagnostic comparison."
+      },
+      {
+        "kind": "check",
+        "t": 26.21,
+        "note": "The refreshed list shows a Canceled tooltip for Build checks #1."
+      }
+    ]
+  }
+}

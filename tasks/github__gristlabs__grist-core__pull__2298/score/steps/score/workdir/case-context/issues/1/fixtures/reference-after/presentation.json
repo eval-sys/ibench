@@ -1,0 +1,46 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Keep widget settings aligned after duplicating a page",
+  "entry_path": "/o/docs/doc/widget-layout-page-copy",
+  "steps": [
+    "Inspect Overview: Right is the visible widget, Left is collapsed in the tray, and the creator panel shows Right.",
+    "Choose Duplicate from the Overview page menu and save Overview (copy); inspect the visible widget and the creator panel."
+  ],
+  "observe_after_step": 2,
+  "video_guide": {
+    "summary": "Duplicate Overview and inspect the copied page’s Right widget and its settings title.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Overview shows Left in the collapsed tray, a visible Right table with a green active border, and Widget title Right in the side panel."
+      },
+      {
+        "kind": "step",
+        "t": 2.0,
+        "label": "Choose Duplicate page from the Overview page menu."
+      },
+      {
+        "kind": "check",
+        "t": 2.84,
+        "note": "The Duplicate page dialog shows Overview (copy) with Save and Cancel buttons."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Save the duplicated page."
+      },
+      {
+        "kind": "check",
+        "t": 4.27,
+        "note": "Overview (copy) is selected; Right is visible with a green active border, Left remains in the tray, and the side panel reads Widget title Right."
+      },
+      {
+        "kind": "check",
+        "t": 7.58,
+        "note": "The copied page still shows the visible Right widget beside Widget title Right."
+      }
+    ]
+  }
+}

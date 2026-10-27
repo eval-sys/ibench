@@ -1,0 +1,10 @@
+{
+  "intent": "Inspect a rectangle I just added to my design.",
+  "actions": [
+    "Open an editable design file.",
+    "Select Rectangle and drag on the canvas to create a rectangle.",
+    "While autosave is still pending, switch the sidebar to Inspect.",
+    "Stay in Inspect longer than the autosave interval.",
+    "Return to Dashboard and reopen the same file."
+  ]
+}

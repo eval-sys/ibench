@@ -1,0 +1,10 @@
+{
+  "intent": "Delete a spam-flagged post from an already silenced author.",
+  "actions": [
+    "As a moderator, open the pending spam review for a hidden post whose author has already been automatically silenced for that same post.",
+    "Inspect the review and Timeline & notes, scrolling to frame them.",
+    "Open the author’s user card and inspect the silence and its reason.",
+    "Dismiss the user card, open the Yes menu, and choose Delete post.",
+    "Wait for the review to update, then inspect Timeline & notes."
+  ]
+}

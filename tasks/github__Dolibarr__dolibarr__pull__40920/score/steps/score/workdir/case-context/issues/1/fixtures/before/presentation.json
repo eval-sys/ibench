@@ -1,0 +1,76 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Delete a shipment and review stock consequences",
+  "entry_path": "/product/stock/product.php",
+  "steps": [
+    "Inspect the loaded Desk lamp Stock tab and its physical stock.",
+    "Open Full list and scroll right to inspect the opening stock and shipment movement, including its Origin and Qty.",
+    "Follow the SH-DISPATCH Origin link and inspect the shipment with Processed status.",
+    "Click Delete and inspect the confirmation dialog and its default Increase stock on deletion checkbox.",
+    "Explicitly leave stock restoration unselected and click Yes to delete the shipment.",
+    "Open Products | Services, follow DISPATCH-LAMP from the recent stock movements, and open its Stock tab.",
+    "Open Full list and scroll right to inspect the remaining stock movements and their Origin cells."
+  ],
+  "observe_after_step": 7,
+  "video_guide": {
+    "summary": "The original confirmation offers an Increase stock checkbox but does not explain the existing stock movements or the consequence of removing their source. Deleting without restoration leaves stock at 15 and the shipment movement without its Origin link.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review product stock"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "Desk lamp physical stock is 15."
+      },
+      {
+        "kind": "step",
+        "t": 4,
+        "label": "Open the stock movement list"
+      },
+      {
+        "kind": "check",
+        "t": 4,
+        "note": "The movement list shows opening stock +20 and shipment SH-DISPATCH -5 with its Origin link."
+      },
+      {
+        "kind": "step",
+        "t": 6,
+        "label": "Follow the shipment Origin"
+      },
+      {
+        "kind": "step",
+        "t": 6.5,
+        "label": "Review Delete confirmation"
+      },
+      {
+        "kind": "check",
+        "t": 6.5,
+        "note": "The deletion dialog has an unchecked Increase stock option and only a generic confirmation; no stock-movement consequence warning is visible."
+      },
+      {
+        "kind": "step",
+        "t": 12,
+        "label": "Inspect stock after deletion"
+      },
+      {
+        "kind": "check",
+        "t": 12,
+        "note": "Physical stock is still 15 after deletion without restoration."
+      },
+      {
+        "kind": "step",
+        "t": 14,
+        "label": "Inspect the remaining movements"
+      },
+      {
+        "kind": "check",
+        "t": 14,
+        "note": "The -5 shipment movement remains, with an empty Origin cell."
+      }
+    ]
+  }
+}

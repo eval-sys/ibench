@@ -1,0 +1,13 @@
+{
+  "agents": [{
+    "name": "codex",
+    "model_name": "gpt-6-astra",
+    "kwargs": {
+      "version": "0.160.1",
+      "reasoning_effort": "high"
+    }
+  }],
+  "environment": {"type": "docker"},
+  "n_concurrent_trials": 3,
+  "retry": {"max_retries": 0}
+}

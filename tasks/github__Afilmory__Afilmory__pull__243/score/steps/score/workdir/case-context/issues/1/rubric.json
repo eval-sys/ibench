@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Afilmory/Afilmory/pull/243/issue/1",
+  "definition": {
+    "issue_id": "github/Afilmory/Afilmory/pull/243/issue/1",
+    "given": "A geotagged photo is open in the desktop photo viewer, with Location Information and its mini-map visible in the sidebar. After entering Explore Map, the photo's location marker and details card are both visible.",
+    "when": "The user drags the map, moving the selected photo's marker within the viewport.",
+    "observed": "The landscape card is initially open, but after the map moves its marker shifts left while the card remains near the center, visibly detached from the selected marker.",
+    "require": "While visible, the photo details card must move with its location marker, preserving their relative position during and after the map pan.",
+    "allow": [
+      "The card may temporarily hide during dragging and reappear anchored to the same marker when dragging ends.",
+      "Map panning may use animation or immediate updates, with any implementation of the map, marker, and card that satisfies Require.",
+      "The user may close the details card."
+    ],
+    "theory": [
+      {
+        "title": "Focus plus Context",
+        "reference": "Designing Interfaces, Third Edition, Chapter 9: Showing Complex Data; designing-interfaces/chapters/ch09-complex-data.md",
+        "rationale": "The map provides the spatial overview, while the card shows details of the selected photo. Keeping the card anchored to the selected marker as the map pans preserves the photo's location context."
+      },
+      {
+        "title": "Animated Transition and spatial continuity",
+        "reference": "Designing Interfaces, Third Edition, Chapter 3: Navigation, Signposts, and Wayfinding; designing-interfaces/chapters/ch03-navigation-wayfinding.md",
+        "rationale": "Panning moves the marker within the viewport. Moving its visible card with it, or temporarily hiding the card and restoring its anchor afterward, preserves the relationship between the photo details and their location."
+      }
+    ]
+  },
+  "reference_observation": "During the map pan, the photo details card and its blue location marker moved together, preserving their relative position. After the pan ended, the card remained open above the same marker.",
+  "requirement_rationale": "The card displays the selected photo's details, while the blue marker shows its location. Keeping their relative position as the map pans makes it clear which location the details describe. Temporarily hiding the card during dragging and restoring its anchor afterward also preserves this relationship."
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Dolibarr/dolibarr/pull/40681/issue/1",
+  "definition": {
+    "issue_id": "github/Dolibarr/dolibarr/pull/40681/issue/1",
+    "given": "An administrator is on the physical-stock replenishment page. Computer XP4523 has physical stock 110, desired stock 200, and alert level 150. A sent supplier order for 100 units of this product awaits receipt.",
+    "when": "The person reviews the Computer XP4523 row in the physical-stock replenish list and hovers over its To order quantity.",
+    "observed": "In physical-stock mode, Computer XP4523 remains listed with desired stock 200, alert level 150, physical stock 110, ordered quantity 100, and To order 0. Hovering the zero-valued quantity field yields no contextual explanation. The general page description explains the physical-stock listing threshold but not why this listed item needs no additional order. The quantities themselves are consistent; this is an explanation gap, not a calculation failure.",
+    "require": "Keep To order at zero and explain in its row or quantity context, without leaving the replenishment view, that physical stock below target puts the product on the list, while existing orders already cover the shortage.",
+    "allow": [
+      "A tooltip on the quantity or adjacent help affordance, a popover, or concise inline explanatory text is acceptable.",
+      "The explanation may be localized and need not use the upstream tooltip wording or repeat every numeric value."
+    ],
+    "theory": [
+      {
+        "title": "Designing Interfaces, Third Edition: Datatips and Focus plus Context",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 9: Showing Complex Data. Conceptual application based on chapter synthesis.",
+        "rationale": "Contextual detail can explain a specific value while retaining its row and overview. Here the person needs the relation between physical stock, pending orders and the zero additional order quantity."
+      },
+      {
+        "title": "Designing Interfaces, Third Edition: Context, Goals, Research, Patterns",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People. Conceptual application based on chapter synthesis.",
+        "rationale": "The underlying goal is to decide whether another purchase is needed. Explaining the reason for zero supports that decision; changing a correct calculation would not address the observed gap."
+      }
+    ]
+  },
+  "reference_observation": "Computer XP4523 remains listed with physical stock 110, desired stock 200, ordered quantity 100, and additional quantity zero. An adjacent information icon opens a tooltip explaining that enough has already been ordered; the page's listing explanation and row figures supply the below-desired-stock context.",
+  "requirement_rationale": "The list uses physical stock to identify shortages, but additional ordering also accounts for incoming supplies. Stock 110 is below the target 200, yet the pending 100 covers the 90-unit gap. Explaining this distinction prevents unnecessary repeat orders."
+}

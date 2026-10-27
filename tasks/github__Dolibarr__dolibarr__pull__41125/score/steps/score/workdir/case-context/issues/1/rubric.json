@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Dolibarr/dolibarr/pull/41125/issue/1",
+  "definition": {
+    "issue_id": "github/Dolibarr/dolibarr/pull/41125/issue/1",
+    "given": "An administrator is signed in with direct debit and bank transfer modules enabled. The direct debit order list is open, and links reference an order and a line that do not exist.",
+    "when": "Directly open the links to the missing order's details, rejects and statistics, then the missing line's details, in the same authenticated browser.",
+    "observed": "All four missing-ID requests render incomplete direct-debit cards instead of explaining that the requested record is absent. The order, rejects and statistics views show no order reference or date, amount 0,00 and receipts/.xml. The line view presents reference 999999, no order reference or date, amount 0,00 and ErrorBadValueForParamNotAString. No PHP warning is visible in the recorded browser. The demonstrated defect is the misleading card state, regardless of server-side warning visibility.",
+    "require": "Each of the four missing-record pages must explicitly report that the record was not found and retain a list link or normal navigation for recovery. Omit the ordinary record card, fabricated zero-valued details, malformed download, record-specific mutation commands and internal error token.",
+    "allow": [
+      "A localized not-found message or a dedicated not-found page is acceptable; an HTTP 404 is optional.",
+      "Exact message wording and recovery-link placement may differ, provided absence is explicit and ordinary navigation remains usable."
+    ],
+    "theory": [
+      {
+        "title": "Designing Interfaces, Third Edition: Error Messages",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "An error state should identify the actual problem and support correction. Explicitly stating that the record is absent is actionable; displaying an empty card and an internal token gives no trustworthy interpretation."
+      },
+      {
+        "title": "Designing Interfaces, Third Edition: Deep Links and Escape Hatch",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 3: Navigation, Signposts, and Wayfinding. Conceptual application based on chapter synthesis.",
+        "rationale": "Old or incorrect deep links must retain understandable orientation and provide recovery from a dead end. A not-found result with normal navigation lets the person return to valid records."
+      }
+    ]
+  },
+  "reference_observation": "Each of the four missing-ID direct-debit pages shows a localized Record not found banner and omits the ordinary record card, malformed download, mutation controls, and internal error token. Banking navigation remains visible. A supplemental recovery check follows the order-list link and returns to an existing order.",
+  "requirement_rationale": "A missing direct-debit record is different from a valid record with zero amount. Rendering an incomplete financial card conceals that distinction; a clear not-found state lets the user recognize the dead link and return to existing records."
+}

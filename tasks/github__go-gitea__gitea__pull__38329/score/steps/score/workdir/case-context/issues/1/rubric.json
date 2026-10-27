@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/go-gitea/gitea/pull/38329/issue/1",
+  "definition": {
+    "issue_id": "github/go-gitea/gitea/pull/38329/issue/1",
+    "given": "A signed-in user is on the repository's Actions list. Build checks #1 (Add project build checks) is Waiting, and the repository has no online runner.",
+    "when": "Open the waiting run, click Cancel workflow run, verify that its detail shows Canceled, then use browser Back to return to the retained Actions list and observe its status without manually refreshing.",
+    "observed": "The retained list continues to display Waiting throughout the observation. A separate diagnostic manual reload then displays Canceled for the same run, confirming that the list was stale after cancellation. The final screenshot is after that diagnostic reload; the preceding video shows the defect. This evidence concerns cancellation, not successful runner execution.",
+    "require": "On returning to the Actions list, reflect the canceled run automatically on reentry or within a reasonable synchronization interval, without manual refresh. Keep its identity and list context understandable.",
+    "allow": [
+      "Refresh on reentry, periodic updates, or server-driven updates are acceptable; no specific polling algorithm is required.",
+      "Status wording, icons, and layout may vary if the canceled state is unambiguous.",
+      "Cancellation may end a waiting run without any runner ever executing it."
+    ],
+    "theory": [
+      {
+        "title": "Action lifecycle feedback and cancelability",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "Visible consequences complete an action lifecycle. A list that still reports Waiting after a confirmed cancellation contradicts the completed action and forces users to verify it manually."
+      }
+    ]
+  },
+  "reference_observation": "Cancel workflow run changes the detail status to Canceled. Returning with browser Back shows the same run as Canceled from the first returned-list inspection and throughout the 15-second observation, without a manual reload. The repository and run identity remain visible.",
+  "requirement_rationale": "The run detail and Actions list describe the same workflow. A list that still says Waiting after cancellation gives contradictory status and makes the user refresh to establish what happened."
+}

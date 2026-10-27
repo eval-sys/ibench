@@ -1,0 +1,56 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Keep widget settings aligned after duplicating a page",
+  "entry_path": "/o/docs/doc/widget-layout-page-copy",
+  "steps": [
+    "Inspect Overview: Right is the visible widget, Left is collapsed in the tray, and the creator panel shows Right.",
+    "Choose Duplicate from the Overview page menu and save Overview (copy); inspect the visible widget and the creator panel."
+  ],
+  "observe_after_step": 2,
+  "video_guide": {
+    "summary": "Duplicate Overview and compare the visible Right widget with the Widget title field in the settings panel.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Overview shows Left in the collapsed tray, a visible Right table with a green active border, and Widget title Right in the side panel."
+      },
+      {
+        "kind": "step",
+        "t": 1.44,
+        "label": "Open the Overview page menu."
+      },
+      {
+        "kind": "check",
+        "t": 1.44,
+        "note": "The page menu includes Duplicate page."
+      },
+      {
+        "kind": "step",
+        "t": 2.88,
+        "label": "Choose Duplicate page and keep Overview (copy) as the name."
+      },
+      {
+        "kind": "check",
+        "t": 2.88,
+        "note": "The Duplicate page dialog shows Overview (copy) and a Save button."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Save the duplicated page."
+      },
+      {
+        "kind": "check",
+        "t": 4.32,
+        "note": "Overview (copy) is selected; Right is visible with the green active border and Left is in the tray, but the side panel reads Widget title Left."
+      },
+      {
+        "kind": "check",
+        "t": 7.68,
+        "note": "The copied page still shows the visible Right widget beside Widget title Left."
+      }
+    ]
+  }
+}

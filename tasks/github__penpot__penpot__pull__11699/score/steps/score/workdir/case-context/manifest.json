@@ -1,0 +1,21 @@
+{
+  "schema_version": "ibench-score-manifest/v1",
+  "task_id": "github__penpot__penpot__pull__11699",
+  "validate": "/workspace/case-context/validate-submission.sh",
+  "cases": [
+    {
+      "case_id": "github/penpot/penpot/pull/11699/issue/2",
+      "input": "/workspace/case-context/issues/2",
+      "replay_root": "/logs/artifacts/tasks/github__penpot__penpot__pull__11699/issues/2/replay",
+      "verdict_template": "/logs/artifacts/tasks/github__penpot__penpot__pull__11699/issues/2/verdict.json",
+      "capture": "/workspace/case-context/issues/2/capture-after.sh"
+    },
+    {
+      "case_id": "github/penpot/penpot/pull/11699/issue/3",
+      "input": "/workspace/case-context/issues/3",
+      "replay_root": "/logs/artifacts/tasks/github__penpot__penpot__pull__11699/issues/3/replay",
+      "verdict_template": "/logs/artifacts/tasks/github__penpot__penpot__pull__11699/issues/3/verdict.json",
+      "capture": "/workspace/case-context/issues/3/capture-after.sh"
+    }
+  ]
+}

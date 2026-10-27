@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/go-gitea/gitea/pull/39221/issue/1",
+  "definition": {
+    "issue_id": "github/go-gitea/gitea/pull/39221/issue/1",
+    "given": "An authenticated person has opened User Settings > Actions > Secrets > Add secret on an Actions-enabled instance. The new secret form is ready for Name and Value input.",
+    "when": "Enter 1DEPLOY_KEY as Name, enter a non-empty Value, and click Confirm.",
+    "observed": "Native HTML5 validation blocks submission, focuses Name, and says Please match the requested format. The dialog retains the entered values but does not explain that the initial digit is invalid or how to correct it.",
+    "require": "Block the invalid name and visibly explain at Name or in its validation feedback that secret names must start with a letter or underscore. Retain entered values so 1DEPLOY_KEY can be corrected.",
+    "allow": [
+      "A persistent input hint, accessible contextual help, or specific validation message is acceptable if the violated first-character rule is understandable.",
+      "Native browser validation is acceptable when accompanied by meaningful rule guidance; a particular custom validator or error string is not required.",
+      "Other valid naming restrictions may remain; the fix need not accept names starting with digits."
+    ],
+    "theory": [
+      {
+        "title": "Input Hints and actionable Error Messages",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "Treat constraints as guidance before they become blockers and place correction help beside the field. A generic format error hides the first-character rule, while a specific hint or validation explanation supports recovery without discarding inputs."
+      }
+    ]
+  },
+  "reference_observation": "Submitting 1DEPLOY_KEY is blocked and both entered values remain in the dialog. Hovering Name reveals guidance that names must start with a letter or underscore, alongside the native format feedback. No secret is created.",
+  "requirement_rationale": "The leading digit violates a rule a generic format error does not explain. Specific guidance lets the user correct the name without guessing, while preserving the secret value avoids unnecessary re-entry."
+}

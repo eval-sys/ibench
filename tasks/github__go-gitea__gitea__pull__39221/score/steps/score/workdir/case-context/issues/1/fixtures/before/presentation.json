@@ -1,0 +1,47 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Explain Actions secret naming rules",
+  "entry_path": "/user/settings/actions/secrets",
+  "steps": [
+    "Inspect the open Add secret dialog and the empty Name field's naming hint.",
+    "Enter 1DEPLOY_KEY as the Name and staging-access as the Value.",
+    "Click Confirm and inspect the validation popup at the Name field."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Enter a secret name beginning with a digit and inspect the generic validation feedback after Confirm.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Inspect the open Add secret dialog."
+      },
+      {
+        "kind": "step",
+        "t": 1.0,
+        "label": "Enter 1DEPLOY_KEY as Name and staging-access as Value."
+      },
+      {
+        "kind": "check",
+        "t": 1.97,
+        "note": "Name contains 1DEPLOY_KEY and Value contains staging-access."
+      },
+      {
+        "kind": "step",
+        "t": 2.0,
+        "label": "Click Confirm."
+      },
+      {
+        "kind": "check",
+        "t": 2.95,
+        "note": "Name is focused and a validation popup says Please match the requested format."
+      },
+      {
+        "kind": "check",
+        "t": 5.25,
+        "note": "The dialog retains both entered values; the visible popup gives the generic format message without the first-character rule."
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/grokability/snipe-it/pull/18872/issue/1",
+  "definition": {
+    "issue_id": "github/grokability/snipe-it/pull/18872/issue/1",
+    "given": "An administrator is signed in, and the Locations list contains the distinct locations Cedar Technologies > North Building > Room 101, with each child linked to its immediate parent.",
+    "when": "Open Room 101 from the Locations list, inspect the breadcrumb and Parent panel, follow North Building in that panel, then use browser Back to return to Room 101.",
+    "observed": "The Room 101 detail page shows Locations > Room 101 in its breadcrumb and only North Building in its Parent panel. Cedar Technologies is absent from the room page. Opening North Building reveals Cedar Technologies as its parent, and returning to Room 101 restores the same incomplete context. The list exposes immediate parents, so this finding concerns orientation on the detail page rather than absence of all hierarchy information throughout the app.",
+    "require": "On Room 101, show the complete Cedar Technologies > North Building > Room 101 ancestry in structural order without leaving the page, with identifiable ancestor navigation targets. Preserve that ancestry after visiting North Building and returning.",
+    "allow": [
+      "The ancestry may appear in the top breadcrumb, the location information panel, or an equivalent visible hierarchy aid; duplication in both areas is optional.",
+      "Separators, icons, spacing, and wrapping may vary if the ancestor order and navigation targets remain clear.",
+      "This case does not require changes to location-name uniqueness or reproduction of duplicate room names."
+    ],
+    "theory": [
+      {
+        "title": "Structural orientation through Breadcrumbs",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 3: Navigation, Signposts, and Wayfinding. Conceptual application based on chapter synthesis.",
+        "rationale": "The skill explains that breadcrumbs represent structural context rather than browser history. Here the room has a two-level ancestry, but its detail view omits the outer ancestor and makes the user navigate to another page to establish where the room belongs. A complete visible hierarchy with ancestor navigation addresses that observed orientation cost. This is an application of the chapter synthesis, not a claim about an inspected book figure."
+      }
+    ]
+  },
+  "reference_observation": "Room 101 shows the full Cedar Technologies > North Building > Room 101 ancestry, with both ancestors linked in the breadcrumb and Parent panel. Visiting North Building and returning with Back preserves that same room hierarchy.",
+  "requirement_rationale": "In Snipe-IT, this room's placement is represented by a chain of parent locations, independently of its Company attribute. A user locating the room can open its details from Locations and use ancestor links to inspect the surrounding location context. Showing only the immediate parent forces another page visit to recover the outer context; displaying the ancestor chain on the room page supports orientation and navigation. That structural context should be the same after visiting a parent and returning, because it follows the stored relationships rather than browsing history. Different visible hierarchy presentations can provide this context."
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Dolibarr/dolibarr/pull/39305/issue/1",
+  "definition": {
+    "issue_id": "github/Dolibarr/dolibarr/pull/39305/issue/1",
+    "given": "The Margin module and Display mark rates option are enabled. In the reproduced proposal case, a draft proposal for Teclib is open with two free-text service lines (no linked product): Consulting service has selling price €100 and buying cost €80; Planning service has selling price €50 and buying cost €40. Both initially display a 20% mark rate. Each line has quantity 1 and zero tax.",
+    "when": "Click the edit icon in the Mark rate column header, enter 25%, and click Update to apply the rate to all lines.",
+    "observed": "The proposal shows two Wrong or missing parameters messages after Update. Both free-text service lines nevertheless display 25% mark rates, with unit prices 106.66667 and 53.33333, line totals EUR106.67 and EUR53.33, and a proposal total of EUR160. The observed defect is contradictory failure feedback after the requested recalculation. This case covers proposals; orders and invoices were not exercised.",
+    "require": "Applying 25% to both free-text service lines must retain buying costs EUR80 and EUR40, show 25% mark rates and line totals EUR106.67 and EUR53.33, and total EUR160. The updated card must show no parameter-validation failure for this successful operation.",
+    "allow": [
+      "Equivalent currency, decimal and rounding presentation is acceptable when the displayed amounts and rates represent the same results.",
+      "An explicit success notice is optional; refreshed values without a contradictory error are sufficient."
+    ],
+    "theory": [
+      {
+        "title": "Designing Interfaces, Third Edition: Interactions Are Conversations",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People. Conceptual application based on chapter synthesis.",
+        "rationale": "Feedback must acknowledge the actual result of the request. Reporting failure after applying the requested rate leaves the user unable to know whether to trust the saved proposal."
+      },
+      {
+        "title": "Designing Interfaces, Third Edition: Error Messages and Success Confirmation",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "Validation feedback must reflect a genuine problem the person can correct. A valid free-text-line update must not produce a misleading parameter error."
+      }
+    ]
+  },
+  "reference_observation": "Applying 25% to both free-text proposal lines produces unit prices 106.66667 and 53.33333, rounded line totals EUR106.67 and EUR53.33, and proposal total EUR160. Both rates show 25%, buying costs remain EUR80 and EUR40, and the resulting card shows no parameter-validation error. No explicit success notice is displayed.",
+  "requirement_rationale": "Mark rate is the share of selling price remaining after buying cost. At 25%, quantity-one, zero-tax lines costing EUR80 and EUR40 sell for 80 / 0.75 and 40 / 0.75, rounded to EUR106.67 and EUR53.33. An error after saving those prices falsely signals that the update failed."
+}

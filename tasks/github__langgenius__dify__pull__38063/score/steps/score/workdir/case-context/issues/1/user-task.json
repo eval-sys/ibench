@@ -1,0 +1,10 @@
+{
+  "intent": "Use Features and Publish in Chatflow Studio.",
+  "actions": [
+    "Open a Chatflow in Studio with an unconfigured LLM model.",
+    "Open Publish and choose Publish Update; wait for the validation toast.",
+    "Click the toast’s X, then immediately click its center area before the fade-out finishes.",
+    "Wait until the toast disappears, then click Features.",
+    "Close the Features panel and click Publish."
+  ]
+}

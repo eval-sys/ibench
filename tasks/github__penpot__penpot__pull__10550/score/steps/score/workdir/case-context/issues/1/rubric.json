@@ -1,0 +1,29 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/penpot/penpot/pull/10550/issue/1",
+  "definition": {
+    "issue_id": "github/penpot/penpot/pull/10550/issue/1",
+    "given": "An empty file is open in Penpot at 100% zoom.",
+    "when": "The person selects the Path tool, clicks three points on the canvas, clicks the first point to close the path, and presses Escape to leave path editing.",
+    "observed": "The selected 260 x 210 path's size badge below the bounding box contains only an \"x\" character; the numeric width and height are absent from the badge.",
+    "require": "After the path is closed and editing ends, its on-canvas size badge shows legible numeric width and height consistent with the selected path's dimensions, with each dimension clearly identifiable.",
+    "allow": [
+      "Dimensions may vary with the chosen points. Badge placement, separators, width and height labels, number formatting, precision, units, and styling may vary while both dimensions remain legible and unambiguous.",
+      "The sidebar may show the same dimensions. The calculation and rendering implementation may vary."
+    ],
+    "theory": [
+      {
+        "title": "Interactions Are Conversations",
+        "reference": "designing-interfaces/ch01",
+        "rationale": "In the real workflow, a designer closes a path and needs to verify its resulting size without leaving the canvas. The ideal response is immediate, legible feedback that acknowledges the completed shape and exposes its dimensions; showing only \"x\" leaves the system response incomplete and forces the person to search elsewhere."
+      },
+      {
+        "title": "Immediate Feedback for Direct Manipulation",
+        "reference": "designing-interfaces/ch08",
+        "rationale": "Closing and selecting the path is direct manipulation, and the nearby size badge is the contextual feedback for that action. The ideal interaction keeps this feedback next to the selected object and reports both width and height as soon as the operation completes, so the person can judge the result and continue without uncertainty."
+      }
+    ]
+  },
+  "reference_observation": "After the path is closed and editing ends, the selected path's badge reads 260 x 210, matching the sidebar width and height.",
+  "requirement_rationale": "When drawing a path, a designer can use its bounding-box width and height to judge the size of the resulting shape. Showing these values clearly beside the selected path makes that feedback available during drawing, without requiring a separate inspection step."
+}

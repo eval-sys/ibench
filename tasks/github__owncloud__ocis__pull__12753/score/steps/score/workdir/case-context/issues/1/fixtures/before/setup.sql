@@ -1,0 +1,1 @@
+-- Server fixture uses the supported WebDAV API in setup.sh.

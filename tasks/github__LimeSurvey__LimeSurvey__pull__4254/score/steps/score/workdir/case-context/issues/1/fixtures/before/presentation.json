@@ -1,0 +1,68 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Review missing attachments before sending invitations",
+  "entry_path": "/index.php/admin/emailtemplates/sa/index/surveyid/425401",
+  "steps": [
+    "Inspect the loaded English invitation template and its attachment error message for Community feedback.",
+    "Scroll to Invitation attachments and inspect participant-guide.pdf with its red missing-file marker.",
+    "Open the Participants link with Enter for the same survey and inspect Alex Morgan in the participant list.",
+    "Choose Invite & remind → Send email invitation and inspect the invitation form and Send invitations control."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Compare the attachment problem in the invitation template with the visible invitation preparation form.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The English invitation template displays an attachment-error banner."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Scroll to Invitation attachments"
+      },
+      {
+        "kind": "check",
+        "t": 2.34,
+        "note": "participant-guide.pdf appears in Invitation attachments with a red warning marker and size 0 KB."
+      },
+      {
+        "kind": "step",
+        "t": 4.0,
+        "label": "Open the survey Participants page"
+      },
+      {
+        "kind": "check",
+        "t": 5.5,
+        "note": "The participant list shows Alex Morgan."
+      },
+      {
+        "kind": "step",
+        "t": 7.0,
+        "label": "Open Invite & remind"
+      },
+      {
+        "kind": "check",
+        "t": 7.5,
+        "note": "The menu includes Send email invitation."
+      },
+      {
+        "kind": "step",
+        "t": 7.5,
+        "label": "Choose Send email invitation"
+      },
+      {
+        "kind": "check",
+        "t": 9.36,
+        "note": "Send email invitations shows participant ID 1, a subject and message, and no attachment warning in the visible form."
+      },
+      {
+        "kind": "check",
+        "t": 12.48,
+        "note": "The visible invitation form still has no attachment warning; the green Send invitations control is present."
+      }
+    ]
+  }
+}

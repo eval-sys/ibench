@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/documenso/documenso/pull/2204/issue/1",
+  "definition": {
+    "issue_id": "github/documenso/documenso/pull/2204/issue/1",
+    "given": "On the signup form, before submission, Full Name is Alex Morgan, Email Address is alex, and the revealed Password is short. Email Address and Password have both been blurred and show their respective invalid-email and minimum-eight-character errors.",
+    "when": "Append @example.com to Email Address while it retains focus, then move focus to Password and replace short with Kestrel!482 while retaining focus in Password. Do not submit the form.",
+    "observed": "At the captured endpoint, Email Address contains alex@example.com without an error, while Password contains the valid eleven-character value Kestrel!482 but still shows the minimum-eight-character error and invalid field styling. The password correction has not updated its validation feedback while the field remains focused.",
+    "require": "After an email or password has shown a validation error, valid correction must promptly clear that error and its invalid styling while the field remains focused, without blur or submission. Invalid values must retain accurate validation feedback.",
+    "allow": [
+      "Revalidation may occur during input or after a short typing pause, provided feedback updates without a focus change or submission.",
+      "Success feedback may be omitted or shown in any readable form; exact wording, colors, layout, and the validation library are unrestricted.",
+      "Initial validation may wait until blur; this case requires timely revalidation of errors already shown, not an error on the first keystroke."
+    ],
+    "theory": [
+      {
+        "title": "Timely, accurate error feedback during form correction",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "Chapter 10 treats constraints as guidance and errors as local, actionable feedback. An error must reflect the current input so users can tell whether a correction worked. The book cautions against premature validation; this case applies to an error already revealed, where retaining a disproven error impedes recovery."
+      }
+    ]
+  },
+  "reference_observation": "Correcting the email clears its obsolete error while Email Address retains focus; the still-invalid password continues to show its own error. Replacing the password with a valid value clears its message and invalid styling while Password retains focus. The form is not submitted.",
+  "requirement_rationale": "Signup users need to know whether correcting their credentials worked. An obsolete error makes a valid value appear invalid and obstructs recovery even though the input now satisfies the rules."
+}

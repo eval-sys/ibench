@@ -1,0 +1,57 @@
+schema_version = "1.4"
+artifacts = []
+
+[task]
+name = "ibench/github__go-gitea__gitea__pull__39221"
+version = "0.1.0"
+description = "Score candidate repair for Add an Actions secret to my account"
+keywords = [ "ibench",]
+[[task.authors]]
+name = "IBench"
+
+[[steps]]
+name = "score"
+artifacts = []
+
+[steps.agent]
+network_mode = "allowlist"
+timeout_sec = 3600.0
+[steps.verifier]
+timeout_sec = 30.0
+collect = []
+[steps.verifier.env]
+IBENCH_SCORE_OUTPUT_ROOT = "/logs/artifacts/tasks/github__go-gitea__gitea__pull__39221"
+IBENCH_SCORE_INPUT_ROOT = "/workspace/case-context"
+IBENCH_SCORE_WORKSPACE = "/workspace/app"
+IBENCH_SCORE_TASK_ID = "github__go-gitea__gitea__pull__39221"
+IBENCH_SCORE_LOCK_PATHS = "[\"pnpm-lock.yaml\", \"go.sum\"]"
+
+[metadata]
+
+[verifier]
+timeout_sec = 600.0
+collect = []
+
+[verifier.env]
+
+[agent]
+network_mode = "allowlist"
+timeout_sec = 3600.0
+
+[environment]
+network_mode = "public"
+allowed_hosts = []
+build_timeout_sec = 2400.0
+os = "linux"
+cpus = 4
+memory_mb = 12288
+storage_mb = 30720
+mcp_servers = []
+workdir = "/workspace"
+
+[environment.env]
+DEV_ENV_SETUP = "bash /opt/dev-env-profile.sh setup"
+DEV_ENV_START = "bash /opt/dev-env-profile.sh start"
+DEV_ENV_READY = "bash /opt/dev-env-profile.sh ready"
+
+[solution.env]

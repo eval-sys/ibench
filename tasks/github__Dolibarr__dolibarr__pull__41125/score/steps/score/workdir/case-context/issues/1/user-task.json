@@ -1,0 +1,11 @@
+{
+  "intent": "Review a direct debit order and its line details.",
+  "actions": [
+    "Sign in as an administrator with direct debit and bank transfer enabled. Use numeric order and line IDs that do not exist for the following direct links.",
+    "Navigate through Banks and direct debit payments to the direct debit order list, and wait for it to load.",
+    "Open /compta/prelevement/card.php?id=<order-id> directly, replacing <order-id> with the missing order ID, and wait for the page to load.",
+    "Open /compta/prelevement/fiche-rejet.php?id=<order-id> directly for that same missing order in the same browser and wait for the page to load.",
+    "Open /compta/prelevement/fiche-stat.php?id=<order-id> directly for that same missing order in the same browser and wait for the page to load.",
+    "Open /compta/prelevement/line.php?id=<line-id> directly, replacing <line-id> with the missing line ID, and wait for the page to load."
+  ]
+}

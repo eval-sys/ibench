@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/Afilmory/Afilmory/pull/274/issue/2",
+  "definition": {
+    "issue_id": "github/Afilmory/Afilmory/pull/274/issue/2",
+    "given": "Account cleanup shows a small workspace containing one 13,858-byte JPEG and an empty workspace containing no photos. Both are cleanup candidates that may be suspended.",
+    "when": "The administrator sets Max photos and Max storage (MB) to 1 and compares the candidates' Content values before deciding which workspaces to suspend.",
+    "observed": "The Content column shows small workspace as \"1 photo\" and \"0.0 MB\", while empty workspace shows \"0 photos\" and the same \"0.0 MB\" storage value.",
+    "require": "Content must clearly distinguish empty workspaces from those with small nonzero storage amounts before the administrator decides which workspaces to suspend.",
+    "allow": [
+      "Small nonzero amounts may be shown using suitable units, additional decimal precision, or accessible exact-value details.",
+      "Units must be clear.",
+      "Photo counts may accompany the storage values."
+    ],
+    "theory": [
+      {
+        "title": "Datatips and exact values",
+        "reference": "Designing Interfaces, Third Edition, Chapter 9: Showing Complex Data; designing-interfaces/chapters/ch09-complex-data.md",
+        "rationale": "The cleanup table supports comparison and selection. Showing different storage amounts as 0.0 MB hides a distinction needed for the decision. The interface should provide sufficient precision directly or through accessible details."
+      },
+      {
+        "title": "Preview and action safety net",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Suspending a workspace affects access and may lead to deletion. Administrators need to identify workspaces containing data before submitting their selection, so the preview must represent storage amounts accurately."
+      }
+    ]
+  },
+  "reference_observation": "Content shows \"0 B\" for the empty workspace and \"14 KB\" for the small workspace.",
+  "requirement_rationale": "Administrators use storage amounts to decide which workspaces to clean up. Distinguishing empty workspaces from those containing data helps them make an informed decision."
+}

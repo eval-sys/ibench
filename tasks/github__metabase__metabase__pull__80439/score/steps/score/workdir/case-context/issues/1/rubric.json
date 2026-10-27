@@ -1,0 +1,28 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/metabase/metabase/pull/80439/issue/1",
+  "definition": {
+    "issue_id": "github/metabase/metabase/pull/80439/issue/1",
+    "given": "The New alert modal is open for a saved question with an Email delivery handler containing the sole default recipient, no configured Slack channel, and Send now available.",
+    "when": "The person removes the sole email recipient, leaving none of the enabled delivery handlers with a valid destination.",
+    "observed": "The 'New alert' modal's Email destination has an empty recipient field; 'Done' is disabled, but 'Send now' remains enabled.",
+    "require": "Send now remains unavailable until an enabled delivery handler has a valid destination.",
+    "allow": [
+      "The valid target may be an email recipient, a configured Slack channel, or another supported delivery handler. Done may remain unavailable while schedule requirements are incomplete even when Send now becomes available. The disabled styling, explanatory copy, and focus behavior may follow the existing design system."
+    ],
+    "theory": [
+      {
+        "title": "Responsive Enabling",
+        "reference": "Designing Interfaces, Third Edition, Chapter 4: Layout of Screen Elements; designing-interfaces/chapters/ch04-layout.md",
+        "rationale": "A valid delivery destination is a prerequisite for Send now. The command's availability should reflect that dependency when the last recipient is removed."
+      },
+      {
+        "title": "Prevent Errors Early",
+        "reference": "Designing Interfaces, Third Edition, Chapter 10: Forms and Controls; designing-interfaces/chapters/ch10-forms.md",
+        "rationale": "The absence of a valid destination is knowable before submission. Preventing an invalid send communicates the constraint before the person spends attention on an action that cannot deliver an alert."
+      }
+    ]
+  },
+  "reference_observation": "Removing the sole email recipient leaves the destination field empty and makes Send now disabled. Done remains disabled as well.",
+  "requirement_rationale": "A question alert sends a saved query’s results to its recipients. The recipient list can become empty while the user edits it, leaving no destination for an immediate send. Send now should be unavailable in that state, independently of the schedule settings used to save the alert."
+}

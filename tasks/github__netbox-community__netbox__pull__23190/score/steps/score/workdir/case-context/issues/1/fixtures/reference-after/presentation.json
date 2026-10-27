@@ -1,0 +1,106 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Browse a bay’s compatible module types",
+  "entry_path": "/dcim/module-types/?q=SFP-25G",
+  "viewport": "1280x720",
+  "steps": [
+    "Inspect the loaded Module Types catalog and its manufacturer/model rows.",
+    "Follow Module Bay Types in Devices, open SFP28 transceiver bay, and wait for its compatible types to load.",
+    "Review the compatible rows and use the Manufacturer and Module Type headings to examine their ordering.",
+    "Inspect Per Page, choose 25, and browse the first and next pages of compatible types.",
+    "Scroll down to inspect the lower Module Bays section.",
+    "Return to page 1 and scroll up to the bay heading and beginning of the compatible collection."
+  ],
+  "observe_after_step": 6,
+  "video_guide": {
+    "summary": "Browse manufacturer-labeled compatible types, change column ordering, and inspect both bounded pages and the lower bay section.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The catalog shows separate Cisco and Generic rows for SFP-25G-SR-C."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Follow Module Bay Types in Devices."
+      },
+      {
+        "kind": "step",
+        "t": 7.0,
+        "label": "Open SFP28 transceiver bay."
+      },
+      {
+        "kind": "check",
+        "t": 8.0,
+        "note": "Compatible Module Types is a separate table with Module Type and Manufacturer columns, including Cisco and Generic SFP-25G-SR-C rows."
+      },
+      {
+        "kind": "step",
+        "t": 9.5,
+        "label": "Activate the Manufacturer heading."
+      },
+      {
+        "kind": "check",
+        "t": 10.0,
+        "note": "Manufacturer has a downward arrow; the visible first rows show Cisco, Cisco, then Generic."
+      },
+      {
+        "kind": "step",
+        "t": 12.5,
+        "label": "Activate Manufacturer again to reverse the ordering."
+      },
+      {
+        "kind": "check",
+        "t": 13.0,
+        "note": "Manufacturer has an upward arrow, and the first visible rows now show Generic."
+      },
+      {
+        "kind": "step",
+        "t": 15.0,
+        "label": "Activate the Module Type heading."
+      },
+      {
+        "kind": "check",
+        "t": 16.0,
+        "note": "Module Type has a downward arrow. The two SFP-25G-SR-C rows appear together with Cisco and Generic manufacturer labels."
+      },
+      {
+        "kind": "step",
+        "t": 18.0,
+        "label": "Use Per Page to choose 25 items."
+      },
+      {
+        "kind": "check",
+        "t": 19.0,
+        "note": "Page 1 is selected, with page 2 available and the range Showing 1–25 of 38 above Module Bays."
+      },
+      {
+        "kind": "step",
+        "t": 20.5,
+        "label": "Open page 2 of the compatible types."
+      },
+      {
+        "kind": "step",
+        "t": 23.0,
+        "label": "Scroll down to the page range and Module Bays section."
+      },
+      {
+        "kind": "check",
+        "t": 24.0,
+        "note": "Page 2 is selected with Showing 26–38 of 38. Module Bays is visible below and says No module bays found."
+      },
+      {
+        "kind": "step",
+        "t": 26.0,
+        "label": "Return to page 1 and scroll up to the bay heading."
+      },
+      {
+        "kind": "check",
+        "t": 28.0,
+        "note": "The bay heading and the first compatible rows are visible again, including both SFP-25G-SR-C manufacturer associations."
+      }
+    ]
+  }
+}

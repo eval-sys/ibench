@@ -1,0 +1,69 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Show a missing-description error after Submit",
+  "entry_path": "/",
+  "viewport": "1280x600",
+  "steps": [
+    "Click Report a Website Issue in the home page footer to display the blank feedback dialog. Turn off optional technical logs before submitting.",
+    "Scroll down within the dialog to the screenshot and technical logs controls.",
+    "Click Submit with the description blank and inspect the lower form view.",
+    "Scroll up within the dialog to inspect the description and its validation message."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Submitting the blank website report leaves the lower form in view; scrolling upward reveals the description warning.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The home-page footer includes Report a Website Issue."
+      },
+      {
+        "kind": "step",
+        "t": 1.0,
+        "label": "Open Report a Website Issue from the footer."
+      },
+      {
+        "kind": "check",
+        "t": 2.0,
+        "note": "The dialog shows an empty description with a 0/2500 counter."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Leave the description blank, turn off technical logs, and scroll to the screenshot controls."
+      },
+      {
+        "kind": "check",
+        "t": 3.0,
+        "note": "The screenshot upload area and unchecked technical-log checkbox are visible; the description is outside the visible form area."
+      },
+      {
+        "kind": "step",
+        "t": 4.0,
+        "label": "Click Submit with the description empty."
+      },
+      {
+        "kind": "check",
+        "t": 4.5,
+        "note": "The dialog shows the screenshot controls, unchecked technical-log checkbox, Cancel and Submit; no description warning is visible here."
+      },
+      {
+        "kind": "step",
+        "t": 5.7,
+        "label": "Scroll upward inside the dialog to inspect the description."
+      },
+      {
+        "kind": "check",
+        "t": 6.0,
+        "note": "The empty description is visible above the red warning: Please add a description before submitting."
+      },
+      {
+        "kind": "check",
+        "t": 9.15,
+        "note": "The report dialog is open with the same empty description, 0/2500 counter and required-description warning."
+      }
+    ]
+  }
+}

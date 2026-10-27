@@ -1,0 +1,9 @@
+{
+  "intent": "Configure email recipients for a saved question's alert.",
+  "actions": [
+    "Start with a saved question open and email delivery configured, with Slack unconfigured.",
+    "Open the question’s “Move, trash, and more…” menu and choose “Create an alert”.",
+    "Wait for the New alert modal to show the sole default email recipient and the available Send now action.",
+    "Remove the sole default email recipient and view the empty recipient field and modal actions."
+  ]
+}

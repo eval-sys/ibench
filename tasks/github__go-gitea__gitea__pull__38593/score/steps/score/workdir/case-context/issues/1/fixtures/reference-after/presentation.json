@@ -1,0 +1,46 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Preserve selections when batch closing issues fails",
+  "entry_path": "/release-coordinator/release-planning/issues",
+  "steps": [
+    "Inspect the issues list with Publish release and Prepare release notes selected, and Complete release review unselected.",
+    "Click Close in the batch toolbar and inspect the resulting issues list."
+  ],
+  "observe_after_step": 2,
+  "video_guide": {
+    "summary": "Attempt the batch close and inspect the dependency message and retained issue selections.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Inspect the selected release issues in the issues list."
+      },
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Publish release and Prepare release notes are checked; Complete release review is unchecked."
+      },
+      {
+        "kind": "step",
+        "t": 1.06,
+        "label": "Click Close in the batch toolbar."
+      },
+      {
+        "kind": "check",
+        "t": 2.11,
+        "note": "A red notification says the batch cannot be closed because issue #1 still has open dependencies."
+      },
+      {
+        "kind": "check",
+        "t": 3.17,
+        "note": "Both release issues are checked, and Close remains available in the batch toolbar."
+      },
+      {
+        "kind": "check",
+        "t": 5.63,
+        "note": "The list shows 3 Open and 0 Closed, with both selections and the dependency notification visible."
+      }
+    ]
+  }
+}

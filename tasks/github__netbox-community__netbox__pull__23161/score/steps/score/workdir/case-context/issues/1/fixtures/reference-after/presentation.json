@@ -1,0 +1,53 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Record cable disconnection in interface history",
+  "entry_path": "/dcim/interfaces/?q=uplink0",
+  "steps": [
+    "Review the loaded uplink0 interfaces on Akron Edge A and Akron Edge B.",
+    "Open Akron Edge A's uplink0 interface and inspect its Connection panel.",
+    "Open the interface's Changelog tab and inspect the listed changes.",
+    "Open the timestamp of the latest Updated Interface entry and inspect its Difference panel."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Inspect the disconnected interface’s Changelog and the newer update clearing its cable assignment.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The filtered Interfaces list shows uplink0 on Akron Edge A and Akron Edge B."
+      },
+      {
+        "kind": "step",
+        "t": 0.5,
+        "label": "Open Akron Edge A’s uplink0 interface."
+      },
+      {
+        "kind": "check",
+        "t": 2.16,
+        "note": "The Connection panel says Not Connected."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Open the Changelog tab."
+      },
+      {
+        "kind": "check",
+        "t": 4.32,
+        "note": "The five-entry Changelog has an Updated Interface row above the Cable Termination deletion and another Updated Interface row below it."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Open the timestamp of the top Updated Interface entry."
+      },
+      {
+        "kind": "check",
+        "t": 8.64,
+        "note": "The Difference panel shows cable changing from 128 to null and cable_end from A to null."
+      }
+    ]
+  }
+}

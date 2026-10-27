@@ -1,0 +1,916 @@
+{
+  "case_id": "github/saleor/saleor-dashboard/pull/6891/issue/1",
+  "before": {
+    "source_commit": "232aa708920f7b7af685c8a1dce4dd0b0f163f98",
+    "prepared_commit": "32729c1bb23fa6ed8eb7890ce4a32edb87c0ef70",
+    "trial": "replay-6c80527e74",
+    "browser_version": "agent-browser 0.33.0",
+    "capture": {
+      "schema_version": "evidence-replay-capture/v1",
+      "entry_path": "/products/?asc=false&sort=date",
+      "record_url": "http://localhost:9000/products/?asc=false&sort=date",
+      "record_started_at_ms": 1791127830521,
+      "record_stopped_at_ms": 1791127837766,
+      "record_elapsed_ms": 7245,
+      "video_duration_ms": 6900,
+      "ffprobe": {
+        "code": 0,
+        "stdout": "{\n    \"format\": {\n        \"duration\": \"6.900000\"\n    }\n}\n",
+        "stderr": ""
+      }
+    },
+    "observation": {
+      "endedAt": 1791127835539,
+      "events": [
+        {
+          "at": 1791127832081,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointerdown",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 400
+        },
+        {
+          "at": 1791127832081,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchstart",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 400
+        },
+        {
+          "at": 1791127832112,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 395
+        },
+        {
+          "at": 1791127832162,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 390
+        },
+        {
+          "at": 1791127832195,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 385
+        },
+        {
+          "at": 1791127832229,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 380
+        },
+        {
+          "at": 1791127832229,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 380
+        },
+        {
+          "at": 1791127832230,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointercancel",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "at": 1791127832252,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 5,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832279,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 10,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 375
+        },
+        {
+          "at": 1791127832280,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 10,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832313,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 15,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832335,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 15,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 370
+        },
+        {
+          "at": 1791127832346,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 20,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832397,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 20,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 360
+        },
+        {
+          "at": 1791127832398,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 25,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832429,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 30,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832479,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 30,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 355
+        },
+        {
+          "at": 1791127832480,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 35,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127832502,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 35,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 350
+        },
+        {
+          "at": 1791127832518,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 35,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchend",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 350
+        }
+      ],
+      "final": {
+        "gridScroll": [],
+        "pageScroll": 35,
+        "url": "http://localhost:9000/products/UHJvZHVjdDoxNzk%3D"
+      },
+      "gesture": {
+        "direction": "up",
+        "distance": 50,
+        "start": [
+          200,
+          400
+        ]
+      },
+      "initial": {
+        "gridScroll": [
+          {
+            "height": 842,
+            "left": 0,
+            "scrollHeight": 842,
+            "top": 0
+          }
+        ],
+        "pageScroll": 0,
+        "url": "http://localhost:9000/products/?asc=false&sort=date"
+      },
+      "startedAt": 1791127830563
+    }
+  },
+  "after": {
+    "source_commit": "74c10cc748e693a1c9cf9f60716a7425b203d636",
+    "prepared_commit": "518d697c1c5395aa5ae55729d2000bd075c261a3",
+    "trial": "replay-6638309126",
+    "browser_version": "agent-browser 0.33.0",
+    "capture": {
+      "schema_version": "evidence-replay-capture/v1",
+      "entry_path": "/products/?asc=false&sort=date",
+      "record_url": "http://localhost:9000/products/?asc=false&sort=date",
+      "record_started_at_ms": 1791127840103,
+      "record_stopped_at_ms": 1791127847706,
+      "record_elapsed_ms": 7603,
+      "video_duration_ms": 5600,
+      "ffprobe": {
+        "code": 0,
+        "stdout": "{\n    \"format\": {\n        \"duration\": \"5.600000\"\n    }\n}\n",
+        "stderr": ""
+      }
+    },
+    "observation": {
+      "endedAt": 1791127845582,
+      "events": [
+        {
+          "at": 1791127842097,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointerdown",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 400
+        },
+        {
+          "at": 1791127842097,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchstart",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 400
+        },
+        {
+          "at": 1791127842128,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 395
+        },
+        {
+          "at": 1791127842161,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 390
+        },
+        {
+          "at": 1791127842195,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 385
+        },
+        {
+          "at": 1791127842245,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointermove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 380
+        },
+        {
+          "at": 1791127842245,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 380
+        },
+        {
+          "at": 1791127842247,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 0,
+          "pointerType": "touch",
+          "target": "DIV",
+          "trusted": true,
+          "type": "pointercancel",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "at": 1791127842268,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 5,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842295,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 10,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 375
+        },
+        {
+          "at": 1791127842296,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 10,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842328,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 15,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842379,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 15,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 370
+        },
+        {
+          "at": 1791127842380,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 20,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842402,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 20,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 365
+        },
+        {
+          "at": 1791127842412,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 25,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842462,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 25,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 360
+        },
+        {
+          "at": 1791127842463,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 30,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842485,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 30,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 355
+        },
+        {
+          "at": 1791127842495,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 35,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842517,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 35,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchmove",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 350
+        },
+        {
+          "at": 1791127842535,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 35,
+          "target": "DIV",
+          "trusted": true,
+          "type": "touchend",
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "x": 200,
+          "y": 350
+        },
+        {
+          "at": 1791127842545,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 37,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842563,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 38,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842579,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 40,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        },
+        {
+          "at": 1791127842597,
+          "gridScroll": [
+            {
+              "height": 842,
+              "left": 0,
+              "scrollHeight": 842,
+              "top": 0
+            }
+          ],
+          "pageScroll": 41,
+          "trusted": true,
+          "type": "scroll",
+          "url": "http://localhost:9000/products/?asc=false&sort=date"
+        }
+      ],
+      "final": {
+        "gridScroll": [
+          {
+            "height": 842,
+            "left": 0,
+            "scrollHeight": 842,
+            "top": 0
+          }
+        ],
+        "pageScroll": 41,
+        "url": "http://localhost:9000/products/?asc=false&sort=date"
+      },
+      "gesture": {
+        "direction": "up",
+        "distance": 50,
+        "start": [
+          200,
+          400
+        ]
+      },
+      "initial": {
+        "gridScroll": [
+          {
+            "height": 842,
+            "left": 0,
+            "scrollHeight": 842,
+            "top": 0
+          }
+        ],
+        "pageScroll": 0,
+        "url": "http://localhost:9000/products/?asc=false&sort=date"
+      },
+      "startedAt": 1791127840158
+    }
+  }
+}

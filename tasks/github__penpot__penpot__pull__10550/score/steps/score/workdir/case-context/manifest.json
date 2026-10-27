@@ -1,0 +1,14 @@
+{
+  "schema_version": "ibench-score-manifest/v1",
+  "task_id": "github__penpot__penpot__pull__10550",
+  "validate": "/workspace/case-context/validate-submission.sh",
+  "cases": [
+    {
+      "case_id": "github/penpot/penpot/pull/10550/issue/1",
+      "input": "/workspace/case-context/issues/1",
+      "replay_root": "/logs/artifacts/tasks/github__penpot__penpot__pull__10550/issues/1/replay",
+      "verdict_template": "/logs/artifacts/tasks/github__penpot__penpot__pull__10550/issues/1/verdict.json",
+      "capture": "/workspace/case-context/issues/1/capture-after.sh"
+    }
+  ]
+}

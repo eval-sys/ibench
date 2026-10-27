@@ -1,0 +1,1 @@
+-- Server preconditions use Oppia native services in the sibling shell script.

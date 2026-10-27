@@ -1,0 +1,1 @@
+-- Server state is owned and removed by cleanup.sh in script-and-browser mode.

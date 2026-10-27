@@ -1,0 +1,57 @@
+schema_version = "1.4"
+artifacts = []
+
+[task]
+name = "ibench/github__Dolibarr__dolibarr__pull__41125"
+version = "0.1.0"
+description = "Score candidate repair for Review a direct debit order and its line details"
+keywords = [ "ibench",]
+[[task.authors]]
+name = "IBench"
+
+[[steps]]
+name = "score"
+artifacts = []
+
+[steps.agent]
+network_mode = "allowlist"
+timeout_sec = 3600.0
+[steps.verifier]
+timeout_sec = 30.0
+collect = []
+[steps.verifier.env]
+IBENCH_SCORE_OUTPUT_ROOT = "/logs/artifacts/tasks/github__Dolibarr__dolibarr__pull__41125"
+IBENCH_SCORE_INPUT_ROOT = "/workspace/case-context"
+IBENCH_SCORE_WORKSPACE = "/workspace/app"
+IBENCH_SCORE_TASK_ID = "github__Dolibarr__dolibarr__pull__41125"
+IBENCH_SCORE_LOCK_PATHS = "[\".vendor-dependencies.lock.json\"]"
+
+[metadata]
+
+[verifier]
+timeout_sec = 600.0
+collect = []
+
+[verifier.env]
+
+[agent]
+network_mode = "allowlist"
+timeout_sec = 3600.0
+
+[environment]
+network_mode = "public"
+allowed_hosts = []
+build_timeout_sec = 2400.0
+os = "linux"
+cpus = 4
+memory_mb = 8192
+storage_mb = 40960
+mcp_servers = []
+workdir = "/workspace"
+
+[environment.env]
+DEV_ENV_SETUP = "bash /opt/dev-env-profile.sh setup"
+DEV_ENV_START = "bash /opt/dev-env-profile.sh start"
+DEV_ENV_READY = "python3 /opt/ready.py"
+
+[solution.env]

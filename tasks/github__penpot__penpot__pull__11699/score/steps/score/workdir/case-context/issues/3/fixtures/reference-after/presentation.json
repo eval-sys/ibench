@@ -1,0 +1,48 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Preserve pending edits through a history preview",
+  "entry_path": "/#/workspace",
+  "steps": [
+    "Select the Rectangle tool and draw a rectangle while background saves are delayed.",
+    "Before autosave finishes, open History and request a preview of Before current edit; observe past the autosave interval and save-delay release.",
+    "Exit the version preview and inspect the live workspace.",
+    "Return to Projects and reopen Version Preview Study."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Preview the earlier empty version, then exit and reopen the file from Dashboard. The current rectangle remains available after both exiting the preview and reopening the file.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Start editing the current file"
+      },
+      {
+        "kind": "step",
+        "t": 2.4,
+        "label": "Preview the older version"
+      },
+      {
+        "kind": "check",
+        "t": 2.4,
+        "note": "Previewing version: Before current edit opens on the earlier empty canvas."
+      },
+      {
+        "kind": "check",
+        "t": 14.4,
+        "note": "The historical preview is still empty and offers Exit and Restore."
+      },
+      {
+        "kind": "step",
+        "t": 16.8,
+        "label": "Exit preview and reopen the live file"
+      },
+      {
+        "kind": "check",
+        "t": 16.8,
+        "note": "After exiting preview and reopening the file from Dashboard, the rectangle remains visible on the canvas and in Layers."
+      }
+    ]
+  }
+}

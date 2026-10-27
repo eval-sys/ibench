@@ -1,0 +1,1 @@
+-- Server state is managed by setup.sh.

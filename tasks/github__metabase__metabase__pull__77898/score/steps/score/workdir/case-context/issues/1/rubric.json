@@ -1,0 +1,28 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/metabase/metabase/pull/77898/issue/1",
+  "definition": {
+    "issue_id": "github/metabase/metabase/pull/77898/issue/1",
+    "given": "An administrator is viewing Campaign Performance in the Invite Access Demo collection. Sales can view the collection, while Marketing and All Users cannot.",
+    "when": "The administrator opens the dashboard invitation form, selects Marketing, adds and then removes Sales, and sends the invitation with only non-access groups selected.",
+    "observed": "The baseline lists Administrators, All Users, Marketing, and Sales without distinguishing dashboard access. Marketing and Sales can be selected together, and All Users remains selected. After Sales is removed, no access warning is shown, but sending the invitation succeeds and creates the user with Marketing and All Users memberships.",
+    "require": "The invitation form shows all eligible groups and distinguishes those granting dashboard access. Both access and non-access groups remain selectable. Selecting only non-access groups shows an inline warning, and submitting the invitation succeeds.",
+    "allow": [
+      "Section headings, badges, helper text, or another clear treatment may distinguish access groups. All Users may remain preselected and non-removable. Non-access groups may remain selectable for organizational membership. Group order and warning wording may vary."
+    ],
+    "theory": [
+      {
+        "title": "LATCH - Category",
+        "reference": "Designing Interfaces, Third Edition, Chapter 2: Organizing the Content; designing-interfaces/chapters/ch02-organizing-content.md",
+        "rationale": "Available groups have different effects on access to the shared dashboard. Organizing or marking them by that meaningful category makes the consequence of each choice understandable while keeping both categories available."
+      },
+      {
+        "title": "Input Hints and Local Error Messages",
+        "reference": "Designing Interfaces, Third Edition, Chapter 10: Forms and Controls; designing-interfaces/chapters/ch10-forms.md",
+        "rationale": "Group membership and dashboard access are different concerns. Local guidance should explain when the selected memberships do not grant dashboard access without preventing otherwise legitimate organizational choices."
+      }
+    ]
+  },
+  "reference_observation": "The picker distinguishes Sales, which grants dashboard access, from Marketing, which does not. Adding Sales preserves Marketing and clears the warning; removing Sales restores it. The invitation succeeds with Marketing and All Users selected, and the created user has those memberships.",
+  "requirement_rationale": "An administrator is inviting a colleague to Campaign Performance and choosing their team memberships. Sales can view the dashboard’s collection, while Marketing cannot, so changing the selected groups also changes the colleague’s access. The form should explain this consequence and warn when access is missing, while still allowing the intended memberships."
+}

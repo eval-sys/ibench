@@ -1,0 +1,57 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Use local tabs in the branch selector",
+  "entry_path": "/morgan-code/project-notes",
+  "steps": [
+    "Open the main branch selector to show the active Branches tab, the Tags tab, and the main branch list.",
+    "Hover over the active Branches tab.",
+    "Click the active Branches tab and inspect the dropdown and repository page."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Open the branch selector, hover Branches, and inspect its appearance after activation. The address bar and accessibility roles are outside the recording.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The project-notes Code page shows main in the closed branch selector."
+      },
+      {
+        "kind": "step",
+        "t": 0.5,
+        "label": "Open the main branch selector."
+      },
+      {
+        "kind": "check",
+        "t": 1.1,
+        "note": "The open selector shows Branches, Tags, main marked default, and View all branches."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Hover over the already-selected Branches tab."
+      },
+      {
+        "kind": "check",
+        "t": 2.2,
+        "note": "Branches is blue while Tags and View all branches remain dark."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Activate the already-selected Branches tab."
+      },
+      {
+        "kind": "check",
+        "t": 3.29,
+        "note": "The selector is open with main marked default; the Filter branch field has a visible focus outline."
+      },
+      {
+        "kind": "check",
+        "t": 5.86,
+        "note": "The Code page and open selector still show main, Branches, Tags, and View all branches."
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+node_modules/
+
+# Local runtime output and audit working files.
+/jobs/
+/runs/
+/audits/
+.agents/acceptance/
+.acceptances/
+
+# Local secrets.
+.env
+.env.*
+!.env.example
+
+# Build output.
+build/
+dist/
+*.egg-info/

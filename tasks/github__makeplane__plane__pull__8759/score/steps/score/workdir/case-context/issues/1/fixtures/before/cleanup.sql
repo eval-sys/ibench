@@ -1,0 +1,1 @@
+-- Persistent fixture state is removed through Plane's Django models in cleanup.sh.

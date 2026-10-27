@@ -1,0 +1,40 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "browser-only",
+  "title": "Import an account statement while skipping its trailing summary rows",
+  "entry_path": "/accounts/:accountId",
+  "steps": [
+    "Change `Skip end lines` from 0 to 2 in the configured CSV import."
+  ],
+  "observe_after_step": 1,
+  "video_guide": {
+    "summary": "Watch the import mappings and transaction preview when Skip end lines becomes 2. The footer disappears, but the existing date and amount settings reset.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the configured CSV preview"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "Three transactions and two summary rows are shown with the configured mappings and Flip amount selected."
+      },
+      {
+        "kind": "step",
+        "t": 1.1,
+        "label": "Set Skip end lines to 2"
+      },
+      {
+        "kind": "check",
+        "t": 1.1,
+        "note": "The summary rows are removed, but Date becomes Choose field and the remaining dates become invalid."
+      },
+      {
+        "kind": "check",
+        "t": 3.7,
+        "note": "Amount now uses Posting, the date format has reset, and Flip amount is unchecked."
+      }
+    ]
+  }
+}

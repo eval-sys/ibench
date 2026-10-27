@@ -1,0 +1,1 @@
+-- Persistent state is removed through the native CLI.

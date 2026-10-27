@@ -1,0 +1,49 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_ENV: prod
+      APP_DEBUG: '0'
+      DATABASE_URL: mysql://kimai:kimai@mariadb:3306/kimai?charset=utf8mb4&serverVersion=11.4.7-MariaDB
+      DEFAULT_URI: http://localhost:8000
+      MAILER_FROM: kimai@example.com
+      MAILER_URL: null://null
+      COMPOSER_ALLOW_SUPERUSER: '1'
+    depends_on:
+      mariadb:
+        condition: service_healthy
+  mariadb:
+    image: mariadb:11.4.7@sha256:39596f079862334be04f4231664862e55d4febe54309cc62f750f2297de85b06
+    environment:
+      MARIADB_DATABASE: kimai
+      MARIADB_USER: kimai
+      MARIADB_PASSWORD: kimai
+      MARIADB_ROOT_PASSWORD: local-root-password
+    tmpfs:
+    - /var/lib/mysql
+    healthcheck:
+      test:
+      - CMD
+      - healthcheck.sh
+      - --connect
+      - --innodb_initialized
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - mariadb
+networks:
+  default:
+    driver: bridge

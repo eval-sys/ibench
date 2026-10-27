@@ -1,0 +1,1 @@
+-- Persistent fixture state is managed through the Saleor GraphQL API.

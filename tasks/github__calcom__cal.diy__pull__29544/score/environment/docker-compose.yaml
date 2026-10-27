@@ -1,0 +1,50 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      DATABASE_URL: postgresql://postgres:calcom-development@postgresql:5432/calendso
+      DATABASE_DIRECT_URL: postgresql://postgres:calcom-development@postgresql:5432/calendso
+      NEXT_PUBLIC_WEBAPP_URL: http://localhost:3000
+      NEXT_PUBLIC_WEBSITE_URL: http://localhost:3000
+      NEXTAUTH_URL: http://localhost:3000
+      NEXTAUTH_SECRET: dev-env-calcom-nextauth-secret
+      CALENDSO_ENCRYPTION_KEY: dev-env-calcom-encryption-key0000
+      CALCOM_TELEMETRY_DISABLED: '1'
+      NEXT_PUBLIC_IS_E2E: '1'
+      BUILD_STANDALONE: 'true'
+      EMAIL_FROM: calcom@localhost
+      NODE_ENV: production
+    depends_on:
+      postgresql:
+        condition: service_healthy
+  postgresql:
+    image: postgres:16.10-bookworm
+    environment:
+      POSTGRES_PASSWORD: calcom-development
+      POSTGRES_DB: calendso
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U postgres -d calendso
+      interval: 3s
+      timeout: 3s
+      retries: 40
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgresql
+networks:
+  default:
+    driver: bridge

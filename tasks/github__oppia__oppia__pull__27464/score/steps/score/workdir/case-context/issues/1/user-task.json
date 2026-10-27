@@ -1,0 +1,10 @@
+{
+  "intent": "Choose a supported language for auto-translation.",
+  "actions": [
+    "Open the Contributor Dashboard Admin page with Translation Admin, Release Coordinator and super-admin access, and automatic translation suggestions enabled for the account through its user group.",
+    "Wait for Manage supported languages for auto-translation to load with an empty mapping, no language or provider selected, and the separate automatic-suggestions switch off.",
+    "Open the Language chooser and type e.",
+    "Press Arrow Down until English is visibly highlighted.",
+    "Press Enter to confirm the selection."
+  ]
+}

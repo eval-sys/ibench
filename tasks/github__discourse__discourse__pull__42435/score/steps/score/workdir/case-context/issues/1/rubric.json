@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/discourse/discourse/pull/42435/issue/1",
+  "definition": {
+    "issue_id": "github/discourse/discourse/pull/42435/issue/1",
+    "given": "In a desktop browser, the public Replies activity stream for morgan_reader has more replies than its initial loaded batch. The reader has scrolled far enough to load additional replies and pauses with Route note 05 in Weekend walking plans 01 visible.",
+    "when": "Open Weekend walking plans 01 through the title link beside Route note 05, then use browser Back to return to the Replies stream.",
+    "observed": "Before leaving, Route note 05 is visible among the replies for Weekend walking plans 01. After Back, the stream instead shows Route notes 14 through 10 for Weekend walking plans 02, higher in the collection. The video remains at that displaced position after loading settles. The issue is lost reading position, rather than missing replies or incorrect topic navigation.",
+    "require": "After browser Back and stream loading, the previously viewed reply must be visible at substantially its prior position without manual scrolling or searching. Restore enough previously loaded content to preserve that reading location.",
+    "allow": [
+      "Retaining the loaded stream, reloading sufficient items before restoring position, or restoring by a stable reply anchor are acceptable.",
+      "Small positioning differences caused by layout settling are acceptable if the same reading item remains visible and usable.",
+      "Ordinary new navigation may load fresh data; this case does not require permanently freezing activity streams or a particular history-store implementation."
+    ],
+    "theory": [
+      {
+        "title": "Preserve orientation when returning to a reading context",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 3: Navigation, Signposts, and Wayfinding. Conceptual application based on chapter synthesis.",
+        "rationale": "The chapter synthesis treats context switches as navigation cost and meaningful state as necessary to preserve orientation. Returning to a different group of replies forces the reader to reconstruct their location. Applying that principle here means restoring the visible reading context, without prescribing how history or infinite scroll is implemented."
+      },
+      {
+        "title": "Reentrance and spatial memory",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People. Conceptual application based on chapter synthesis.",
+        "rationale": "The reader uses an item and its visible location as a memory aid while briefly opening a topic. Preserving that location makes the interrupted reading task resumable. These are conceptual applications of the skill, not claims about a book illustration."
+      }
+    ]
+  },
+  "reference_observation": "After loading all 40 replies and opening the topic beside Route note 05, browser Back returns to the same reply and surrounding items at its prior reading position. That position remains stable after loading settles without another manual scroll or search.",
+  "requirement_rationale": "Opening a topic is a detour from reading the Replies stream. Returning to the same reply lets the reader resume; restoring an offset against only the initial batch can instead land on unrelated replies."
+}

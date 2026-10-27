@@ -1,0 +1,23 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/langgenius/dify/pull/38063/issue/1",
+  "definition": {
+    "issue_id": "github/langgenius/dify/pull/38063/issue/1",
+    "given": "On a Chatflow Studio page, a failed Publish Update attempt displays a validation toast above the Features and Publish controls; closing it starts a fade-out.",
+    "when": "The person dismisses the toast, immediately clicks its center during fade-out, then uses Features and Publish after the toast disappears.",
+    "observed": "The toast becomes visually absent but remains as a transparent dialog over the header, so subsequent clicks on Features and Publish are intercepted and neither control opens.",
+    "require": "Once the toast is visually absent, the underlying Features and Publish controls receive pointer input and remain operable.",
+    "allow": [
+      "The toast may animate out, provided it relinquishes pointer input no later than the moment it becomes visually absent."
+    ],
+    "theory": [
+      {
+        "title": "Action lifecycle and immediate feedback",
+        "reference": "designing-interfaces/ch08-actions",
+        "rationale": "Dismissing transient feedback is part of the action lifecycle. Once the toast appears gone, its interactive scope must end immediately; an invisible hit target makes visual feedback contradict actual actionability and blocks the next explicit command."
+      }
+    ]
+  },
+  "reference_observation": "After the dismissed toast fades away, clicking Features opens its drawer and clicking Publish opens the publishing popup.",
+  "requirement_rationale": "A validation toast is temporary feedback rather than a lock on Studio. Relinquishing its hit area when it disappears lets the user continue using the controls beneath it."
+}

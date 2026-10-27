@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/metabase/metabase/pull/79490/issue/1",
+  "definition": {
+    "issue_id": "github/metabase/metabase/pull/79490/issue/1",
+    "given": "The person is viewing PR 79490 Empty Dashboard, which has no cards or other exportable content.",
+    "when": "The person opens the Share menu to attempt PDF export and invokes Export as PDF if it is offered as an executable action.",
+    "observed": "No PDF file is generated, but a download notification reports `Done!` and `Download completed`; the console warns `No dashboard content found #Dashboard-Parameters-And-Cards-Container`.",
+    "require": "For an empty dashboard, PDF export is unavailable or an export attempt is stopped with a clear explanation that there is no content to export. Download-completion feedback corresponds to an actually produced PDF.",
+    "allow": [
+      "Hiding the export entry, disabling it with an explanation, or showing a clear no-content message when it is selected are all acceptable, provided no download starts. Message wording and presentation may vary.",
+      "Non-empty dashboards or selected tabs may retain PDF export.",
+      "The empty dashboard and its editing controls may remain unchanged."
+    ],
+    "theory": [
+      {
+        "title": "Responsive Enabling",
+        "reference": "Designing Interfaces, Third Edition, Chapter 4: Layout of Screen Elements; designing-interfaces/chapters/ch04-layout.md",
+        "rationale": "Exportable content is a prerequisite for producing this report. The interface should make export unavailable or explain why the action cannot proceed when that prerequisite is missing."
+      },
+      {
+        "title": "Interactions Are Conversations",
+        "reference": "Designing Interfaces, Third Edition, Chapter 1: Designing for People; designing-interfaces/chapters/ch01-designing-for-people.md",
+        "rationale": "Action feedback should communicate the actual outcome and a useful next step. A download-completed message without a generated PDF misrepresents the result."
+      }
+    ]
+  },
+  "reference_observation": "The empty dashboard's Share menu omits Export as PDF, and no download-completion notification appears.",
+  "requirement_rationale": "Dashboard PDF export lets users share the dashboard’s content as a report. An empty dashboard has no report content to export. Making export unavailable prevents an unproductive action and avoids misleading users into believing a report was downloaded."
+}

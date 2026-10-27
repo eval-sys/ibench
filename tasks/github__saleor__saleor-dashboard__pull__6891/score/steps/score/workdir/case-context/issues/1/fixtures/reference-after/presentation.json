@@ -1,0 +1,46 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Scroll the product catalogue with touch gestures on a phone",
+  "entry_path": "/products/?asc=false&sort=date",
+  "viewport": "390x844",
+  "steps": [
+    "Swipe upward across the visible product rows."
+  ],
+  "observe_after_step": 1,
+  "video_guide": {
+    "summary": "The orange circle and trail visualize the same recorded touch gesture. After the upward swipe, All products remains open without navigating into a product.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the mobile catalogue"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "All products and the Travel Shoe Bag row are visible in the phone-sized viewport."
+      },
+      {
+        "kind": "step",
+        "t": 0.2,
+        "label": "Swipe upward across a product row"
+      },
+      {
+        "kind": "check",
+        "t": 0.2,
+        "note": "An orange touch circle and upward trail overlay a product row; these are recording annotations."
+      },
+      {
+        "kind": "check",
+        "t": 0.6,
+        "note": "All products remains visible after the gesture, with the original touch trace retained briefly."
+      },
+      {
+        "kind": "check",
+        "t": 2,
+        "note": "The touch annotation has cleared; the catalogue and its product rows remain visible."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+-- Persistent state is managed with the native Django shell in setup.sh.

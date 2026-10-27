@@ -1,0 +1,8 @@
+{
+  "intent": "Help me correct my email address and password on the signup form.",
+  "actions": [
+    "Start on /signup with a valid Full Name, an Email Address containing only its local part, and a revealed Password shorter than the required eight characters; both email and password have been blurred and show their validation errors.",
+    "Click Email Address, move the caret to the end, and append a valid domain suffix; pause with Email Address still focused.",
+    "Click Password, select its contents, and type a valid password of at least eight characters; pause with Password still focused without submitting the form."
+  ]
+}

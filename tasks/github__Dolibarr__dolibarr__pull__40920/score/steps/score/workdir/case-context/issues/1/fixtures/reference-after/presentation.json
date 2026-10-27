@@ -1,0 +1,105 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Delete a shipment and review stock consequences",
+  "entry_path": "/product/stock/product.php",
+  "steps": [
+    "Inspect the loaded Desk lamp Stock tab and its physical stock.",
+    "Open Full list and scroll right to inspect the opening stock and shipment movement, including its Origin and Qty.",
+    "Follow the SH-DISPATCH Origin link and inspect the shipment with Processed status.",
+    "Click Delete and inspect the warning and the editable Restore stock on deletion choice.",
+    "Explicitly leave stock restoration unselected and click Yes to delete the shipment.",
+    "Open Products | Services, follow DISPATCH-LAMP from the recent stock movements, and open its Stock tab.",
+    "Open Full list and scroll right to inspect the remaining stock movements and their Origin cells.",
+    "Re-establish the same isolated closed shipment and 15-unit stock fixture for the supplemental restoration branch.",
+    "Open the product Stock tab, open Full list, and follow the SH-DISPATCH Origin link.",
+    "Click Delete, inspect the warning, select Restore stock on deletion, and confirm Yes.",
+    "Return through Products | Services to the product Stock tab, then open Full list and inspect the stock movements."
+  ],
+  "observe_after_step": 11,
+  "video_guide": {
+    "summary": "Compare both stock-restoration choices: the dialog explains existing movements; the first choice retains stock 15 and the second restores stock 20.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review product stock"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "Desk lamp physical stock is 15."
+      },
+      {
+        "kind": "step",
+        "t": 4,
+        "label": "Open the stock movement list"
+      },
+      {
+        "kind": "check",
+        "t": 4,
+        "note": "The movement list shows opening stock +20 and shipment -5 with its Origin link."
+      },
+      {
+        "kind": "step",
+        "t": 8,
+        "label": "Review deletion without stock restoration"
+      },
+      {
+        "kind": "check",
+        "t": 8,
+        "note": "The deletion dialog warns that keeping the stock decrease removes its source shipment. Restore stock on deletion is unchecked."
+      },
+      {
+        "kind": "step",
+        "t": 14,
+        "label": "Inspect the first stock outcome"
+      },
+      {
+        "kind": "check",
+        "t": 14,
+        "note": "After deletion without restoration, physical stock is 15."
+      },
+      {
+        "kind": "step",
+        "t": 20,
+        "label": "Review the second restoration scenario"
+      },
+      {
+        "kind": "check",
+        "t": 20,
+        "note": "The second scenario starts with the same product showing physical stock 15."
+      },
+      {
+        "kind": "step",
+        "t": 26.5,
+        "label": "Select Restore stock on deletion"
+      },
+      {
+        "kind": "check",
+        "t": 26.5,
+        "note": "Restore stock on deletion is checked and the consequence warning remains visible."
+      },
+      {
+        "kind": "step",
+        "t": 32,
+        "label": "Inspect the restored stock"
+      },
+      {
+        "kind": "check",
+        "t": 32,
+        "note": "After deletion with restoration, physical stock is 20."
+      },
+      {
+        "kind": "step",
+        "t": 38,
+        "label": "Inspect the compensating movement"
+      },
+      {
+        "kind": "check",
+        "t": 38,
+        "note": "The movement list shows a compensating +5, the earlier -5, and opening stock +20."
+      }
+    ]
+  }
+}

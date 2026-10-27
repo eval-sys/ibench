@@ -1,0 +1,1 @@
+-- Issue-owned native Gitea runtime is removed by cleanup.sh.

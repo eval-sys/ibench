@@ -1,0 +1,120 @@
+{
+  "case_id": "github/lobehub/lobehub/pull/17789/issue/1",
+  "scope": "Read-only excerpts of the recorded message response and rendered conversation; not a judge verdict.",
+  "before": {
+    "source_commit_sha": "9b9f6b96c819a2323a2e35662708049d811f34b6",
+    "prepared_commit_sha": "1008a3acd2da93ecd39bea4bcd36c1db7c22aa98",
+    "trial": "replay-23b0e6bf8d",
+    "record_started_at_ms": 1791016127646,
+    "record_stopped_at_ms": 1791016137740,
+    "video_duration_ms": 9900,
+    "request": {
+      "method": "message.getMessages",
+      "topic_id": "topic_architecture_review",
+      "started_at": "2026-10-03T08:28:50.552377856Z",
+      "status": 200,
+      "messages": [
+        {
+          "id": "msg_architecture_seed",
+          "role": "user",
+          "content": "Summarize the architecture review decisions."
+        },
+        {
+          "id": "msg_architecture_answer",
+          "role": "assistant",
+          "content": "The review approved a staged rollout, audit logging, and a rollback window."
+        },
+        {
+          "id": "msg_architecture_followup",
+          "role": "user",
+          "content": "Please keep the rollback window at 30 minutes."
+        },
+        {
+          "id": "msg_architecture_confirm",
+          "role": "assistant",
+          "content": "Confirmed: the rollback window is 30 minutes."
+        }
+      ]
+    },
+    "rendered_messages": [
+      {
+        "content": "Summarize the architecture review decisions.",
+        "visible": true,
+        "position": 156
+      },
+      {
+        "content": "The review approved a staged rollout, audit logging, and a rollback window.",
+        "visible": false,
+        "position": -1
+      },
+      {
+        "content": "Please keep the rollback window at 30 minutes.",
+        "visible": false,
+        "position": -1
+      },
+      {
+        "content": "Confirmed: the rollback window is 30 minutes.",
+        "visible": false,
+        "position": -1
+      }
+    ]
+  },
+  "reference_after": {
+    "source_commit_sha": "36ce556cb9c6782fec2fb96bae95097463e02a68",
+    "prepared_commit_sha": "fbb29d40a5040449dab0110025e4c240b6781807",
+    "trial": "replay-1445df9647",
+    "record_started_at_ms": 1791015686045,
+    "record_stopped_at_ms": 1791015696177,
+    "video_duration_ms": 10000,
+    "request": {
+      "method": "message.getMessages",
+      "topic_id": "topic_architecture_review",
+      "started_at": "2026-10-03T08:21:29.020246016Z",
+      "status": 200,
+      "messages": [
+        {
+          "id": "msg_architecture_seed",
+          "role": "user",
+          "content": "Summarize the architecture review decisions."
+        },
+        {
+          "id": "msg_architecture_answer",
+          "role": "assistant",
+          "content": "The review approved a staged rollout, audit logging, and a rollback window."
+        },
+        {
+          "id": "msg_architecture_followup",
+          "role": "user",
+          "content": "Please keep the rollback window at 30 minutes."
+        },
+        {
+          "id": "msg_architecture_confirm",
+          "role": "assistant",
+          "content": "Confirmed: the rollback window is 30 minutes."
+        }
+      ]
+    },
+    "rendered_messages": [
+      {
+        "content": "Summarize the architecture review decisions.",
+        "visible": true,
+        "position": 156
+      },
+      {
+        "content": "The review approved a staged rollout, audit logging, and a rollback window.",
+        "visible": true,
+        "position": 227
+      },
+      {
+        "content": "Please keep the rollback window at 30 minutes.",
+        "visible": true,
+        "position": 311
+      },
+      {
+        "content": "Confirmed: the rollback window is 30 minutes.",
+        "visible": true,
+        "position": 384
+      }
+    ]
+  }
+}

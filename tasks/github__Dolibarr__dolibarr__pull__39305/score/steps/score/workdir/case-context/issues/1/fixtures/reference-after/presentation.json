@@ -1,0 +1,52 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Change mark rates across proposal lines",
+  "entry_path": "/comm/propal/card.php",
+  "steps": [
+    "Inspect the two free-text service lines, their buying costs, selling prices, and 20% mark rates.",
+    "Click the edit icon in the Mark rate column header and enter 25%.",
+    "Click Update and inspect the resulting line prices, buying costs, mark rates, proposal total, and feedback."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Watch the same bulk update produce the new prices without a contradictory parameter error.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the proposal lines"
+      },
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The proposal starts with the same two service lines and 20% mark rates."
+      },
+      {
+        "kind": "step",
+        "t": 2.95,
+        "label": "Enter the bulk mark rate"
+      },
+      {
+        "kind": "check",
+        "t": 2.95,
+        "note": "The bulk mark-rate editor contains 25 beside Update."
+      },
+      {
+        "kind": "step",
+        "t": 4.43,
+        "label": "Apply the rate with Update"
+      },
+      {
+        "kind": "check",
+        "t": 4.43,
+        "note": "The refreshed lines show 25% and totals EUR106.67 and EUR53.33; costs remain EUR80 and EUR40."
+      },
+      {
+        "kind": "check",
+        "t": 7.87,
+        "note": "The total selling price is EUR160 and no parameter-error notification is visible."
+      }
+    ]
+  }
+}

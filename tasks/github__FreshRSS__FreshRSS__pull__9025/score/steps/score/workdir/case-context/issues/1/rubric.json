@@ -1,0 +1,26 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/FreshRSS/FreshRSS/pull/9025/issue/1",
+  "definition": {
+    "issue_id": "github/FreshRSS/FreshRSS/pull/9025/issue/1",
+    "given": "The person is logged in as the environment-provided admin, on Display settings with the Origine theme selected, and has not opened or interacted with the Create new user form in this browser session.",
+    "when": "The person clicks Manage users, then enters the admin password and clicks Login at the required reauthentication prompt, opening Create new user without focusing or changing any of its fields.",
+    "observed": "The empty required Username input is immediately displayed with a red border and pale red inset shadow while unfocused, before any interaction with the Create new user fields. This was reproduced in Chromium on the historical baseline with the Origine theme.",
+    "require": "The untouched Username field must initially appear neutral. Preserve required-field and format validation: empty or invalid submissions must remain blocked with visible field feedback. After valid correction and leaving the field, clear its error indication. Valid account creation must remain available.",
+    "allow": [
+      "Equivalent CSS or interaction-state implementations are acceptable; no particular pseudo-class or reference patch is required.",
+      "Normal focus indicators, required-field indicators, labels, layout, language/time-zone defaults and administrator reauthentication may remain unchanged.",
+      "Different error colors or treatments and native browser validation feedback are acceptable if they communicate an actual validation failure and support correction.",
+      "Validation may appear after meaningful invalid-field interaction or a submission attempt according to the supported browser behavior; merely focusing and leaving an unchanged empty field need not trigger a specific error style."
+    ],
+    "theory": [
+      {
+        "title": "Forms as a conversation: timely local validation and error recovery",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "Forms consume user attention. Chapter 10 treats constraints as guidance, recommends timely validation and actionable feedback near the offending control, and emphasizes error recovery. Marking an untouched initial field as erroneous spends attention before the person has had an opportunity to enter a value. A repair should delay that error presentation while preserving feedback for genuinely invalid attempts and clearing it when the value is corrected."
+      }
+    ]
+  },
+  "reference_observation": "The newly opened, untouched Username field has a neutral border and no error shadow. Empty and malformed submissions are rejected with visible field feedback; correcting the username clears its error. A valid username and password create the account, and the newly cleared form is neutral again.",
+  "requirement_rationale": "An empty field is a normal starting state before the administrator has entered a username. Error styling should identify an invalid attempt and clear after correction, helping the user complete account creation without weakening validation."
+}

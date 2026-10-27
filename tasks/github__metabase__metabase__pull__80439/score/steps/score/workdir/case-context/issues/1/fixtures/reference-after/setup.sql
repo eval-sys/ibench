@@ -1,0 +1,1 @@
+-- Server fixture state is managed through Metabase's HTTP API in setup.sh.

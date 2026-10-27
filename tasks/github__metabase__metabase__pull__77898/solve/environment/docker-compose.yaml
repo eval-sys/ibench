@@ -1,0 +1,75 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      APP_URL: ${APP_URL:?}
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      DEV_ENV_ADMIN_EMAIL: admin@metabase.test
+      DEV_ENV_ADMIN_PASSWORD: '12341234'
+      CI: 'true'
+      DATABASE_URL: postgresql://metabase:metabase-development@postgresql:5432/metabase
+      MB_ANON_TRACKING_ENABLED: 'false'
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_HOST: postgresql
+      MB_DB_PORT: '5432'
+      MB_DB_USER: metabase
+      MB_DB_PASS: metabase-development
+      MB_JETTY_HOST: 0.0.0.0
+      MB_JETTY_PORT: '3000'
+      MB_EMAIL_FROM_ADDRESS: metabase@local.host
+      MB_EMAIL_SMTP_HOST: mailpit
+      MB_EMAIL_SMTP_PORT: '1025'
+      MB_EMAIL_SMTP_SECURITY: none
+      MB_LOAD_SAMPLE_CONTENT: 'true'
+      MB_PLUGINS_DIR: /var/lib/metabase/plugins
+      MB_SITE_URL: http://localhost:3000
+    depends_on:
+      postgresql:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+  postgresql:
+    image: postgres:16.10-bookworm
+    environment:
+      POSTGRES_DB: metabase
+      POSTGRES_USER: metabase
+      POSTGRES_PASSWORD: metabase-development
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U metabase -d metabase
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  mailpit:
+    image: axllent/mailpit@sha256:45e5823c8e8f4b948f62e7fac4558490b36992e25f4a8e9e8a8647eecba35624
+    environment:
+      MP_DISABLE_VERSION_CHECK: 'true'
+    healthcheck:
+      test:
+      - CMD
+      - /mailpit
+      - readyz
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgresql
+        - mailpit
+networks:
+  default:
+    driver: bridge

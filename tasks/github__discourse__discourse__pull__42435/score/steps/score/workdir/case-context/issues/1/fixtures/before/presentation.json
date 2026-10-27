@@ -1,0 +1,57 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Restore the reading position after browser Back",
+  "entry_path": "/u/morgan_reader/activity/replies",
+  "steps": [
+    "Scroll down Morgan Reed's Replies stream to load additional replies, then pause at Route note 05 in Weekend walking plans 01.",
+    "Open the topic using the title link beside Route note 05.",
+    "Use browser Back and inspect the returned Replies stream."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Compare the visible replies around Route note 05 before opening its topic and after returning to Replies.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Morgan Reed’s public Replies stream shows Route notes 40, 39 and 38 under Weekend walking plans 05."
+      },
+      {
+        "kind": "step",
+        "t": 0.5,
+        "label": "Scroll down the Replies stream"
+      },
+      {
+        "kind": "check",
+        "t": 1.85,
+        "note": "Route note 05 under Weekend walking plans 01 is visible between Route notes 06 and 04."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Open the topic title beside Route note 05"
+      },
+      {
+        "kind": "check",
+        "t": 3.71,
+        "note": "Weekend walking plans 01 is open with Route note 05 near the top."
+      },
+      {
+        "kind": "step",
+        "t": 5.0,
+        "label": "Use browser Back to return to Replies"
+      },
+      {
+        "kind": "check",
+        "t": 5.56,
+        "note": "The returned stream shows Weekend walking plans 02 and Route notes 14 through 11; a loading spinner is visible near the bottom."
+      },
+      {
+        "kind": "check",
+        "t": 9.89,
+        "note": "The viewport shows Route notes 14 through 10 under Weekend walking plans 02; Route note 05 is not visible."
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Resume an open calendar after being idle",
+  "entry_path": "/interface/main/tabs/main.php",
+  "steps": [
+    "Inspect Calendar and Message Center in a single signed-in browser tab. The reproduction environment uses a 5-second idle timeout.",
+    "Leave the page open without interacting, let the session expire naturally, and wait for two normal reminder polling cycles.",
+    "Return to the calendar. If Week is still available, try switching to the week view.",
+    "If a sign-in option appears, submit valid credentials and confirm that the calendar is restored."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "After the wait, the calendar still shows the original day view. Trying Week leaves the calendar area blank and changes its tab label to Unknown.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The page shows the calendar day view, the Administrator time column, and the Message Center tab."
+      },
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Leave the calendar page open and return after the wait."
+      },
+      {
+        "kind": "check",
+        "t": 86.0,
+        "note": "The calendar day view and Week button remain visible. No sign-in form or prompt to sign in again is shown."
+      },
+      {
+        "kind": "check",
+        "t": 129.0,
+        "note": "The calendar day view and Week button are still visible."
+      },
+      {
+        "kind": "step",
+        "t": 129.4,
+        "label": "Click Week to try switching to the week view."
+      },
+      {
+        "kind": "check",
+        "t": 132.0,
+        "note": "The calendar tab label changes to Unknown and the area below is blank. The top-level navigation and Message Center tab remain visible, with no sign-in option or explanatory text."
+      }
+    ]
+  }
+}

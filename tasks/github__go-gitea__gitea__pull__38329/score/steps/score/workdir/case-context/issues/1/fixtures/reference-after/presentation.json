@@ -1,0 +1,57 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Synchronize a canceled workflow in the run list",
+  "entry_path": "/morgan/build-checks/actions",
+  "steps": [
+    "Inspect the loaded Build checks #1 run and hover its status icon.",
+    "Open that run, click Cancel workflow run, and inspect its run detail status.",
+    "Use browser Back to return to the retained Actions list; hover the same run status and watch the list for 15 seconds."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Cancel the waiting workflow, return to the Actions list, and inspect the run status.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Hover the Build checks run's status icon in the Actions list."
+      },
+      {
+        "kind": "check",
+        "t": 1.0,
+        "note": "The status tooltip reads Waiting."
+      },
+      {
+        "kind": "step",
+        "t": 1.5,
+        "label": "Open the Build checks run."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Click Cancel workflow run."
+      },
+      {
+        "kind": "check",
+        "t": 4.52,
+        "note": "The run detail shows Status: Canceled."
+      },
+      {
+        "kind": "step",
+        "t": 6.0,
+        "label": "Use browser Back to return to the Actions list and hover the same run's status icon."
+      },
+      {
+        "kind": "check",
+        "t": 9.05,
+        "note": "The returned list shows a Canceled tooltip for Build checks #1."
+      },
+      {
+        "kind": "check",
+        "t": 24.13,
+        "note": "The status tooltip reads Canceled at this later inspection."
+      }
+    ]
+  }
+}

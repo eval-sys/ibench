@@ -1,0 +1,24 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/penpot/penpot/pull/11427/issue/1",
+  "definition": {
+    "issue_id": "github/penpot/penpot/pull/11427/issue/1",
+    "given": "The file contains more Waypoint layers than fit in the visible Layers panel. Layer-name search is open at the first matching result.",
+    "when": "The user clicks Previous once.",
+    "observed": "Clicking Previous changes the counter to 40 / 40 and selects Waypoint 40. The workspace shifts upward, moving the header and toolbar out of view and leaving empty space below the canvas.",
+    "require": "Navigating to the last search result brings the target layer into view while keeping the workspace header and toolbar visible and the canvas filling the available workspace area.",
+    "allow": [
+      "The Layers list may scroll and the canvas may pan or animate to reveal the target.",
+      "Panel dimensions, spacing, and styling may vary while preserving access to the workspace controls."
+    ],
+    "theory": [
+      {
+        "title": "Jump to Item - Reveal a distant layer within the existing workspace",
+        "reference": "Designing Interfaces, Third Edition, Chapter 7: Lists of Things; designing-interfaces/chapters/ch07-lists.md",
+        "rationale": "Search navigation brings a distant layer into view within a long list. Keeping the surrounding workspace controls accessible lets the user continue working with that layer."
+      }
+    ]
+  },
+  "reference_observation": "Clicking Previous selects Waypoint 40 while the workspace header and toolbar remain visible and the canvas continues to fill the available workspace area.",
+  "requirement_rationale": "Layers represent the objects in a design file. When the list is too long to browse easily, search helps a designer locate an object to work on. Navigating to a result should scroll the layer list without displacing the canvas or hiding the editing controls."
+}

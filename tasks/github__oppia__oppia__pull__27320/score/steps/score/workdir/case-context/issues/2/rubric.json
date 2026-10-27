@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/oppia/oppia/pull/27320/issue/2",
+  "definition": {
+    "issue_id": "github/oppia/oppia/pull/27320/issue/2",
+    "given": "A logged-in learner is playing Welcome to Oppia! with the new lesson player enabled. Report an Issue has just been opened from the options drawer. The modal contains an empty multiline description and a 0/2500 counter. No interaction inside the newly opened modal has occurred.",
+    "when": "Immediately type The image is missing. on the keyboard, without first clicking or tabbing to a control inside the modal.",
+    "observed": "The description remains empty and the counter stays at 0/2500. Replay context reports initial focus on the Typo category control. A later click in the description followed by the same typing produces the text and a 21/2500 counter, demonstrating that text entry itself works.",
+    "require": "When the lesson report modal is ready, focus its editable description so initial typing appears immediately and updates the character counter without an extra click or Tab. Keep other modal controls keyboard-reachable.",
+    "allow": [
+      "Any focus-management mechanism is acceptable if the description is ready for typing after the modal opens and its rendering completes.",
+      "The optional issue categories may remain available; this case does not require choosing a category or submitting a report.",
+      "Equivalent description-control styling is acceptable if multiline text entry and the counter remain usable."
+    ],
+    "theory": [
+      {
+        "title": "Support the intended next step and efficient keyboard entry",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "This short reporting task is intended to start with describing the problem; its categories are optional. Supporting keyboard use and reducing unnecessary form interactions makes that next step productive instead of silently dropping the first typing attempt. Initial description focus is established by Oppia's explicit expectation in issue #27295, not asserted as a universal rule for every modal form."
+      }
+    ]
+  },
+  "reference_observation": "After the lesson issue dialog opens, the description already has focus. Initial typing enters The image is missing. and updates the counter to 21/2500 without a click or Tab inside the dialog. A supplemental keyboard check reaches the other modal controls.",
+  "requirement_rationale": "The learner opens this dialog to describe a problem. Initial focus makes the first typing productive, while keyboard access to other controls preserves the rest of the reporting flow."
+}

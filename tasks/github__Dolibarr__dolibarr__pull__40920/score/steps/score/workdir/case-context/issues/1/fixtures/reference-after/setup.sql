@@ -1,0 +1,1 @@
+-- Server state is managed through the Dolibarr native PHP CLI bootstrap.

@@ -1,0 +1,8 @@
+{
+  "intent": "Search for a layer in the design file.",
+  "actions": [
+    "Open a file containing 40 rectangle layers named Waypoint 01 through Waypoint 40.",
+    "Open Find and replace in the Layers panel, search for Waypoint in Layer names, and wait for 1 / 40.",
+    "Click Previous once and wait for the layer list and canvas to settle."
+  ]
+}

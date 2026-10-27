@@ -1,0 +1,52 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Draw and select a closed path to inspect its size badge",
+  "entry_path": "/#/workspace",
+  "steps": [
+    "Select the Path tool in the empty file.",
+    "Click three points on the canvas, then click the first point to close the path.",
+    "Press Escape to leave path editing and inspect the selected path."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Follow the triangle from drawing to selection. The selection's size badge displays x instead of the path dimensions.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 2.9,
+        "label": "Draw the path edges"
+      },
+      {
+        "kind": "check",
+        "t": 2.9,
+        "note": "Two connected edges are drawn with the path tool."
+      },
+      {
+        "kind": "step",
+        "t": 3.9,
+        "label": "Close the triangular path"
+      },
+      {
+        "kind": "check",
+        "t": 3.9,
+        "note": "The third edge closes the triangular path."
+      },
+      {
+        "kind": "step",
+        "t": 4.9,
+        "label": "Select the closed path and inspect its size"
+      },
+      {
+        "kind": "check",
+        "t": 4.9,
+        "note": "The selected triangle has a bounding box, but the badge below it reads x."
+      },
+      {
+        "kind": "check",
+        "t": 6.8,
+        "note": "The badge still reads x while the properties panel shows width 260 and height 210."
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "intent": "Review a network interface's connection history.",
+  "actions": [
+    "Start signed in as an administrator on the filtered interface list, with interfaces on two devices previously connected by a cable that has since been deleted through NetBox's native cable-deletion path.",
+    "Open one of those interfaces, wait for it to load, and inspect the Connection panel.",
+    "Open the Changelog tab and wait for the listed changes to load.",
+    "Open the timestamp of the latest Updated Interface entry and inspect its connection change details."
+  ]
+}

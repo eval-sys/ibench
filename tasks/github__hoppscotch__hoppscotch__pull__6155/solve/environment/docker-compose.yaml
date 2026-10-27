@@ -1,0 +1,96 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:3100
+      HOPPSCOTCH_WEB_URL: http://localhost:3000
+      HOPPSCOTCH_ADMIN_URL: http://localhost:3100
+      HOPPSCOTCH_BACKEND_URL: http://localhost:3170
+      ECHO_BASE_URL: http://echo:8080
+      DATABASE_URL: postgresql://postgres:testpass@hoppscotch-db:5432/hoppscotch?connect_timeout=300
+      DATA_ENCRYPTION_KEY: data encryption key with 32 char
+      WHITELISTED_ORIGINS: http://localhost:3170,http://localhost:3000,http://localhost:3100,app://localhost_3200,app://hoppscotch
+      PROXY_APP_URL: https://proxy.hoppscotch.io
+      TRUST_PROXY: 'false'
+      VITE_BASE_URL: http://localhost:3000
+      VITE_SHORTCODE_BASE_URL: http://localhost:3000
+      VITE_ADMIN_URL: http://localhost:3100
+      VITE_BACKEND_GQL_URL: http://localhost:3170/graphql
+      VITE_BACKEND_WS_URL: ws://localhost:3170/graphql
+      VITE_BACKEND_API_URL: http://localhost:3170/v1
+      VITE_APP_TOS_LINK: https://docs.hoppscotch.io/support/terms
+      VITE_APP_PRIVACY_POLICY_LINK: https://docs.hoppscotch.io/support/privacy
+      VITE_PROXYSCOTCH_ACCESS_TOKEN: ''
+      ENABLE_SUBPATH_BASED_ACCESS: 'false'
+      PORT: '3170'
+      PRODUCTION: 'true'
+      CI: 'true'
+    depends_on:
+      echo:
+        condition: service_healthy
+      hoppscotch-db:
+        condition: service_healthy
+      hoppscotch-mailpit:
+        condition: service_healthy
+  echo:
+    build:
+      context: .
+      dockerfile: fixtures/echo-server.Dockerfile
+    environment:
+      PORT: '8080'
+    healthcheck:
+      test:
+      - CMD
+      - node
+      - -e
+      - fetch('http://127.0.0.1:8080/healthz').then(r => { if (!r.ok) process.exit(1)
+        }).catch(() => process.exit(1))
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  hoppscotch-db:
+    image: postgres:15
+    user: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: testpass
+      POSTGRES_DB: hoppscotch
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - sh -c 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}'
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  hoppscotch-mailpit:
+    image: axllent/mailpit@sha256:45e5823c8e8f4b948f62e7fac4558490b36992e25f4a8e9e8a8647eecba35624
+    environment:
+      MP_DATABASE: /tmp/mailpit.db
+      MP_DISABLE_VERSION_CHECK: 'true'
+    healthcheck:
+      test:
+      - CMD
+      - /mailpit
+      - readyz
+      interval: 2s
+      timeout: 3s
+      retries: 60
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - echo
+        - hoppscotch-db
+        - hoppscotch-mailpit
+networks:
+  default:
+    driver: bridge

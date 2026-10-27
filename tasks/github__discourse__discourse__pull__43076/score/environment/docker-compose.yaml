@@ -1,0 +1,97 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:3000
+      RAILS_ENV: production
+      NODE_ENV: production
+      CI: '1'
+      RAILS_LOG_TO_STDOUT: 'true'
+      LOAD_PLUGINS: '0'
+      DISCOURSE_DOWNLOAD_PRE_BUILT_ASSETS: '0'
+      DISCOURSE_REFRESH_MAXMIND_DB_DURING_PRECOMPILE_DAYS: '0'
+      DISCOURSE_HOSTNAME: localhost
+      DISCOURSE_PORT: '3000'
+      DISCOURSE_FORCE_HTTPS: 'false'
+      DISCOURSE_SERVE_STATIC_ASSETS: 'true'
+      DISCOURSE_SERVE_UPLOADS: 'true'
+      DISCOURSE_SECRET_KEY_BASE: a9c32ef02743b4c6d7f018a65de0428ba9c32ef02743b4c6d7f018a65de0428ba9c32ef02743b4c6d7f018a65de0428ba9c32ef02743b4c6d7f018a65de0428b
+      DISCOURSE_DB_HOST: postgres
+      DISCOURSE_DB_NAME: discourse
+      DISCOURSE_DB_USERNAME: discourse
+      DISCOURSE_DB_PASSWORD: discourse
+      DISCOURSE_REDIS_HOST: redis
+      DISCOURSE_SMTP_ADDRESS: mailpit
+      DISCOURSE_SMTP_PORT: '1025'
+      DISCOURSE_SMTP_ENABLE_START_TLS: 'false'
+      MAILPIT_URL: http://mailpit:8025
+      UNICORN_PORT: '3000'
+      UNICORN_BIND_ALL: '1'
+      UNICORN_WORKERS: '2'
+      UNICORN_SIDEKIQS: '1'
+      DISCOURSE_SIDEKIQ_WORKERS: '2'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mailpit:
+        condition: service_healthy
+  postgres:
+    image: pgvector/pgvector:0.8.1-pg15-bookworm
+    environment:
+      POSTGRES_DB: discourse
+      POSTGRES_USER: discourse
+      POSTGRES_PASSWORD: discourse
+    tmpfs:
+    - /var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U discourse -d discourse
+      interval: 3s
+      timeout: 3s
+      retries: 60
+  redis:
+    image: redis:7.4.2-bookworm
+    command:
+    - redis-server
+    - --maxmemory-policy
+    - noeviction
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 3s
+      timeout: 3s
+      retries: 60
+  mailpit:
+    image: axllent/mailpit:v1.27.8
+    healthcheck:
+      test:
+      - CMD
+      - /mailpit
+      - readyz
+      interval: 3s
+      timeout: 3s
+      retries: 60
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - postgres
+        - redis
+        - mailpit
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,10 @@
+{
+  "intent": "Update my profile.",
+  "actions": [
+    "Start signed in with Profile settings open and the black-sand cover displayed.",
+    "Click Change cover and select Cover image 3, showing star trails.",
+    "Click Save changes and wait for the profile update confirmation.",
+    "Close Profile settings.",
+    "Open the avatar menu, select Settings, and wait for Profile settings to appear."
+  ]
+}

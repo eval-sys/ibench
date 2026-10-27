@@ -1,0 +1,40 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Explain a zero replenishment quantity",
+  "entry_path": "/product/stock/replenish.php?mode=physical",
+  "steps": [
+    "Review the Computer XP4523 row in the loaded physical-stock list, then hover over its To order quantity."
+  ],
+  "observe_after_step": 1,
+  "video_guide": {
+    "summary": "Review why an under-target product remains listed while no extra order is needed.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review stock and pending orders"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "The row shows physical stock 110, desired stock 200, ordered quantity 100, and To order 0."
+      },
+      {
+        "kind": "step",
+        "t": 4,
+        "label": "Hover the adjacent explanation control"
+      },
+      {
+        "kind": "check",
+        "t": 4,
+        "note": "The tooltip says the quantity is zero because enough quantity has already been ordered."
+      },
+      {
+        "kind": "check",
+        "t": 6.5,
+        "note": "The same tooltip and zero quantity remain visible; the page also describes the physical-stock listing threshold."
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "ibench-score-manifest/v1",
+  "task_id": "github__Dolibarr__dolibarr__pull__40920",
+  "validate": "/workspace/case-context/validate-submission.sh",
+  "cases": [
+    {
+      "case_id": "github/Dolibarr/dolibarr/pull/40920/issue/1",
+      "input": "/workspace/case-context/issues/1",
+      "replay_root": "/logs/artifacts/tasks/github__Dolibarr__dolibarr__pull__40920/issues/1/replay",
+      "verdict_template": "/logs/artifacts/tasks/github__Dolibarr__dolibarr__pull__40920/issues/1/verdict.json",
+      "capture": "/workspace/case-context/issues/1/capture-after.sh"
+    }
+  ]
+}

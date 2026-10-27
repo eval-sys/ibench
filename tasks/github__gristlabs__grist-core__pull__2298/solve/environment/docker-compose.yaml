@@ -1,0 +1,68 @@
+services:
+  main:
+    depends_on:
+      oidc:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:8484
+      APP_HOME_URL: http://localhost:8484
+      OIDC_ISSUER_URL: http://oidc:5556
+      OIDC_CLIENT_ID: grist
+      OIDC_CLIENT_SECRET: local-development
+      OIDC_USER_EMAIL: you@example.com
+      OIDC_USER_PASSWORD: password
+      PORT: '8484'
+      NODE_ENV: production
+      GRIST_EDITION: community
+      GRIST_SKIP_EXT_AUTOSETUP: '1'
+      GRIST_IN_SERVICE: 'true'
+      GRIST_SERVE_SAME_ORIGIN: 'true'
+      GRIST_ORG_IN_PATH: 'true'
+      GRIST_HOST: 0.0.0.0
+      GRIST_DATA_DIR: /workspace/grist/docs
+      GRIST_INST_DIR: /workspace/grist/instance
+      TYPEORM_TYPE: sqlite
+      TYPEORM_DATABASE: /workspace/grist/instance/home.sqlite3
+      GRIST_SANDBOX_FLAVOR: unsandboxed
+      GRIST_SANDBOX: /workspace/app/sandbox_venv3/bin/python
+      GRIST_TELEMETRY_LEVEL: 'off'
+      GRIST_ALLOW_AUTOMATIC_VERSION_CHECKING: 'false'
+      GRIST_WIDGET_LIST_URL: ''
+      GRIST_UNTRUSTED_PORT: ''
+  oidc:
+    image: ghcr.io/dexidp/dex:v2.43.1@sha256:0881d3c9359b436d585b2061736ce271c100331e073be9178ef405ce5bf09557
+    command:
+    - dex
+    - serve
+    - /etc/dex/config.yaml
+    volumes:
+    - ./oidc.yaml:/etc/dex/config.yaml:ro
+    healthcheck:
+      test:
+      - CMD
+      - wget
+      - -q
+      - -O
+      - /dev/null
+      - http://127.0.0.1:5556/.well-known/openid-configuration
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - oidc
+networks:
+  default:
+    driver: bridge

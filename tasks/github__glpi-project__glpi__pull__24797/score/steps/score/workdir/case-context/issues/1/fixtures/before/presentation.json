@@ -1,0 +1,63 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Keep validation and visibility criteria independent",
+  "entry_path": "/front/form/form.form.php",
+  "steps": [
+    "Inspect Summary and its validation and visibility count badges.",
+    "Open Summary's validation editor and inspect its length criterion.",
+    "Switch to Summary's visibility editor and inspect its Category criterion.",
+    "Delete the visibility criterion, then close the editor to inspect both badges."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Inspect the validation rule, delete the visibility criterion, and compare the two count badges.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Inspect Summary in the Service request details form."
+      },
+      {
+        "kind": "check",
+        "t": 1.0,
+        "note": "Summary shows validation count 1 and visibility count 1."
+      },
+      {
+        "kind": "step",
+        "t": 1.0,
+        "label": "Open Summary's conditional validation editor."
+      },
+      {
+        "kind": "check",
+        "t": 2.59,
+        "note": "Conditional validation shows Length is greater than 5."
+      },
+      {
+        "kind": "step",
+        "t": 4.5,
+        "label": "Close validation and open Summary's conditional visibility editor."
+      },
+      {
+        "kind": "check",
+        "t": 5.18,
+        "note": "Conditional visibility shows Category is equal to Assistance."
+      },
+      {
+        "kind": "step",
+        "t": 8.5,
+        "label": "Delete the sole visibility criterion."
+      },
+      {
+        "kind": "step",
+        "t": 10.37,
+        "label": "Close the visibility editor and inspect both count badges."
+      },
+      {
+        "kind": "check",
+        "t": 13.82,
+        "note": "Summary's validation and visibility badges both display 0."
+      }
+    ]
+  }
+}

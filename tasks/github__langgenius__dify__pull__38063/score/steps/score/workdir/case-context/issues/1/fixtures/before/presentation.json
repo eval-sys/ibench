@@ -1,0 +1,58 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Use Features and Publish in Chatflow Studio after a publish toast closes",
+  "entry_path": "/app/5e2bb497-11fd-4d28-a68c-09c7c6623b31/workflow",
+  "viewport": "1280x720",
+  "steps": [
+    "Open Publish, choose Publish Update, and inspect the validation toast over the Studio header.",
+    "Click the toast's X, then immediately click the center of the same toast before its fade-out completes.",
+    "After the toast is visually gone, click Features and then Publish."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Watch the Features and Publish controls after the publish-error toast disappears. Neither opens its panel during the subsequent click attempts.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.6,
+        "label": "Attempt Publish Update"
+      },
+      {
+        "kind": "check",
+        "t": 0.6,
+        "note": "A publish attempt displays an error toast above the publishing popup."
+      },
+      {
+        "kind": "step",
+        "t": 1.9,
+        "label": "Dismiss the validation toast"
+      },
+      {
+        "kind": "check",
+        "t": 1.9,
+        "note": "The toast and popup are no longer visible."
+      },
+      {
+        "kind": "step",
+        "t": 3.1,
+        "label": "Attempt to open Features"
+      },
+      {
+        "kind": "check",
+        "t": 3.1,
+        "note": "The editor remains visible without a Features drawer."
+      },
+      {
+        "kind": "step",
+        "t": 4.4,
+        "label": "Attempt to open Publish"
+      },
+      {
+        "kind": "check",
+        "t": 4.4,
+        "note": "The editor remains visible without the publishing popup."
+      }
+    ]
+  }
+}

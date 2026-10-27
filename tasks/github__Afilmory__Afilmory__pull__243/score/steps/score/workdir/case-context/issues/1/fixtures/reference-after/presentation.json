@@ -1,0 +1,42 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Pan the map opened from a photo's sidebar",
+  "entry_path": "/photos/landscape",
+  "steps": [
+    "Inspect the open landscape photo and the Location Information mini-map in its sidebar.",
+    "Click the Location Information mini-map to open the photo on the full map.",
+    "Swipe the full map to the left."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Watch the landscape card and its blue marker move together during the pan and remain aligned afterward.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the selected photo on the map"
+      },
+      {
+        "kind": "check",
+        "t": 0,
+        "note": "The landscape details card is open above its blue location marker."
+      },
+      {
+        "kind": "step",
+        "t": 1.8,
+        "label": "Pan the map"
+      },
+      {
+        "kind": "check",
+        "t": 1.8,
+        "note": "The landscape card is positioned above its blue photo marker in the panned map view."
+      },
+      {
+        "kind": "check",
+        "t": 3.7,
+        "note": "The open landscape card remains positioned above the same blue marker."
+      }
+    ]
+  }
+}

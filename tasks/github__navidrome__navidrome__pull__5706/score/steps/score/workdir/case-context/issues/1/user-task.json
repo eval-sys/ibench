@@ -1,0 +1,9 @@
+{
+  "intent": "Sort the Songs list.",
+  "actions": [
+    "Sign in and open Songs in a library containing songs with distinct Composer values, where Title and Composer ascending order differ.",
+    "Enable Composer through Columns To Display, close the menu, and wait for the rows in Title ascending order.",
+    "Inspect the Composer header and click its label once to request ascending Composer order.",
+    "Wait for the list to settle and inspect the column indicators and song order."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Clear signup errors while correcting fields",
+  "entry_path": "/signup",
+  "steps": [
+    "Inspect the signup form with email alex and revealed password short, each displaying a red validation message.",
+    "Click Email Address and append @example.com, leaving the corrected email focused.",
+    "Click Password to move focus away from Email Address.",
+    "Select the password text and type Kestrel!482, leaving Password focused; inspect the form."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Correct the email and password in turn and inspect the validation feedback beside each field.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Email Address contains alex with an invalid-email message; Password contains short with a minimum-eight-character message. Both fields have red borders."
+      },
+      {
+        "kind": "step",
+        "t": 1.0,
+        "label": "Append @example.com to Email Address"
+      },
+      {
+        "kind": "check",
+        "t": 1.8,
+        "note": "Email Address contains alex@example.com with a green outline and no invalid-email message; Password is still short with a red border and length error."
+      },
+      {
+        "kind": "step",
+        "t": 4.0,
+        "label": "Move to Password and replace short with Kestrel!482"
+      },
+      {
+        "kind": "check",
+        "t": 5.4,
+        "note": "Password contains Kestrel!482 with a green outline and no minimum-length message."
+      },
+      {
+        "kind": "check",
+        "t": 9.6,
+        "note": "Both corrected values are visible, and neither field has an error message."
+      }
+    ]
+  }
+}

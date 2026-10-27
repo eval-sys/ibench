@@ -1,0 +1,52 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Open a sidebar photo on the map and pan it",
+  "entry_path": "/photos/landscape",
+  "steps": [
+    "Inspect the open landscape photo and the Location Information mini-map in its sidebar.",
+    "Click the Location Information mini-map to open the photo on the full map.",
+    "Swipe the full map to the left."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Watch the blue photo marker and the details card as the map moves. The card stays near the center while its marker moves away.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the photo location"
+      },
+      {
+        "kind": "flag",
+        "t": 0,
+        "note": "The sidebar shows Failed to load image; the photo and location mini-map remain visible. This is separate from the map-card alignment being reviewed."
+      },
+      {
+        "kind": "step",
+        "t": 2.5,
+        "label": "Open Explore Map"
+      },
+      {
+        "kind": "check",
+        "t": 2.5,
+        "note": "The landscape card and blue photo marker are both visible on the map."
+      },
+      {
+        "kind": "step",
+        "t": 3.1,
+        "label": "Pan the map"
+      },
+      {
+        "kind": "check",
+        "t": 3.1,
+        "note": "The blue marker is left of the card, separated from its lower anchor."
+      },
+      {
+        "kind": "check",
+        "t": 4.3,
+        "note": "The card remains near the center while the blue marker is offset to its left."
+      }
+    ]
+  }
+}

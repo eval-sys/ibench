@@ -1,0 +1,58 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Show a room’s complete location ancestry",
+  "entry_path": "/locations",
+  "steps": [
+    "Inspect the filtered Locations list and the parent relationships for Cedar Technologies, North Building, and Room 101.",
+    "Click Room 101 to open its location page and inspect the breadcrumb and right-hand Parent panel.",
+    "Click North Building in the right-hand Parent panel to inspect its parent.",
+    "Use browser Back to return to Room 101 and inspect its breadcrumb and Parent panel again."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Inspect Room 101’s full displayed ancestry, visit North Building, and return to the room.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The Locations list shows North Building with parent Cedar Technologies and Room 101 with parent North Building."
+      },
+      {
+        "kind": "step",
+        "t": 3.0,
+        "label": "Open Room 101 from the Locations list."
+      },
+      {
+        "kind": "check",
+        "t": 4.0,
+        "note": "The room breadcrumb reads Locations > Cedar Technologies > North Building > Room 101; Cedar Technologies and North Building appear as blue ancestor targets, also shown in the Parent panel."
+      },
+      {
+        "kind": "step",
+        "t": 7.0,
+        "label": "Follow North Building in the Parent panel."
+      },
+      {
+        "kind": "check",
+        "t": 9.0,
+        "note": "The breadcrumb reads Locations > Cedar Technologies > North Building, and the Parent panel names Cedar Technologies."
+      },
+      {
+        "kind": "step",
+        "t": 12.0,
+        "label": "Use browser Back to return to Room 101."
+      },
+      {
+        "kind": "check",
+        "t": 14.0,
+        "note": "Room 101 again shows Cedar Technologies > North Building > Room 101 in the breadcrumb, with both ancestors also in the Parent panel."
+      },
+      {
+        "kind": "check",
+        "t": 18.0,
+        "note": "The room breadcrumb still displays both ancestors before Room 101."
+      }
+    ]
+  }
+}

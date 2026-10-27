@@ -1,0 +1,8 @@
+{
+  "intent": "Check whether to order more of a product on the stock replenishment list.",
+  "actions": [
+    "Start signed in as an administrator on the physical-stock replenishment page, with a product at physical stock 110, desired stock 200, alert level 150, and a sent supplier order for 100 units awaiting receipt.",
+    "Review that product row and its To order quantity.",
+    "Hover over the To order quantity and wait for contextual information."
+  ]
+}

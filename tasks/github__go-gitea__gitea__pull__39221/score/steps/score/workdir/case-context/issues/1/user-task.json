@@ -1,0 +1,9 @@
+{
+  "intent": "Add an Actions secret to my account.",
+  "actions": [
+    "Sign in to an account on an Actions-enabled Gitea instance.",
+    "Open User Settings, expand Actions, select Secrets, and open Add secret; wait for the dialog.",
+    "Enter 1DEPLOY_KEY as Name and a non-empty secret value as Value.",
+    "Click Confirm."
+  ]
+}

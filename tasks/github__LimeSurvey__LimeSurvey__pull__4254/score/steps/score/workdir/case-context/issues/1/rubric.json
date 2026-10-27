@@ -1,0 +1,31 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/LimeSurvey/LimeSurvey/pull/4254/issue/1",
+  "definition": {
+    "issue_id": "github/LimeSurvey/LimeSurvey/pull/4254/issue/1",
+    "given": "An administrator is editing the English invitation template for the active Community feedback survey. The template references participant-guide.pdf, which is absent from the survey upload directory. The template editor shows an attachment error and a missing-file marker. Alex Morgan is an eligible participant with an access code and no invitation sent.",
+    "when": "The administrator follows the same survey's Participants link, then chooses Invite & remind > Send email invitation to open the invitation preparation form.",
+    "observed": "The Send email invitations form lists the recipient and loads the configured subject and message. Send invitations is available, but the form gives no warning about the unavailable configured attachment. The replay stops before sending; actual email delivery and the reminder flow are not established.",
+    "require": "Before Send invitations is chosen, show a visible warning in invitation preparation that a configured attachment is missing or unavailable. Identify the affected file or template sufficiently for review; discovering the problem must not require returning to the template editor.",
+    "allow": [
+      "An inline warning, banner, or visible dialog can communicate the attachment problem.",
+      "Wording, color, layout, and navigation mechanics may differ while preserving the warning's meaning and timing.",
+      "The warning may identify the missing file directly or identify the affected language/template and offer a way to inspect it.",
+      "Sending may remain available with an explicit warning or be blocked pending correction or an explicit override; this case does not require a particular sending policy."
+    ],
+    "theory": [
+      {
+        "title": "Error Messages",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 10: Forms and Controls. Conceptual application based on chapter synthesis.",
+        "rationale": "A known attachment problem should be communicated where the administrator is preparing the invitation, with clear context for correction. A warning confined to a different template-editing screen leaves the current decision uninformed."
+      },
+      {
+        "title": "Preview",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "Sending an invitation is an externally visible action. Its preparation view should expose the unavailable attachment before commitment, so the administrator can inspect the configuration and decide how to proceed."
+      }
+    ]
+  },
+  "reference_observation": "The invitation preparation form displays a warning about an attachment for language en and a link to the email template before Send invitations. The configured recipient, subject, and message remain present; an Ignore missing attachments control is also shown. No email is sent.",
+  "requirement_rationale": "Invitation attachments come from a survey's language-specific email template. The administrator needs to know about an unavailable attachment when deciding to send, so recipients are not unknowingly sent an incomplete invitation."
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "database-and-browser",
+  "title": "Clear signup errors while correcting fields",
+  "entry_path": "/signup",
+  "steps": [
+    "Inspect the signup form with email alex and revealed password short, each displaying a red validation message.",
+    "Click Email Address and append @example.com, leaving the corrected email focused.",
+    "Click Password to move focus away from Email Address.",
+    "Select the password text and type Kestrel!482, leaving Password focused; inspect the form."
+  ],
+  "observe_after_step": 4,
+  "video_guide": {
+    "summary": "Watch the password correction and compare the entered value with its minimum-length validation message.",
+    "chapters": [
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "Email Address already contains alex@example.com. Password contains short and has a minimum-eight-character error below it."
+      },
+      {
+        "kind": "step",
+        "t": 0.0,
+        "label": "Replace short in Password with Kestrel!482"
+      },
+      {
+        "kind": "check",
+        "t": 0.74,
+        "note": "Password contains Kestrel!482, but its border is red and the minimum-eight-character message is still visible."
+      },
+      {
+        "kind": "check",
+        "t": 3.94,
+        "note": "Password still contains Kestrel!482 with a red border and the minimum-eight-character error below it."
+      }
+    ]
+  }
+}

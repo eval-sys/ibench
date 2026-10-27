@@ -1,0 +1,83 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+    - sleep
+    - infinity
+    depends_on:
+      penpot-postgres:
+        condition: service_healthy
+      penpot-valkey:
+        condition: service_healthy
+    environment:
+      DEV_ENV_SETUP: ${DEV_ENV_SETUP:?}
+      DEV_ENV_START: ${DEV_ENV_START:?}
+      DEV_ENV_READY: ${DEV_ENV_READY:?}
+      APP_URL: http://localhost:3000
+      CI: 'true'
+      PENPOT_PUBLIC_URI: http://localhost:3000
+      PENPOT_DATABASE_URI: postgresql://penpot-postgres/penpot
+      PENPOT_DATABASE_USERNAME: penpot
+      PENPOT_DATABASE_PASSWORD: penpot
+      PENPOT_DATABASE_MAX_POOL_SIZE: '10'
+      PENPOT_REDIS_URI: redis://penpot-valkey/0
+      PENPOT_OBJECTS_STORAGE_BACKEND: fs
+      PENPOT_OBJECTS_STORAGE_FS_DIRECTORY: /opt/data/assets
+      PENPOT_SECRET_KEY: dev-env-penpot-local-secret-key
+      PENPOT_FLAGS: disable-email-verification disable-secure-session-cookies disable-telemetry
+        disable-feature-render-wasm enable-stroke-per-side
+      PENPOT_TELEMETRY_ENABLED: 'false'
+      PENPOT_BROWSER_POOL_MAX: '2'
+    volumes:
+    - penpot-assets:/opt/data/assets
+  penpot-postgres:
+    image: postgres:16.8@sha256:301bcb60b8a3ee4ab7e147932723e3abd1cef53516ce5210b39fd9fe5e3602ae
+    environment:
+      POSTGRES_INITDB_ARGS: --data-checksums
+      POSTGRES_DB: penpot
+      POSTGRES_USER: penpot
+      POSTGRES_PASSWORD: penpot
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U penpot -d penpot
+      interval: 2s
+      timeout: 10s
+      retries: 15
+      start_period: 2s
+    volumes:
+    - penpot-postgres-data:/var/lib/postgresql/data
+  penpot-valkey:
+    image: valkey/valkey:8.1@sha256:640c5e62cea04b6d6f2084232651d0cc70362d31f4f805e7be94dbed6855e8f2
+    command:
+    - valkey-server
+    - --save
+    - ''
+    - --maxmemory
+    - 128mb
+    - --maxmemory-policy
+    - volatile-lfu
+    healthcheck:
+      test:
+      - CMD
+      - valkey-cli
+      - ping
+      interval: 1s
+      timeout: 3s
+      retries: 15
+      start_period: 3s
+  harbor-docker-egress-control-sidecar:
+    networks:
+      default:
+        aliases:
+        - main
+        - penpot-postgres
+        - penpot-valkey
+volumes:
+  penpot-assets: null
+  penpot-postgres-data: null
+networks:
+  default:
+    driver: bridge

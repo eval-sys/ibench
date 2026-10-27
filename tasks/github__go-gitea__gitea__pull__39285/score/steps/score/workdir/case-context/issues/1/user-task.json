@@ -1,0 +1,9 @@
+{
+  "intent": "Browse a repository's branches.",
+  "actions": [
+    "Start on a public repository's Code page with main selected.",
+    "Open the ref selector and wait for the main branch list, with Branches active and Tags available.",
+    "Hover over the already-active Branches tab.",
+    "Click the already-active Branches tab and wait for the interaction to settle."
+  ]
+}

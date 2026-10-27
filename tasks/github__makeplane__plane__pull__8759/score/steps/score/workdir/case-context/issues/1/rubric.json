@@ -1,0 +1,32 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/makeplane/plane/pull/8759/issue/1",
+  "definition": {
+    "issue_id": "github/makeplane/plane/pull/8759/issue/1",
+    "given": "The user is editing a work-item description composed of multiple content blocks and wants to reorder a paragraph using its on-demand drag handle on the left. Hovering over the paragraph has already revealed the handle.",
+    "when": "The user moves the pointer along a normal continuous path from the paragraph content toward the visible drag handle, preparing to press and begin dragging.",
+    "observed": "As the pointer leaves the editor to cross the gap, the drag handle disappears before the pointer reaches its prior position, so it cannot be grabbed.",
+    "require": "The revealed drag handle stays visible and interactive along a reasonable continuous pointer path from the paragraph to the handle, allowing the user to acquire it and begin dragging at ordinary pointer speeds.",
+    "allow": [
+      "The handle may stay visible, appear on demand, hide after a delay, or use an extended hover region while preserving pointer access.",
+      "The handle's position, icon, spacing, animation, and layout may vary.",
+      "The handle may hide or move attention after the pointer leaves the paragraph, the path to its handle, and the handle itself.",
+      "Keyboard or touch methods may supplement the required pointer interaction.",
+      "Acceptance concerns acquiring the handle and beginning the drag; subsequent drop presentation and persistence may vary."
+    ],
+    "theory": [
+      {
+        "title": "Hover or Pop-Up Tools - On-demand contextual tools must be near their target and actually reachable",
+        "reference": "Designing Interfaces, Third Edition, Chapter 8: Actions and Commands; designing-interfaces/chapters/ch08-actions.md",
+        "rationale": "Reordering paragraphs in a work-item description requires moving from the edited content to its drag handle. The tool should remain available throughout this short movement so users naturally discover, acquire, and drag it, rather than seeing it disappear as they approach."
+      },
+      {
+        "title": "Clarity, Actionability, and Affordance - A control's visual promise must match its actual operability",
+        "reference": "Designing Interfaces, Third Edition, Chapter 5: Visual Style and Aesthetics; designing-interfaces/chapters/ch05-visual-style.md",
+        "rationale": "The visible six-dot handle says that this paragraph can be dragged from here. Users must be able to reach and operate it along that visible relationship. Disappearing en route presents an affordance but withdraws its corresponding action, undermining predictability."
+      }
+    ]
+  },
+  "reference_observation": "The paragraph's handle stays visible and interactive during the slow pointer approach and pauses. It can then be grabbed to begin dragging the paragraph.",
+  "requirement_rationale": "The drag handle initiates paragraph reordering. Keeping a revealed handle reachable across the approach path lets the user acquire the tool and start dragging at a comfortable pointer speed."
+}

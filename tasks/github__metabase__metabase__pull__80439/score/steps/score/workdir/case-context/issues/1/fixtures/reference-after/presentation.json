@@ -1,0 +1,42 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Remove the default email recipient while creating a question alert",
+  "entry_path": "/question/:id-pr-80439-alert-target-check",
+  "steps": [
+    "Open the saved question's 'Move, trash, and more...' menu.",
+    "Choose 'Create an alert' to open the New alert modal with its default email recipient.",
+    "Remove the sole default email recipient, then view the empty email-recipient field and the modal actions."
+  ],
+  "observe_after_step": 3,
+  "video_guide": {
+    "summary": "Removing the default recipient immediately disables Send now until a recipient is provided.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0.6,
+        "label": "Open the new alert form"
+      },
+      {
+        "kind": "check",
+        "t": 0.6,
+        "note": "New alert contains Bobby Tables and Send now is enabled."
+      },
+      {
+        "kind": "step",
+        "t": 1.9,
+        "label": "Remove the sole email recipient"
+      },
+      {
+        "kind": "check",
+        "t": 1.9,
+        "note": "The recipient field is empty and Send now changes to its grey disabled state."
+      },
+      {
+        "kind": "check",
+        "t": 4.4,
+        "note": "Send now remains disabled with no recipients selected."
+      }
+    ]
+  }
+}

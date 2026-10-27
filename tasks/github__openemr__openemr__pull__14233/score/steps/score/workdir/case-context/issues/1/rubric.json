@@ -1,0 +1,30 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/openemr/openemr/pull/14233/issue/1",
+  "definition": {
+    "issue_id": "github/openemr/openemr/pull/14233/issue/1",
+    "given": "An administrator is signed in with Calendar and Message Center loaded in a single browser tab and normal background reminder polling active.",
+    "when": "Leave the calendar open without interacting until the session expires from inactivity, allowing background reminders to poll normally. Return to the calendar and try switching to the week view if the option is still available.",
+    "observed": "After the session expires naturally and background reminders have polled, the old calendar remains visible without prompting the user to sign in again. Clicking the still-available Week link leaves the calendar area blank and changes its tab label to Unknown. The top-level navigation and Message Center remain visible, with no explanation that the session has expired or guidance on signing in.",
+    "require": "When the open calendar detects that the session is no longer valid, it must show the sign-in page or explain that authentication is required and provide a working sign-in option. It must not leave an unexplained blank or Unknown area. Protected calendar operations may resume only after the user authenticates again.",
+    "allow": [
+      "The application may redirect directly to the sign-in page.",
+      "The application may clearly explain that the session has ended and provide a working sign-in button or link.",
+      "The application may detect the expired session through a background request or the next protected operation; it does not have to redirect at the exact moment the idle timeout is reached."
+    ],
+    "theory": [
+      {
+        "title": "A way out of a dead end",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 3: Navigation, Signposts, and Wayfinding. Conceptual application based on chapter synthesis.",
+        "rationale": "An open calendar may still appear usable after the session expires. A clear sign-in option gives the user a way to resume using it."
+      },
+      {
+        "title": "Visible feedback on actions",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "When the user continues interacting with the calendar, the interface should explain why authentication is required instead of showing an unexplained blank area."
+      }
+    ]
+  },
+  "reference_observation": "After the session expires naturally, a background reminder request detects that authentication is no longer valid and the page redirects to sign-in. Submitting valid credentials restores the calendar so the user can continue checking appointments.",
+  "requirement_rationale": "Returning to the calendar left open before lunch is a natural way to continue checking appointments. The calendar view and background reminders depend on an authenticated session. After it expires, the old schedule may remain visible even though subsequent calendar requests require the user to sign in again. Clear authentication feedback helps the user distinguish an expired session from an empty schedule and provides a way to resume checking appointments."
+}

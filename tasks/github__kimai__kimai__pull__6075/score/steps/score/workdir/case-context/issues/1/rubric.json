@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/kimai/kimai/pull/6075/issue/1",
+  "definition": {
+    "issue_id": "github/kimai/kimai/pull/6075/issue/1",
+    "given": "On My times, the open search filter has Northwind Studio and Eastwood Design selected as customers, and Brand planning, Website design, and Content review selected as projects. Brand planning and Website design belong to Northwind Studio; Content review belongs to Eastwood Design.",
+    "when": "Type Westbridge in the Customer picker and select Westbridge Services, adding it to the two previously selected customers. Wait for the dependent Project options to finish reloading without submitting Search or changing the project selections.",
+    "observed": "All three customers remain selected, but only Brand planning remains selected as a project. Website design and Content review disappear from the selection before Search is submitted, although their customers remain selected. The replay changes the customer selection only; it does not deselect either project.",
+    "require": "After adding the customer and reloading Project options, retain all three selected customers and all three previously selected, still-eligible projects. Keep those projects visibly represented in the Project control without requiring reselection.",
+    "allow": [
+      "Selected-item order, chip styling, and option-loading indicators may change; the settled customer and project selections must still represent the same selected records.",
+      "A brief loading state during the option refresh is acceptable if the three valid project selections are retained when it finishes.",
+      "In other interactions, previously selected projects that are no longer eligible under the chosen customers may be removed. All three projects in this recorded interaction remain eligible."
+    ],
+    "theory": [
+      {
+        "title": "Continuity patterns: preserve unfinished work and visible state",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 1: Designing for People. Conceptual application based on chapter synthesis.",
+        "rationale": "The customer and project selections are work already invested in an unfinished filter. Adding a customer changes the available choices but does not express an intention to abandon still-valid projects. Silently losing two selections breaks continuity and makes the user reconstruct prior work; preserving the valid selections supports that continuity."
+      }
+    ]
+  },
+  "reference_observation": "Adding Westbridge Services retains all three customer selections and the original three project selections after the dependent options reload. Project-chip order changes, but none of the selected records is lost or reselected. Search is not submitted.",
+  "requirement_rationale": "Customer choices determine eligible projects, but adding a customer does not invalidate projects of customers that remain selected. Dropping those selections loses unfinished filter work and makes the user rebuild it."
+}

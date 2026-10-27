@@ -1,0 +1,59 @@
+schema_version = "1.4"
+artifacts = []
+
+[task]
+name = "ibench/github__makeplane__plane__pull__9285"
+version = "0.1.0"
+description = "Change my profile cover to the star-trails image"
+keywords = [ "ibench",]
+[[task.authors]]
+name = "IBench"
+
+[[steps]]
+name = "solve"
+[[steps.artifacts]]
+source = "/tmp/candidate.patch"
+destination = "candidate.patch"
+exclude = []
+
+
+[steps.agent]
+network_mode = "allowlist"
+timeout_sec = 3600.0
+[steps.verifier]
+timeout_sec = 30.0
+[[steps.verifier.collect]]
+command = "#!/usr/bin/env bash\n\nset -euo pipefail\n\nworkspace=/workspace/app\nbase_commit_sha=90ae8457d07c9b5e5e0514735170f55304506cc9\npatch=/tmp/candidate.patch\nartifact=''\nreward=/dev/null\nprepared=/logs/artifacts/solver/runtime/prepared-commit-sha.txt\n\n# The patch is the solver Trial's formal artifact. Generate it in the trusted\n# verifier rather than asking the solver agent to report its own work.\nmkdir -p \"$(dirname \"$patch\")\" \"$(dirname \"$reward\")\"\nif [[ -n \"$artifact\" ]]; then\n  cp \"$artifact\" \"$patch\"\nelse\n  # Select only paths committed by the solver, then diff them against the upstream\n  # base so the patch still applies before scoring preparation/install.\n  python3 - \"$workspace\" \"$base_commit_sha\" \"$prepared\" \"$patch\" <<'PYTHON'\nimport os\nimport subprocess\nimport sys\nfrom pathlib import Path\n\nworkspace, base, prepared_file, patch_file = sys.argv[1:]\nprepared = Path(prepared_file).read_text().strip()\ncommand = [\"git\", \"--literal-pathspecs\", \"-C\", workspace]\nchanged = subprocess.check_output([*command, \"diff\", \"--name-only\", \"--no-renames\", \"-z\", prepared, \"HEAD\", \"--\"])\npaths = [os.fsdecode(path) for path in changed.split(b\"\\0\") if path]\nwith Path(patch_file).open(\"wb\") as output:\n    if paths:\n        subprocess.run([*command, \"diff\", \"--binary\", base, \"HEAD\", \"--\", *paths], stdout=output, check=True)\nPYTHON\nfi\nprintf '%s\\n' '{\"reward\":1}' > \"$reward\"\n"
+service = "main"
+timeout_sec = 60.0
+user = "root"
+
+[metadata]
+
+[verifier]
+timeout_sec = 600.0
+collect = []
+
+[verifier.env]
+
+[agent]
+network_mode = "allowlist"
+timeout_sec = 3600.0
+
+[environment]
+network_mode = "public"
+allowed_hosts = []
+build_timeout_sec = 2400.0
+os = "linux"
+cpus = 4
+memory_mb = 8192
+storage_mb = 30720
+mcp_servers = []
+workdir = "/workspace"
+
+[environment.env]
+DEV_ENV_SETUP = "bash /opt/dev-env-profile.sh setup"
+DEV_ENV_START = "bash /opt/dev-env-profile.sh start"
+DEV_ENV_READY = "bash /opt/dev-env-profile.sh ready"
+
+[solution.env]

@@ -1,0 +1,84 @@
+diff --git a/frontend/discourse/app/components/reviewable/timeline.gjs b/frontend/discourse/app/components/reviewable/timeline.gjs
+--- a/frontend/discourse/app/components/reviewable/timeline.gjs
++++ b/frontend/discourse/app/components/reviewable/timeline.gjs
+@@ -8,6 +8,10 @@
+ import { ajax } from "discourse/lib/ajax";
+ import { popupAjaxError } from "discourse/lib/ajax-error";
+ import escape from "discourse/lib/escape";
++import {
++  penaltyIcon,
++  penaltyPastTense,
++} from "discourse/lib/reviewable-penalty";
+ import { sanitize } from "discourse/lib/text";
+ import { CLAIMED, UNCLAIMED } from "discourse/models/reviewable-history";
+ import { and, eq } from "discourse/truth-helpers";
+@@ -141,6 +145,25 @@
+         }
+       });
+     }
++
++    this.args.reviewable.author_penalties?.forEach((penalty) => {
++      if (!penalty.from_this_target || !penalty.applied_at) {
++        return;
++      }
++
++      events.push({
++        type: `author_${penaltyPastTense(penalty.kind)}`,
++        date: penalty.applied_at,
++        user: penalty.applied_by,
++        icon: penaltyIcon(penalty.kind),
++        titleKey: penalty.automatic
++          ? `review.timeline.author_${penaltyPastTense(penalty.kind)}_automatically`
++          : `review.timeline.author_${penaltyPastTense(penalty.kind)}_by`,
++        description: penalty.reason
++          ? trustHTML(sanitize(penalty.reason))
++          : null,
++      });
++    });
+ 
+     // Add notes events
+     this.args.reviewable.reviewable_notes?.forEach((note) => {
+diff --git a/frontend/discourse/app/models/reviewable.js b/frontend/discourse/app/models/reviewable.js
+--- a/frontend/discourse/app/models/reviewable.js
++++ b/frontend/discourse/app/models/reviewable.js
+@@ -22,6 +22,7 @@
+     return json;
+   }
+ 
++  @tracked author_penalties;
+   @tracked blank_post;
+   @tracked bundled_actions;
+   @tracked can_edit;
+diff --git a/frontend/discourse/app/lib/reviewable-penalty.js b/frontend/discourse/app/lib/reviewable-penalty.js
+new file mode 100644
+--- /dev/null
++++ b/frontend/discourse/app/lib/reviewable-penalty.js
+@@ -0,0 +1,14 @@
++export const SILENCE = "silence";
++export const SUSPENSION = "suspension";
++
++const PAST_TENSE = { [SILENCE]: "silenced", [SUSPENSION]: "suspended" };
++
++const ICONS = { [SILENCE]: "microphone-slash", [SUSPENSION]: "ban" };
++
++export function penaltyPastTense(kind) {
++  return PAST_TENSE[kind];
++}
++
++export function penaltyIcon(kind) {
++  return ICONS[kind];
++}
+diff --git a/config/locales/client.en.yml b/config/locales/client.en.yml
+--- a/config/locales/client.en.yml
++++ b/config/locales/client.en.yml
+@@ -1227,6 +1227,10 @@
+         view_conversation: "view PM"
+         note_added: "Moderator note"
+         note_added_by: "Moderator note by %{username} · %{relativeDate}"
++        author_silenced_by: "Author silenced by %{username} · %{relativeDate}"
++        author_silenced_automatically: "Author silenced automatically · %{relativeDate}"
++        author_suspended_by: "Author suspended by %{username} · %{relativeDate}"
++        author_suspended_automatically: "Author suspended automatically · %{relativeDate}"
+         no_events: "No timeline events to display"
+       notes:
+         add_note_description: "Add a note to provide context to other moderators."

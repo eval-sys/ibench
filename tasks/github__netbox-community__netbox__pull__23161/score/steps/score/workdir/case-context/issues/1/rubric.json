@@ -1,0 +1,25 @@
+{
+  "schema_version": "case-rubric/v1",
+  "case_id": "github/netbox-community/netbox/pull/23161/issue/1",
+  "definition": {
+    "issue_id": "github/netbox-community/netbox/pull/23161/issue/1",
+    "given": "A signed-in administrator has two interfaces, uplink0 on Akron Edge A and Akron Edge B. A cable previously connected them and was subsequently deleted through the application's cable-deletion action. The browser starts on the filtered interface list.",
+    "when": "Open Akron Edge A's uplink0 interface, inspect its Connection panel, open its Changelog, and open the latest interface-update entry to inspect the recorded connection change.",
+    "observed": "The current interface detail says Not Connected. Its complete four-entry Changelog includes creation, the connection update, and a related Cable Termination deletion, but no later interface update recording the disconnect. The latest interface-update detail shows cable changing from null to the now-deleted cable ID, with cable_end becoming A. This older connection entry is valid history; the defect is the missing subsequent disconnect record, not incorrect live connection state or corruption of the earlier event.",
+    "require": "In the interface's own Changelog, expose a later disconnection event. Opening it must explain the connected cable and cable-end assignment being cleared. Keep the interface disconnected and preserve the earlier connection event.",
+    "allow": [
+      "A normal interface-update entry or an equivalent interface-associated disconnect event is acceptable if it is discoverable in that interface's Changelog and exposes the before-and-after connection state.",
+      "Numeric cable identifiers, readable cable descriptions, structured data, or a readable diff may convey the transition; exact IDs, field rendering, wording, colors, and row counts are not prescribed.",
+      "Related Cable Termination deletion entries may remain alongside the disconnect event. An older connection event may still show its original cable; it must not be rewritten to represent the later deletion."
+    ],
+    "theory": [
+      {
+        "title": "Command History: reviewable records of meaningful operations",
+        "reference": "Jenifer Tidwell, Charles Brewer, and Aynne Valencia, Designing Interfaces, Third Edition; Chapter 8: Actions and Commands. Conceptual application based on chapter synthesis.",
+        "rationale": "A reviewable history must represent meaningful changes at the level the person is inspecting. Cable deletion changes the interface connection state; recording only a related termination deletion leaves the interface history unable to explain how its present disconnected state followed its earlier connection. This application of the pattern requires a reviewable disconnect record, not undo, replay, or a particular logging implementation."
+      }
+    ]
+  },
+  "reference_observation": "The disconnected interface's Changelog contains a later interface update showing cable and cable_end changing from their connected values to null. The earlier connection event remains available with its original historical values.",
+  "requirement_rationale": "Deleting a cable changes the attached interface as well as the cable object. Its history needs to explain that transition to the current disconnected state without rewriting the earlier connection."
+}

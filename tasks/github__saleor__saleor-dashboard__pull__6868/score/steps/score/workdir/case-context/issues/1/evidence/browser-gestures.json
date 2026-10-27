@@ -1,0 +1,340 @@
+{
+  "schema_version": "paired-browser-gestures/v1",
+  "task_id": "github__saleor__saleor-dashboard__pull__6868",
+  "case_id": "github/saleor/saleor-dashboard/pull/6868/issue/1",
+  "scope": "Read-only observations from the same browser-window recordings; not additional scoring rules or a judge verdict.",
+  "active_tab_semantics": "Each tabs.active value is the agent-browser command target. The video shows the actual browser foreground tab.",
+  "before": {
+    "source_commit_sha": "b6662d2d273ada0cf00393e88d12a0393c462f4f",
+    "prepared_commit_sha": "ee18601c36cc20ae4b8b9c47c16a909bb28772c3",
+    "trial": "replay-4c793e2169",
+    "browser_version": "agent-browser 0.33.0",
+    "viewport": "1280x720",
+    "capture": {
+      "schema_version": "evidence-replay-capture/v1",
+      "entry_path": "/products/",
+      "record_url": "http://localhost:9000/products/?asc=false&sort=date",
+      "record_started_at_ms": 1791120194647,
+      "record_stopped_at_ms": 1791120209508,
+      "record_elapsed_ms": 14861,
+      "video_duration_ms": 15050,
+      "ffprobe": {
+        "code": 0,
+        "stdout": "{\n    \"format\": {\n        \"duration\": \"15.050000\"\n    }\n}\n",
+        "stderr": ""
+      },
+      "capture_method": "browser-window",
+      "frame_size": "1280x863"
+    },
+    "observations": [
+      {
+        "stage": "initial-catalogue",
+        "at_ms": 1791120194654,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "productName": null,
+          "search": "",
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      {
+        "stage": "pointer-target",
+        "at_ms": 1791120196190,
+        "point": {
+          "x": 431,
+          "y": 198
+        },
+        "hit": {
+          "tag": "DIV",
+          "href": null
+        }
+      },
+      {
+        "stage": "right-click-menu",
+        "at_ms": 1791120198800,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "productName": null,
+          "search": "",
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      {
+        "stage": "middle-click-tabs",
+        "at_ms": 1791120201945,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D"
+          }
+        ]
+      },
+      {
+        "stage": "page-after-middle-click",
+        "at_ms": 1791120204449,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D",
+          "productName": "Aurora Desk Lamp",
+          "search": null,
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": null
+        }
+      },
+      {
+        "stage": "original-tab-after-gestures",
+        "at_ms": 1791120207117,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D",
+          "productName": "Aurora Desk Lamp",
+          "search": null,
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": null
+        }
+      }
+    ]
+  },
+  "reference_after": {
+    "source_commit_sha": "a7e18d581822acac48e02eface45e3bc8e8a65a4",
+    "prepared_commit_sha": "aa291aa91fb958e536adcf7b246ebf2dee2cc0ff",
+    "trial": "replay-f8864706cb",
+    "browser_version": "agent-browser 0.33.0",
+    "viewport": "1280x720",
+    "capture": {
+      "schema_version": "evidence-replay-capture/v1",
+      "entry_path": "/products/",
+      "record_url": "http://localhost:9000/products/?asc=false&sort=date",
+      "record_started_at_ms": 1791120284661,
+      "record_stopped_at_ms": 1791120299591,
+      "record_elapsed_ms": 14930,
+      "video_duration_ms": 15100,
+      "ffprobe": {
+        "code": 0,
+        "stdout": "{\n    \"format\": {\n        \"duration\": \"15.100000\"\n    }\n}\n",
+        "stderr": ""
+      },
+      "capture_method": "browser-window",
+      "frame_size": "1280x863"
+    },
+    "observations": [
+      {
+        "stage": "initial-catalogue",
+        "at_ms": 1791120284669,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "productName": null,
+          "search": "",
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      {
+        "stage": "pointer-target",
+        "at_ms": 1791120286204,
+        "point": {
+          "x": 431,
+          "y": 198
+        },
+        "hit": {
+          "tag": "A",
+          "href": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D?"
+        }
+      },
+      {
+        "stage": "right-click-menu",
+        "at_ms": 1791120288813,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "productName": null,
+          "search": "",
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      {
+        "stage": "middle-click-tabs",
+        "at_ms": 1791120291965,
+        "tabs": [
+          {
+            "active": false,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          },
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t2",
+            "title": "Sign in to the Saleor Dashboard",
+            "type": "page",
+            "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D?"
+          }
+        ]
+      },
+      {
+        "stage": "page-after-middle-click",
+        "at_ms": 1791120294547,
+        "tabs": [
+          {
+            "active": false,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          },
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t2",
+            "title": "Aurora Desk Lamp | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D?"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D?",
+          "productName": "Aurora Desk Lamp",
+          "search": null,
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": null
+        }
+      },
+      {
+        "stage": "original-tab-after-gestures",
+        "at_ms": 1791120297210,
+        "tabs": [
+          {
+            "active": true,
+            "label": null,
+            "tabId": "t1",
+            "title": "Products | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/?asc=false&sort=date"
+          },
+          {
+            "active": false,
+            "label": null,
+            "tabId": "t2",
+            "title": "Aurora Desk Lamp | Saleor e-commerce",
+            "type": "page",
+            "url": "http://localhost:9000/products/UHJvZHVjdDoxNjU%3D?"
+          }
+        ],
+        "page": {
+          "url": "http://localhost:9000/products/?asc=false&sort=date",
+          "productName": null,
+          "search": "",
+          "pageScroll": {
+            "x": 0,
+            "y": 0
+          },
+          "gridScroll": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    ]
+  }
+}

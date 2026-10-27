@@ -1,0 +1,1 @@
+-- The shared Gitea fixture is removed by cleanup.sh.

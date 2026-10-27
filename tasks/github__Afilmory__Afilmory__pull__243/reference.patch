@@ -1,0 +1,11 @@
+diff --git a/apps/web/src/components/ui/map/shared/PhotoMarkerPin.tsx b/apps/web/src/components/ui/map/shared/PhotoMarkerPin.tsx
+--- a/apps/web/src/components/ui/map/shared/PhotoMarkerPin.tsx
++++ b/apps/web/src/components/ui/map/shared/PhotoMarkerPin.tsx
+@@ -84,6 +84,7 @@
+           side="top"
+           align="center"
+           sideOffset={8}
++          updatePositionStrategy="always"
+           // 当选中时阻止点击外部关闭
+           onPointerDownOutside={isSelected ? (e) => e.preventDefault() : undefined}
+           onEscapeKeyDown={isSelected ? (e) => e.preventDefault() : undefined}

@@ -1,0 +1,1 @@
+-- Server state is created through Penpot's native HTTP API in setup.sh.

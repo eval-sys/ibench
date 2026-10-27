@@ -1,0 +1,69 @@
+{
+  "schema_version": "reproduction-presentation/v0",
+  "fixture_mode": "script-and-browser",
+  "title": "Open missing direct debit records",
+  "entry_path": "/compta/prelevement/orders_list.php?mainmenu=bank",
+  "steps": [
+    "View the loaded direct debit order list.",
+    "Open /compta/prelevement/card.php?id=999999 and inspect the resulting order page.",
+    "Open /compta/prelevement/fiche-rejet.php?id=999999 and inspect the resulting rejects page.",
+    "Open /compta/prelevement/fiche-stat.php?id=999999 and inspect the resulting statistics page.",
+    "Open /compta/prelevement/line.php?id=999999 and inspect the resulting line page."
+  ],
+  "observe_after_step": 5,
+  "video_guide": {
+    "summary": "The missing order and line links now show an explicit record-not-found message while retaining application navigation.",
+    "chapters": [
+      {
+        "kind": "step",
+        "t": 0,
+        "label": "Review the direct debit order list"
+      },
+      {
+        "kind": "check",
+        "t": 0.0,
+        "note": "The recording starts on the direct debit order list."
+      },
+      {
+        "kind": "step",
+        "t": 2.54,
+        "label": "Open the missing order"
+      },
+      {
+        "kind": "check",
+        "t": 2.54,
+        "note": "The missing order card is replaced by Enregistrement non trouve (record not found)."
+      },
+      {
+        "kind": "step",
+        "t": 5.08,
+        "label": "Open the missing order rejects"
+      },
+      {
+        "kind": "check",
+        "t": 5.08,
+        "note": "The missing Rejects request also shows record not found."
+      },
+      {
+        "kind": "step",
+        "t": 7.61,
+        "label": "Open the missing order statistics"
+      },
+      {
+        "kind": "check",
+        "t": 7.61,
+        "note": "The missing Statistics request shows record not found instead of a zero-valued card."
+      },
+      {
+        "kind": "step",
+        "t": 13.54,
+        "label": "Open the missing line"
+      },
+      {
+        "kind": "check",
+        "t": 13.54,
+        "note": "The missing line request ends with the same explicit not-found outcome and the normal navigation still available."
+      }
+    ]
+  }
+}
