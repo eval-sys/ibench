@@ -1,3 +1,6 @@
+![](https://github.com/user-attachments/assets/02cec655-1dbb-435c-b458-8b5fb7edff39)
+
+
 # Interaction Bench
 
 **Can coding agents figure out why people struggle with interfaces?**
@@ -14,7 +17,6 @@ This repository ships the CLI, **44** published tasks across **25** open-source 
 
 > **v0.1 preview.** On the public [leaderboard](https://ibench.ai/leaderboard), the best reported pass rate is **34.1%** (`GPT-6 Astra`). Scores measure repairs judged against reviewed behavioral requirements in fresh environments — not unit-test green.
 
-![](https://github.com/user-attachments/assets/02cec655-1dbb-435c-b458-8b5fb7edff39)
 
 
 ## News
