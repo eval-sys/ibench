@@ -45,6 +45,21 @@ In scope are **usability** problems that show up in use — for example memory d
 
 ---
 
+## Leaderboard
+
+Snapshot of the [published leaderboard](https://ibench.ai/leaderboard) as of 29 Oct 2026. Pass rates are measured across all 44 tasks; each result links to its recorded run on Harbor Hub.
+
+| Model | Harness | Pass rate (passed / total) | Harbor Hub |
+| --- | --- | ---: | --- |
+| GPT-6 Astra | Codex | 34.1% (15/44) | [View run](https://hub.harborframework.com/jobs/f54d076c-070d-5533-92fc-80b403e39c3a) |
+| Claude Opus 5.5 | Claude Code | 27.3% (12/44) | [View run](https://hub.harborframework.com/jobs/58add739-5535-5189-9002-8c1a98a9dfe0) |
+| DeepSeek Flash | DSH | 15.9% (7/44) | [View run](https://hub.harborframework.com/jobs/23ef15c8-109a-5a90-b83e-49918df1e509) |
+| GLM-5.3 Flash | ZCode | 9.1% (4/44) | [View run](https://hub.harborframework.com/jobs/8e9dbe3b-2a3f-57b4-910b-b7ca7e2f6c25) |
+| Qwen3.8 Max | Codex | 6.8% (3/44) | [View run](https://hub.harborframework.com/jobs/ee425524-01bf-54f9-b08d-8a55114fed3e) |
+| Kimi K3 | Kimi Code | 4.5% (2/44) | [View run](https://hub.harborframework.com/jobs/4e94ddee-4be9-513d-b914-48339687b59f) |
+
+---
+
 ## Quickstart
 
 ### 1) Clone and install
