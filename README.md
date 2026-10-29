@@ -47,7 +47,7 @@ In scope are **usability** problems that show up in use — for example memory d
 
 ## Leaderboard
 
-Snapshot of the [published leaderboard](https://ibench.ai/leaderboard) as of 29 Oct 2026. Pass rates are measured across all 44 tasks; each result links to its recorded run on Harbor Hub.
+> v0.1 preview, full public [leaderboard](https://ibench.ai/leaderboard)
 
 | Model | Harness | Pass rate (passed / total) | Harbor Hub |
 | --- | --- | ---: | --- |
