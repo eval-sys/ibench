@@ -3,7 +3,7 @@
 
 # Interaction Bench
 
-**Can coding agents figure out why people struggle with interfaces?**
+**Benchmarked on what users feel.**
 
 [![Website](https://img.shields.io/badge/Website-ibench.ai-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ibench.ai)
 [![Leaderboard](https://img.shields.io/badge/Leaderboard-000000?style=for-the-badge&logo=mdbook&color=105864)](https://ibench.ai/leaderboard)
