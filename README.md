@@ -138,7 +138,7 @@ Contributions that improve tasks, configs, or the harness are welcome.
 
 1. Install as in Quickstart, then validate with `uv run ibench check .`.
 2. Use `preview`, `debug`, and `replay` while iterating on task materials ([contribute guide](https://ibench.ai/docs/contribute)).
-3. Open a pull request against [eval-sys/ibench](https://github.com/eval-sys/ibench). Website and docs live in [eval-sys/ibench-landing](https://github.com/eval-sys/ibench-landing).
+3. Open a pull request against [eval-sys/ibench](https://github.com/eval-sys/ibench).
 
 ---
 
