@@ -3,7 +3,7 @@
 
 # Interaction Bench
 
-**Can coding agents figure out why people struggle with interfaces?**
+**Benchmarked on what users feel.**
 
 [![Website](https://img.shields.io/badge/Website-ibench.ai-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://ibench.ai)
 [![Leaderboard](https://img.shields.io/badge/Leaderboard-000000?style=for-the-badge&logo=mdbook&color=105864)](https://ibench.ai/leaderboard)
@@ -42,6 +42,21 @@ In scope are **usability** problems that show up in use — for example memory d
 1. **Start with a real task** — intent, source, and an offline environment from a real maintenance case.
 2. **Investigate and repair** — the agent explores the app and code, decides what should change, and submits a patch.
 3. **Judge the repair** — a grading agent recreates the scenario, replays the interaction, and checks the outcome against reviewed requirements.
+
+---
+
+## Leaderboard
+
+> v0.1 preview, full public [leaderboard](https://ibench.ai/leaderboard)
+
+| Model | Harness | Pass rate (passed / total) | Trajectory |
+| --- | --- | ---: | --- |
+| GPT-6 Astra | Codex | 34.1% (15/44) | [View in harborhub](https://hub.harborframework.com/jobs/f54d076c-070d-5533-92fc-80b403e39c3a) |
+| Claude Opus 5.5 | Claude Code | 27.3% (12/44) | [View in harborhub](https://hub.harborframework.com/jobs/58add739-5535-5189-9002-8c1a98a9dfe0) |
+| DeepSeek Flash | DSH | 15.9% (7/44) | [View in harborhub](https://hub.harborframework.com/jobs/23ef15c8-109a-5a90-b83e-49918df1e509) |
+| GLM-5.3 Flash | ZCode | 9.1% (4/44) | [View in harborhub](https://hub.harborframework.com/jobs/8e9dbe3b-2a3f-57b4-910b-b7ca7e2f6c25) |
+| Qwen3.8 Max | Codex | 6.8% (3/44) | [View in harborhub](https://hub.harborframework.com/jobs/ee425524-01bf-54f9-b08d-8a55114fed3e) |
+| Kimi K3 | Kimi Code | 4.5% (2/44) | [View in harborhub](https://hub.harborframework.com/jobs/4e94ddee-4be9-513d-b914-48339687b59f) |
 
 ---
 
