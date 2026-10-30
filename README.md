@@ -21,7 +21,7 @@ This repository ships the CLI, **44** published tasks across **25** open-source 
 
 ## News
 
-- 📣 **27 Oct 2026** — Introduced Interaction Bench: tasks from real open-source maintenance cases, graded from fresh execution evidence. Read the [announcement](https://ibench.ai/blog/introducing-interaction-bench).
+- 📣 **29 Oct 2026** — Introduced Interaction Bench: tasks from real open-source maintenance cases, graded from fresh execution evidence. Read the [announcement](https://ibench.ai/blog/introducing-interaction-bench).
 
 ---
 
